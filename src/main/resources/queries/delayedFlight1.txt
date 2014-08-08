@@ -4,6 +4,6 @@ MATCH
 	(f:flight{flightId:'flightId0'})-->(:passenger)-->(i:itinerary)-->(leg:flight)
 WHERE leg.from = f.to AND (leg.ETD - f.ETA) < 45*60
 return 
-	i.personId as person, 
-	leg.flightId as flightToDelay
+	i.personId as connectingPassenger, 
+	leg.flightId as connectingFlight
 
