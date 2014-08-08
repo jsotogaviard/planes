@@ -27,11 +27,11 @@ public class Plane extends ACsvWritable{
 
 	protected String planeId;
 	
-	protected int businessSeats;
+	protected Integer businessSeats;
 
-	protected int economySeats;
+	protected Integer economySeats;
 	
-	protected double baggageCapacity;
+	protected Double baggageCapacity;
 }
 
 

@@ -50,11 +50,11 @@ public class PlaneGraph {
 		// Load operations
 		init = System.currentTimeMillis();
 		
-		List<Map<String, String>> people = 	PlanesUtil.loadFile(data + Person.class.getSimpleName());
-		List<Map<String, String>> fligths = PlanesUtil.loadFile(data + Flight.class.getSimpleName());
-		List<Map<String, String>> itineraries = PlanesUtil.loadFile(data + Itinerary.class.getSimpleName());
-		List<Map<String, String>> passengers = 	PlanesUtil.loadFile(data + Passenger.class.getSimpleName());
-		List<Map<String, String>> planes = 	PlanesUtil.loadFile(data + Plane.class.getSimpleName());
+		List<Map<String, Object>> people = 	PlanesUtil.loadFile(data + Person.class.getSimpleName());
+		List<Map<String, Object>> fligths = PlanesUtil.loadFile(data + Flight.class.getSimpleName());
+		List<Map<String, Object>> itineraries = PlanesUtil.loadFile(data + Itinerary.class.getSimpleName());
+		List<Map<String, Object>> passengers = 	PlanesUtil.loadFile(data + Passenger.class.getSimpleName());
+		List<Map<String, Object>> planes = 	PlanesUtil.loadFile(data + Plane.class.getSimpleName());
 		
 		logger.info(" Load operations " + (System.currentTimeMillis() - init));
 		
@@ -73,33 +73,33 @@ public class PlaneGraph {
 			loadNodeData(passengers,  Passenger.ID, Passenger.PROPERTIES, 	passengerFactory);
 			loadNodeData(planes, 	  Plane.ID, 	Plane.PROPERTIES, 		planesFactory);
 			
-			for (Map<String, String> fligth : fligths) {
-				String flightId = fligth.get(Flight.ID);
+			for (Map<String, Object> fligth : fligths) {
+				Object flightId = fligth.get(Flight.ID);
 				Node fligthNode = fligthFactory.getOrCreate(Flight.ID, flightId);
 				
-				String planeId = fligth.get(Plane.ID);
+				Object planeId = fligth.get(Plane.ID);
 				Node planeNode = planesFactory.getOrCreate(Plane.ID, planeId);
 				fligthNode.createRelationshipTo(planeNode, USES);
 			}
 			
-			for (Map<String, String> passenger : passengers) {
-				String flightId = passenger.get(Flight.ID);
+			for (Map<String, Object> passenger : passengers) {
+				Object flightId = passenger.get(Flight.ID);
 				Node fligthNode = fligthFactory.getOrCreate(Flight.ID, flightId);
 				
-				String passengerId = passenger.get(Passenger.ID);
+				Object passengerId = passenger.get(Passenger.ID);
 				Node passengerNode = passengerFactory.getOrCreate(Passenger.ID, passengerId);
 				fligthNode.createRelationshipTo(passengerNode, PASSENGES);
 				
-				String itineraryId = passenger.get(Itinerary.ID);
+				Object itineraryId = passenger.get(Itinerary.ID);
 				Node itineraryNode = itinerariesFactory.getOrCreate(Itinerary.ID, itineraryId);
 				passengerNode.createRelationshipTo(itineraryNode, HAS_ITINERARY);
 			}
 			
-			for (Map<String, String> itinerary : itineraries) {
-				String itineraryId = itinerary.get(Itinerary.ID);
+			for (Map<String, Object> itinerary : itineraries) {
+				Object itineraryId = itinerary.get(Itinerary.ID);
 				Node itineraryNode = itinerariesFactory.getOrCreate(Itinerary.ID, itineraryId);
 				
-				String personId = itinerary.get(Person.ID);
+				Object personId = itinerary.get(Person.ID);
 				Node personNode = peopleFactory.getOrCreate(Person.ID, personId);
 				
 				itineraryNode.createRelationshipTo(personNode, PASSENGES);
@@ -115,10 +115,10 @@ public class PlaneGraph {
 
 	}
 
-	protected void loadNodeData(List<Map<String, String>> data, String id, String[] props, UniqueFactory<Node> factory) {
-		for (Map<String, String> fligth : data) {
+	protected void loadNodeData(List<Map<String, Object>> data, String id, String[] props, UniqueFactory<Node> factory) {
+		for (Map<String, Object> fligth : data) {
 			dataNodes++;
-			final String fligthId = fligth.get(id);
+			final Object fligthId = fligth.get(id);
 			final Node n = factory.getOrCreate(id, fligthId);
 			for (String prop : props) {
 				n.setProperty(prop, fligth.get(prop));

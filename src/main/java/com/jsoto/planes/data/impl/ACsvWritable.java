@@ -2,12 +2,16 @@ package com.jsoto.planes.data.impl;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.jsoto.planes.data.ICsvWritable;
 
 public abstract class ACsvWritable implements ICsvWritable{
 
 	protected Class<?> clazz;
+	
+	public static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
 	public ACsvWritable(Class<?> clazz) {
 		this.clazz = clazz ;
@@ -19,7 +23,13 @@ public abstract class ACsvWritable implements ICsvWritable{
 		for (Field field : clazz.getDeclaredFields()) {
 			if(Modifier.isProtected(field.getModifiers())){
 				try {
-					sb.append(field.get(this));
+					Object object = field.get(this);
+					if (object instanceof Date) {
+						sb.append(ACsvWritable.SDF.format(object));
+					} else {
+						sb.append(object);	
+					}
+					
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {

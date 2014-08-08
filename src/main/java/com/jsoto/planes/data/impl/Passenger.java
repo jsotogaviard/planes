@@ -31,6 +31,6 @@ public class Passenger extends ACsvWritable{
 	
 	protected String itineraryId;
 	
-	protected double luggage;
+	protected Double luggage;
 
 }

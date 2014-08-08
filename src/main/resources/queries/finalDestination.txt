@@ -1,2 +1,4 @@
-MATCH (f:flight)
-return f
+// flight0 is delayed
+
+MATCH (f:flight{flightId:'flightId0'})-->(p:passenger)-->(i:itinerary)
+return i.personId,any(x IN i.legs WHERE x = f.to) as hasConnection

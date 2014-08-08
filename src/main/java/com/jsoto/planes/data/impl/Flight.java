@@ -1,5 +1,7 @@
 package com.jsoto.planes.data.impl;
 
+import java.util.Date;
+
 import org.neo4j.graphdb.DynamicLabel;
 import org.neo4j.graphdb.Label;
 
@@ -18,7 +20,7 @@ public class Flight extends ACsvWritable{
 		super(Flight.class);
 	}
 	
-	public Flight(String fligthId, String planeId, String from, String to, String sTD, String eTD, String sTA, String eTA) {
+	public Flight(String fligthId, String planeId, String from, String to, Date sTD, Date eTD, Date sTA, Date eTA) {
 		super(Flight.class);
 		this.flightId = fligthId;
 		this.planeId = planeId;
@@ -39,15 +41,15 @@ public class Flight extends ACsvWritable{
 	protected String to;
 	
 	/** Standard time of departure */
-	protected String STD;
+	protected Date STD;
 	
 	/** Estimated time of arrival */
-	protected String ETD;
+	protected Date ETD;
 	
 	/** Standard time of arrival */
-	protected String STA;
+	protected Date STA;
 	
 	/** Estimated time of arrival */
-	protected String ETA;
+	protected Date ETA;
 
 }

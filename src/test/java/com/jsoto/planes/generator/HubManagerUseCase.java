@@ -1,6 +1,8 @@
 package com.jsoto.planes.generator;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,6 +11,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.jsoto.planes.data.ICsvWritable;
+import com.jsoto.planes.data.impl.ACsvWritable;
 import com.jsoto.planes.data.impl.Flight;
 import com.jsoto.planes.data.impl.Itinerary;
 import com.jsoto.planes.data.impl.Passenger;
@@ -19,7 +22,7 @@ import com.jsoto.planes.util.PlanesUtil;
 public class HubManagerUseCase {
 
 	@Test
-	public void useCaseOne(){
+	public void useCaseOne() throws IOException, ParseException{
 
 		String folder = "src/test/resources/hubManager/useCaseOne/";
 
@@ -27,9 +30,9 @@ public class HubManagerUseCase {
 
 		// Flight
 		List<ICsvWritable> csvWritable = new ArrayList<>();
-		csvWritable.add(new Flight("flightId0", "planeId0", "Madrid", "Paris",     "2014-08-14 12:30", "2014-08-14 12:30", "2014-08-14 13:30", "2014-08-14 13:30"));
-		csvWritable.add(new Flight("flightId1", "planeId0", "Paris",  "Amsterdam", "2014-08-14 14:30", "2014-08-14 14:30", "2014-08-14 15:30", "2014-08-14 15:30"));
-		csvWritable.add(new Flight("flightId2", "planeId0", "Paris",  "London",    "2014-08-14 16:30", "2014-08-14 16:30", "2014-08-14 17:30", "2014-08-14 17:30"));
+		csvWritable.add(new Flight("flightId0", "planeId0", "Madrid", "Paris",     ACsvWritable.SDF.parse("2014-08-14 12:30"), ACsvWritable.SDF.parse("2014-08-14 12:30"), ACsvWritable.SDF.parse("2014-08-14 13:30"), ACsvWritable.SDF.parse("2014-08-14 13:30")));
+		csvWritable.add(new Flight("flightId1", "planeId0", "Paris",  "Amsterdam", ACsvWritable.SDF.parse("2014-08-14 14:30"), ACsvWritable.SDF.parse("2014-08-14 14:30"), ACsvWritable.SDF.parse("2014-08-14 15:30"), ACsvWritable.SDF.parse("2014-08-14 15:30")));
+		csvWritable.add(new Flight("flightId2", "planeId0", "Paris",  "London",    ACsvWritable.SDF.parse("2014-08-14 16:30"), ACsvWritable.SDF.parse("2014-08-14 16:30"), ACsvWritable.SDF.parse("2014-08-14 17:30"), ACsvWritable.SDF.parse("2014-08-14 17:30")));
 
 		// Plane
 		csvWritable.add(new Plane("planeId0", 10, 5, 300));
@@ -46,6 +49,10 @@ public class HubManagerUseCase {
 			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId2", "itineraryId" + i, 20));
 		}
 
+		// In flight 0
+		// 0-5 go to London
+		// 5-10 go to Amsterdam
+		// 10-15 go to Paris
 		// Itinerary
 		int itineraryId = 0 ;
 		for (int i = 0; i < 5; i++) {

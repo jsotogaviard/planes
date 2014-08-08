@@ -1,4 +1,5 @@
 personId,surname,name
+String,String,String
 personId0,John,Sullivan
 personId1,John,Sullivan
 personId2,John,Sullivan

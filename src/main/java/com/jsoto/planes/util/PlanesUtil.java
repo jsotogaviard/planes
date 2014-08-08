@@ -12,6 +12,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,11 @@ import com.jsoto.planes.data.ICsvWritable;
 public class PlanesUtil {
 
 
-	public static void write(List<ICsvWritable> csvWritable, String folder) {
+	public static void write(List<ICsvWritable> csvWritable, String folder) throws IOException {
+		File f = new File(folder);
+		if (!f.exists()) {
+			Files.createDirectory(f.toPath());
+		}
 		for (ICsvWritable csv : csvWritable) {
 
 			String file = folder + csv.getClass().getSimpleName();
@@ -29,10 +34,23 @@ public class PlanesUtil {
 				// Put the headers
 				try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file, false)))) {
 					StringBuilder sb = new StringBuilder();
+					
+					// First row is field names
 					for (Field field : csv.getClass().getDeclaredFields()) {
 						if(Modifier.isProtected(field.getModifiers())){
 							sb.append(field.getName());
-							sb.append(",");
+							sb.append(ICsvWritable.SEPARATOR);
+						}
+					}
+					sb.deleteCharAt(sb.length() - 1);
+					out.println(sb.toString());
+					
+					// Second row is field types
+					sb = new StringBuilder();
+					for (Field field : csv.getClass().getDeclaredFields()) {
+						if(Modifier.isProtected(field.getModifiers())){
+							sb.append(field.getType().getSimpleName());
+							sb.append(ICsvWritable.SEPARATOR);
 						}
 					}
 					sb.deleteCharAt(sb.length() - 1);
@@ -66,9 +84,10 @@ public class PlanesUtil {
 		folder.delete();
 	}
 
-	public static List<Map<String,String>> loadFile(String file) {
-		List<Map<String,String>>result = new ArrayList<>();
+	public static List<Map<String,Object>> loadFile(String file) {
+		List<Map<String,Object>>result = new ArrayList<>();
 		String[] headers = null;
+		String[] types = null;
 		try (BufferedReader br = new BufferedReader(new FileReader(file))){
 			String sCurrentLine;
 			while ((sCurrentLine = br.readLine()) != null) {
@@ -76,11 +95,18 @@ public class PlanesUtil {
 				if (headers == null) {
 					headers = line;
 				} else {
-					Map<String,String> element = new HashMap<>();
-					for (int i = 0; i < line.length; i++) {
-						element.put(headers[i], line[i]);
+					if (types == null) {
+						types = line;
+					} else {
+						Map<String,Object> element = new HashMap<>();
+						for (int i = 0; i < line.length; i++) {
+							final String header = headers[i];
+							final String type = types[i];
+							
+							element.put(header, convert(line[i], type));
+						}
+						result.add(element);
 					}
-					result.add(element);
 				}
 			}
 			return result;
@@ -89,5 +115,22 @@ public class PlanesUtil {
 			throw new RuntimeException(ex);
 		} 
 
+	}
+
+	protected static Object convert(String string, String type) {
+		if (type.equals(String.class.getSimpleName())) {
+			return string;
+		} else if (type.equals(List.class.getSimpleName())) {
+			string = string.substring(1, string.length() - 1);
+			return string.split(ICsvWritable.SEPARATOR);
+		} else if (type.equals(Integer.class.getSimpleName())) {
+			return Integer.parseInt(string);
+		} else if (type.equals(Double.class.getSimpleName())) {
+			return Double.parseDouble(string);
+		} else if (type.equals(Date.class.getSimpleName())) {
+			return string;
+		} else {
+			throw new RuntimeException();
+		}
 	}
 }

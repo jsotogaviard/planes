@@ -1,4 +1,5 @@
 itineraryId,personId,from,to,legs
+String,String,String,String,List
 itineraryId0,personId0,Madrid,London,[Paris]
 itineraryId1,personId1,Madrid,London,[Paris]
 itineraryId2,personId2,Madrid,London,[Paris]
