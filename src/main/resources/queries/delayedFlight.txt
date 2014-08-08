@@ -9,4 +9,4 @@ WITH
 	f.to IN i.legs as hasConnection
 WHERE 
 	hasConnection=true
-return name, surname, final_destination
+return name, surname final_destination
