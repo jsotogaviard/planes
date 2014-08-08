@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.file.Files;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.jsoto.planes.data.ICsvWritable;
+import com.jsoto.planes.data.impl.ACsvWritable;
 
 public class PlanesUtil {
 
@@ -128,7 +130,11 @@ public class PlanesUtil {
 		} else if (type.equals(Double.class.getSimpleName())) {
 			return Double.parseDouble(string);
 		} else if (type.equals(Date.class.getSimpleName())) {
-			return string;
+			try {
+				return ACsvWritable.SDF.parse(string).getTime()/1000;
+			} catch (ParseException e) {
+				throw new RuntimeException(e);
+			}
 		} else {
 			throw new RuntimeException();
 		}

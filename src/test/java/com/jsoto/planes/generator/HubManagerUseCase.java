@@ -30,7 +30,7 @@ public class HubManagerUseCase {
 
 		// Flight
 		List<ICsvWritable> csvWritable = new ArrayList<>();
-		csvWritable.add(new Flight("flightId0", "planeId0", "Madrid", "Paris",     ACsvWritable.SDF.parse("2014-08-14 12:30"), ACsvWritable.SDF.parse("2014-08-14 12:30"), ACsvWritable.SDF.parse("2014-08-14 13:30"), ACsvWritable.SDF.parse("2014-08-14 13:30")));
+		csvWritable.add(new Flight("flightId0", "planeId0", "Madrid", "Paris",     ACsvWritable.SDF.parse("2014-08-14 12:30"), ACsvWritable.SDF.parse("2014-08-14 12:30"), ACsvWritable.SDF.parse("2014-08-14 13:30"), ACsvWritable.SDF.parse("2014-08-14 17:00")));
 		csvWritable.add(new Flight("flightId1", "planeId0", "Paris",  "Amsterdam", ACsvWritable.SDF.parse("2014-08-14 14:30"), ACsvWritable.SDF.parse("2014-08-14 14:30"), ACsvWritable.SDF.parse("2014-08-14 15:30"), ACsvWritable.SDF.parse("2014-08-14 15:30")));
 		csvWritable.add(new Flight("flightId2", "planeId0", "Paris",  "London",    ACsvWritable.SDF.parse("2014-08-14 16:30"), ACsvWritable.SDF.parse("2014-08-14 16:30"), ACsvWritable.SDF.parse("2014-08-14 17:30"), ACsvWritable.SDF.parse("2014-08-14 17:30")));
 
@@ -56,10 +56,10 @@ public class HubManagerUseCase {
 		// Itinerary
 		int itineraryId = 0 ;
 		for (int i = 0; i < 5; i++) {
-			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "London", Arrays.asList("Paris")));	
+			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "London", Arrays.asList("flightId2")));	
 		}
 		for (int i = 5; i < 10; i++) {
-			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "Amsterdam", Arrays.asList("Paris")));	
+			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "Amsterdam", Arrays.asList("flightId1")));	
 		}
 		for (int i = 10; i < 15; i++) {
 			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "Paris", Collections.<String>emptyList()));	

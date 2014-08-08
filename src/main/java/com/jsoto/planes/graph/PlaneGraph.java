@@ -36,6 +36,7 @@ public class PlaneGraph {
 	public static final RelationshipType USES = DynamicRelationshipType.withName("Uses");
 	public static final RelationshipType PASSENGES = DynamicRelationshipType.withName("Passenges");
 	public static final RelationshipType HAS_ITINERARY = DynamicRelationshipType.withName("hasItinerary");
+	public static final RelationshipType LEG = DynamicRelationshipType.withName("leg");
 	
 	public GraphDatabaseService createGraph(String graphPath, String data) {
 		
@@ -103,6 +104,12 @@ public class PlaneGraph {
 				Node personNode = peopleFactory.getOrCreate(Person.ID, personId);
 				
 				itineraryNode.createRelationshipTo(personNode, PASSENGES);
+				
+				String[] legs = (String[]) itinerary.get("legs");
+				for (String leg : legs) {
+					Node fligthNode = fligthFactory.getOrCreate(Flight.ID, leg);
+					itineraryNode.createRelationshipTo(fligthNode, LEG);
+				}
 			}
 			
 			tx.success();
