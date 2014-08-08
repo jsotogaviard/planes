@@ -72,7 +72,7 @@ public class HubManagerUseCase {
 		}
 
 		for (int i = 0; i < 45; i++) {
-			csvWritable.add(new Person("personId" + i, "John", "Sullivan"));
+			csvWritable.add(new Person("personId" + i, "John" + i, "Sullivan" + i));
 		}
 
 		PlanesUtil.write(csvWritable, folder);

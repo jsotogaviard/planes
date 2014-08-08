@@ -23,7 +23,7 @@ public class CypherService {
 				r = in.dumpToString();
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			throw ex;
 		}
 		return r;
 	}
