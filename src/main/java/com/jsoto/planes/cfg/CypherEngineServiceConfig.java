@@ -35,8 +35,7 @@ public class CypherEngineServiceConfig {
 		String data = env.getProperty("data");
 		PlanesUtil.deleteFolder(new File(graph));
 		PlaneGraph g = new PlaneGraph();
-		GraphDatabaseService db = g.createGraph(graph, data);
-		return db;
+		return  g.createGraph(graph, data);
 	}
 
 	@Bean

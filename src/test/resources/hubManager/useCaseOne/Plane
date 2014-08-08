@@ -1,1 +1,2 @@
-planeId,[Ljava.lang.String;@4dbb51fd,planeId0,10,5,300.0
+planeId,businessSeats,economySeats,baggageCapacity
+planeId0,10,5,300.0

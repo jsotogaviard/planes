@@ -64,11 +64,11 @@ public class PlaneGraph {
 		
 		logger.info(" Load operations " + (System.currentTimeMillis() - init));
 		
-		UniqueFactory.UniqueNodeFactory peopleFactory = uniqueFactory(PEOPLE, graph);
-		UniqueFactory.UniqueNodeFactory fligthFactory = uniqueFactory(FLIGHT, graph);
-		UniqueFactory.UniqueNodeFactory itinerariesFactory = uniqueFactory(ITINERARIES, graph);
-		UniqueFactory.UniqueNodeFactory passengerFactory = 	uniqueFactory(PASSENGER, graph);
-		UniqueFactory.UniqueNodeFactory planesFactory = uniqueFactory(PLANES, graph);
+		UniqueFactory.UniqueNodeFactory peopleFactory = uniqueFactory(PEOPLE, Person.ID, graph);
+		UniqueFactory.UniqueNodeFactory fligthFactory = uniqueFactory(FLIGHT, Flight.ID, graph);
+		UniqueFactory.UniqueNodeFactory itinerariesFactory = uniqueFactory(ITINERARIES, Itinerary.ID, graph);
+		UniqueFactory.UniqueNodeFactory passengerFactory = 	uniqueFactory(PASSENGER, Passenger.ID, graph);
+		UniqueFactory.UniqueNodeFactory planesFactory = uniqueFactory(PLANES, Plane.ID, graph);
 		
 		// Create graph
 		try (Transaction tx = graph.beginTx()){
@@ -84,7 +84,7 @@ public class PlaneGraph {
 				Node fligthNode = fligthFactory.getOrCreate(Flight.ID, flightId);
 				
 				String planeId = fligth.get(Plane.ID);
-				Node planeNode = fligthFactory.getOrCreate(Plane.ID, planeId);
+				Node planeNode = planesFactory.getOrCreate(Plane.ID, planeId);
 				fligthNode.createRelationshipTo(planeNode, USES);
 			}
 			
@@ -97,7 +97,7 @@ public class PlaneGraph {
 				fligthNode.createRelationshipTo(passengerNode, PASSENGES);
 				
 				String itineraryId = passenger.get(Itinerary.ID);
-				Node itineraryNode = fligthFactory.getOrCreate(Itinerary.ID, itineraryId);
+				Node itineraryNode = itinerariesFactory.getOrCreate(Itinerary.ID, itineraryId);
 				passengerNode.createRelationshipTo(itineraryNode, HAS_ITINERARY);
 			}
 			
@@ -106,7 +106,7 @@ public class PlaneGraph {
 				Node itineraryNode = itinerariesFactory.getOrCreate(Itinerary.ID, itineraryId);
 				
 				String personId = itinerary.get(Person.ID);
-				Node personNode = passengerFactory.getOrCreate(Person.ID, personId);
+				Node personNode = peopleFactory.getOrCreate(Person.ID, personId);
 				
 				itineraryNode.createRelationshipTo(personNode, PASSENGES);
 			}
@@ -125,7 +125,7 @@ public class PlaneGraph {
 	protected void loadNodeData(List<Map<String, String>> data, String id, String node, String[] props, UniqueFactory<Node> factory) {
 		for (Map<String, String> fligth : data) {
 			final String fligthId = fligth.get(id);
-			final Node n = factory.getOrCreate(node, fligthId);
+			final Node n = factory.getOrCreate(id, fligthId);
 			for (String prop : props) {
 				n.setProperty(prop, fligth.get(prop));
 			}
@@ -133,7 +133,7 @@ public class PlaneGraph {
 		
 	}
 
-	protected UniqueNodeFactory uniqueFactory(final String node, GraphDatabaseService graph) {
+	protected UniqueNodeFactory uniqueFactory(final String node, final String nodeId, GraphDatabaseService graph) {
 		final UniqueFactory.UniqueNodeFactory placeFactory;
 		final Label label = DynamicLabel.label(node);
 		try (Transaction tx = graph.beginTx()){
@@ -141,7 +141,7 @@ public class PlaneGraph {
 		        @Override
 		        protected void initialize(Node created, Map<String, Object> properties){
 		            created.addLabel(label);
-		            created.setProperty(node, properties.get(node));
+		            created.setProperty(nodeId, properties.get(nodeId));
 		        }
 		    };
 		    tx.success();

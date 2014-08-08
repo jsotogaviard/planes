@@ -8,6 +8,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,11 +23,31 @@ public class PlanesUtil {
 
 	public static void write(List<ICsvWritable> csvWritable, String folder) {
 		for (ICsvWritable csv : csvWritable) {
-			try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(folder + csv.getClass().getSimpleName(), true)))) {
+
+			String file = folder + csv.getClass().getSimpleName();
+			if (!Files.exists(new File(file).toPath())) {
+				// Put the headers
+				try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file, false)))) {
+					StringBuilder sb = new StringBuilder();
+					for (Field field : csv.getClass().getDeclaredFields()) {
+						if(Modifier.isProtected(field.getModifiers())){
+							sb.append(field.getName());
+							sb.append(",");
+						}
+					}
+					sb.deleteCharAt(sb.length() - 1);
+					out.println(sb.toString());
+				}catch (IOException e) {
+					e.printStackTrace();
+				}
+			} 
+
+			try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file, true)))) {
 				out.println(csv.toCsv());
 			}catch (IOException e) {
 				e.printStackTrace();
 			}
+
 		}
 	}
 
@@ -47,7 +70,7 @@ public class PlanesUtil {
 		try (BufferedReader br = new BufferedReader(new FileReader(file))){
 			String sCurrentLine;
 			while ((sCurrentLine = br.readLine()) != null) {
-				String[] line = sCurrentLine.split(";");
+				String[] line = sCurrentLine.split(",");
 				if (headers == null) {
 					headers = line;
 				} else {
@@ -63,6 +86,6 @@ public class PlanesUtil {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		} 
-		
+
 	}
 }
