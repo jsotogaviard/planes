@@ -19,7 +19,7 @@ import com.jsoto.planes.data.impl.Person;
 import com.jsoto.planes.data.impl.Plane;
 import com.jsoto.planes.util.PlanesUtil;
 
-public class HubManagerUseCase {
+public class HubManagerUseCaseOne {
 
 	@Test
 	public void useCaseOne() throws IOException, ParseException{

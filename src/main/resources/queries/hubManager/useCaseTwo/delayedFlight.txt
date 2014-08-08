@@ -1,0 +1,9 @@
+// flight0 is delayed
+
+MATCH 
+	(f:flight{from:'Paris'})-->(:passenger)-->(i:itinerary)-->(leg:flight)
+//WHERE leg.flightId = f.flightId// AND (leg.ETD - f.ETA) < 45*60
+return 
+	f.flightId as toto,
+	i.personId as connectingPassenger, 
+	leg as connectingFlight

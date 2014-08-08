@@ -28,7 +28,7 @@ public class Queries {
 	
 	public static String QUERIES = "src/main/resources/queries/";
 	
-	public static String[] FILES = new String[]{"delayedFlight1.txt"}; 
+	public static String[] FILES = new String[]{"hubManager/useCaseTwo/delayedFlight.txt"};//"/hubManager/useCaseOne/delayedFlight1.txt" 
 	
 	public static void main(String[] args) throws IOException {
 		
