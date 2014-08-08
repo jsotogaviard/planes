@@ -1,7 +1,11 @@
 package com.jsoto.planes.graph;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.logging.Logger;
 
 import org.neo4j.graphdb.DynamicLabel;
@@ -27,21 +31,9 @@ public class PlaneGraph {
 	/** the logger **/
 	private static Logger logger = Logger.getLogger(PlaneGraph.class.getName());
 	
-	public static final String PEOPLE = Person.class.getSimpleName();
-	public static final String FLIGHT = Flight.class.getSimpleName();
-	public static final String ITINERARIES = Itinerary.class.getSimpleName();
-	public static final String PASSENGER = Passenger.class.getSimpleName();
-	public static final String PLANES = Plane.class.getSimpleName();
-	
-	public static final Label PEOPLE_LABEL = DynamicLabel.label(PEOPLE);
-	public static final Label FLIGTH_LABEL = DynamicLabel.label(FLIGHT);
-	public static final Label ITINERARIES_LABEL = DynamicLabel.label(ITINERARIES);
-	public static final Label PASSENGER_LABEL = DynamicLabel.label(PASSENGER);
-	public static final Label PLANES_LABEL = DynamicLabel.label(PLANES);
-
-	private static final RelationshipType USES = DynamicRelationshipType.withName("Uses");
-	private static final RelationshipType PASSENGES = DynamicRelationshipType.withName("Passenges");
-	private static final RelationshipType HAS_ITINERARY = DynamicRelationshipType.withName("hasItinerary");
+	public static final RelationshipType USES = DynamicRelationshipType.withName("Uses");
+	public static final RelationshipType PASSENGES = DynamicRelationshipType.withName("Passenges");
+	public static final RelationshipType HAS_ITINERARY = DynamicRelationshipType.withName("hasItinerary");
 	
 	public GraphDatabaseService createGraph(String graphPath, String data) {
 		
@@ -64,20 +56,20 @@ public class PlaneGraph {
 		
 		logger.info(" Load operations " + (System.currentTimeMillis() - init));
 		
-		UniqueFactory.UniqueNodeFactory peopleFactory = uniqueFactory(PEOPLE, Person.ID, graph);
-		UniqueFactory.UniqueNodeFactory fligthFactory = uniqueFactory(FLIGHT, Flight.ID, graph);
-		UniqueFactory.UniqueNodeFactory itinerariesFactory = uniqueFactory(ITINERARIES, Itinerary.ID, graph);
-		UniqueFactory.UniqueNodeFactory passengerFactory = 	uniqueFactory(PASSENGER, Passenger.ID, graph);
-		UniqueFactory.UniqueNodeFactory planesFactory = uniqueFactory(PLANES, Plane.ID, graph);
+		UniqueFactory.UniqueNodeFactory peopleFactory = uniqueFactory(Person.NAME, Person.ID, graph);
+		UniqueFactory.UniqueNodeFactory fligthFactory = uniqueFactory(Flight.NAME, Flight.ID, graph);
+		UniqueFactory.UniqueNodeFactory itinerariesFactory = uniqueFactory(Itinerary.NAME, Itinerary.ID, graph);
+		UniqueFactory.UniqueNodeFactory passengerFactory = 	uniqueFactory( Passenger.NAME, Passenger.ID, graph);
+		UniqueFactory.UniqueNodeFactory planesFactory = uniqueFactory(Plane.NAME,  Plane.ID, graph);
 		
 		// Create graph
 		try (Transaction tx = graph.beginTx()){
 			
-			loadNodeData(people,  	  Person.ID, 	PEOPLE, 	 Person.PROPERTIES, 	peopleFactory);
-			loadNodeData(fligths, 	  Flight.ID, 	FLIGHT, 	 Flight.PROPERTIES, 	fligthFactory);
-			loadNodeData(itineraries, Itinerary.ID, ITINERARIES, Itinerary.PROPERTIES, 	itinerariesFactory);
-			loadNodeData(passengers,  Passenger.ID, PASSENGER, 	 Passenger.PROPERTIES, 	passengerFactory);
-			loadNodeData(planes, 	  Plane.ID, 	PLANES, 	 Plane.PROPERTIES, 		planesFactory);
+			loadNodeData(people,  	  Person.ID, 	Person.PROPERTIES, 	peopleFactory);
+			loadNodeData(fligths, 	  Flight.ID, 	Flight.PROPERTIES, 	fligthFactory);
+			loadNodeData(itineraries, Itinerary.ID, Itinerary.PROPERTIES, 	itinerariesFactory);
+			loadNodeData(passengers,  Passenger.ID, Passenger.PROPERTIES, 	passengerFactory);
+			loadNodeData(planes, 	  Plane.ID, 	Plane.PROPERTIES, 		planesFactory);
 			
 			for (Map<String, String> fligth : fligths) {
 				String flightId = fligth.get(Flight.ID);
@@ -122,7 +114,7 @@ public class PlaneGraph {
 
 	}
 
-	protected void loadNodeData(List<Map<String, String>> data, String id, String node, String[] props, UniqueFactory<Node> factory) {
+	protected void loadNodeData(List<Map<String, String>> data, String id, String[] props, UniqueFactory<Node> factory) {
 		for (Map<String, String> fligth : data) {
 			final String fligthId = fligth.get(id);
 			final Node n = factory.getOrCreate(id, fligthId);
@@ -149,8 +141,15 @@ public class PlaneGraph {
 		return placeFactory;
 	}
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) throws IOException {
+		Properties prop = new Properties();
+		FileInputStream in = new FileInputStream(new File("src/main/resources/planes.properties"));
+		prop.load(in);
+		in.close();
+		PlanesUtil.deleteFolder(new File(prop.getProperty("graph")));
+		PlaneGraph graph = new PlaneGraph();
+		GraphDatabaseService db = graph.createGraph(prop.getProperty("graph"), prop.getProperty("data"));
+		db.shutdown();
 	}
 
 }

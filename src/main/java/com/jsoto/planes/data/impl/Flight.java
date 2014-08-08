@@ -1,11 +1,18 @@
 package com.jsoto.planes.data.impl;
 
+import org.neo4j.graphdb.DynamicLabel;
+import org.neo4j.graphdb.Label;
+
 
 public class Flight extends ACsvWritable{
 	
-	public static String ID = "fligthId";
+	public static final String NAME = Flight.class.getSimpleName().toLowerCase();
+
+	public static final String ID = NAME + "Id";
 	
-	public static String[] PROPERTIES = new String[]{"planeId","from","to","STD","ETD","STA","ETA"};
+	public static final Label LABEL = DynamicLabel.label(NAME);
+	
+	public static final String[] PROPERTIES = new String[]{"planeId","from","to","STD","ETD","STA","ETA"};
 	
 	public Flight() {
 		super(Flight.class);
@@ -13,7 +20,7 @@ public class Flight extends ACsvWritable{
 	
 	public Flight(String fligthId, String planeId, String from, String to, String sTD, String eTD, String sTA, String eTA) {
 		super(Flight.class);
-		this.fligthId = fligthId;
+		this.flightId = fligthId;
 		this.planeId = planeId;
 		this.from = from;
 		this.to = to;
@@ -23,7 +30,7 @@ public class Flight extends ACsvWritable{
 		ETA = eTA;
 	}
 
-	protected String fligthId;
+	protected String flightId;
 	
 	protected String planeId;
 	

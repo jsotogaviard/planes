@@ -1,4 +1,4 @@
-passengerId,fligthId,itineraryId,luggage
+passengerId,flightId,itineraryId,luggage
 passengerId0,flightId0,itineraryId0,20.0
 passengerId1,flightId0,itineraryId1,20.0
 passengerId2,flightId0,itineraryId2,20.0

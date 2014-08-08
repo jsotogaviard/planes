@@ -2,9 +2,16 @@ package com.jsoto.planes.data.impl;
 
 import java.util.List;
 
+import org.neo4j.graphdb.DynamicLabel;
+import org.neo4j.graphdb.Label;
+
 public class Itinerary extends ACsvWritable{
 	
-	public static String ID = "itineraryId";
+	public static final String NAME = Itinerary.class.getSimpleName().toLowerCase();
+
+	public static final String ID = NAME + "Id";
+	
+	public static final Label LABEL = DynamicLabel.label(NAME);
 	
 	public static String[] PROPERTIES = new String[]{"personId","from","to","legs"};
 	

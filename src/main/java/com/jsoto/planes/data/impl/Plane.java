@@ -1,9 +1,15 @@
 package com.jsoto.planes.data.impl;
 
+import org.neo4j.graphdb.DynamicLabel;
+import org.neo4j.graphdb.Label;
+
 public class Plane extends ACsvWritable{
 	
+	public static final String NAME = Plane.class.getSimpleName().toLowerCase();
+
+	public static final String ID = NAME + "Id";
 	
-	public static String ID = "planeId";	
+	public static final Label LABEL = DynamicLabel.label(NAME);
 	
 	public static String[] PROPERTIES = new String[]{"businessSeats","economySeats","baggageCapacity"};
 	
