@@ -58,10 +58,12 @@ public class PlanesUtil {
 				if(f.isDirectory()) {
 					deleteFolder(f);
 				} else {
-					f.delete();
+					if(!f.delete())
+						throw new RuntimeException(f + "");
 				}
 			}
 		}
+		folder.delete();
 	}
 
 	public static List<Map<String,String>> loadFile(String file) {

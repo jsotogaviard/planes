@@ -31,6 +31,8 @@ public class PlaneGraph {
 	/** the logger **/
 	private static Logger logger = Logger.getLogger(PlaneGraph.class.getName());
 	
+	static int dataNodes = 0;
+	
 	public static final RelationshipType USES = DynamicRelationshipType.withName("Uses");
 	public static final RelationshipType PASSENGES = DynamicRelationshipType.withName("Passenges");
 	public static final RelationshipType HAS_ITINERARY = DynamicRelationshipType.withName("hasItinerary");
@@ -102,12 +104,11 @@ public class PlaneGraph {
 				
 				itineraryNode.createRelationshipTo(personNode, PASSENGES);
 			}
-
 			
 			tx.success();
 		}
 		logger.info("Create graph " + (System.currentTimeMillis() - init));
-
+		System.out.println(dataNodes);
 		// Return the created graph
 		return graph;
 
@@ -116,6 +117,7 @@ public class PlaneGraph {
 
 	protected void loadNodeData(List<Map<String, String>> data, String id, String[] props, UniqueFactory<Node> factory) {
 		for (Map<String, String> fligth : data) {
+			dataNodes++;
 			final String fligthId = fligth.get(id);
 			final Node n = factory.getOrCreate(id, fligthId);
 			for (String prop : props) {

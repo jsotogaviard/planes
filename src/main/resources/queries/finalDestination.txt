@@ -1,2 +1,2 @@
-MATCH (:Flight)-->(c)
-return c
+MATCH (f:flight)
+return f
