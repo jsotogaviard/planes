@@ -2,6 +2,10 @@ package com.jsoto.planes.data.impl;
 
 public class Person extends ACsvWritable{
 	
+	public static String ID = "personId";	
+	
+	public static String[] PROPERTIES = new String[]{"surname","name"};
+	
 	public Person() {
 		super(Person.class);
 	}

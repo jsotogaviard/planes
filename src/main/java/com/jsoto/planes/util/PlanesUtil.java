@@ -1,16 +1,19 @@
 
 package com.jsoto.planes.util;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.jsoto.planes.data.ICsvWritable;
-import com.jsoto.planes.data.impl.Person;
 
 public class PlanesUtil {
 
@@ -38,12 +41,28 @@ public class PlanesUtil {
 		}
 	}
 
-	public static void generatePeople(int num, String folder) {
-		List<ICsvWritable> persons = new ArrayList<>();
-		for (int i = 0; i < num; i++) {
-			persons.add(new Person("person" + i, "John", "Sullivan"));
-		}
-		write(persons, folder);
-
+	public static List<Map<String,String>> loadFile(String file) {
+		List<Map<String,String>>result = new ArrayList<>();
+		String[] headers = null;
+		try (BufferedReader br = new BufferedReader(new FileReader(file))){
+			String sCurrentLine;
+			while ((sCurrentLine = br.readLine()) != null) {
+				String[] line = sCurrentLine.split(";");
+				if (headers == null) {
+					headers = line;
+				} else {
+					Map<String,String> element = new HashMap<>();
+					for (int i = 0; i < line.length; i++) {
+						element.put(headers[i], line[i]);
+					}
+					result.add(element);
+				}
+			}
+			return result;
+		} catch (IOException ex) {
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		} 
+		
 	}
 }

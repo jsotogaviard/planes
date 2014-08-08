@@ -3,6 +3,10 @@ package com.jsoto.planes.data.impl;
 
 public class Flight extends ACsvWritable{
 	
+	public static String ID = "fligthId";
+	
+	public static String[] PROPERTIES = new String[]{"planeId","from","to","STD","ETD","STA","ETA"};
+	
 	public Flight() {
 		super(Flight.class);
 	}

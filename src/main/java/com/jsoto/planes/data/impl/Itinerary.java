@@ -4,6 +4,10 @@ import java.util.List;
 
 public class Itinerary extends ACsvWritable{
 	
+	public static String ID = "itineraryId";
+	
+	public static String[] PROPERTIES = new String[]{"personId","from","to","legs"};
+	
 	public Itinerary() {
 		super(Itinerary.class);
 	}
