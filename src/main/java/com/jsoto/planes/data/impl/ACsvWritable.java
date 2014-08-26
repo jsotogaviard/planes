@@ -35,7 +35,7 @@ public abstract class ACsvWritable implements ICsvWritable{
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 				}
-				sb.append(",");
+				sb.append(ICsvWritable.SEPARATOR);
 			}
 		}
 		sb.deleteCharAt(sb.length() - 1);

@@ -38,57 +38,49 @@ public class HubManagerUseCaseTwo {
 		// Plane
 		csvWritable.add(new Plane("planeId0", 10, 5, 300));
 
-		// Passenger
-		int passengerId = 0;
-		for (int i = 0; i < 15; i++) {
-			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId0", "itineraryId" + i, 20));
-		}
-		for (int i = 15; i < 30; i++) {
-			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId1", "itineraryId" + i, 20));
-		}
-		for (int i = 30; i < 45; i++) {
-			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId2", "itineraryId" + i, 20));
-		}
-		for (int i = 45; i < 60; i++) {
-			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId3", "itineraryId" + i, 20));
-		}
-		
-		// In flight 0
-		// 0-5 go to London
-		// 5-10 go to Amsterdam
-		// 10-15 go to Paris
-		// Itinerary
 		int itineraryId = 0 ;
-		
-		// Flight 0
+		int passengerId = 0;
 		// Madrid - London
 		for (int i = 0; i < 5; i++) {
-			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "London", Arrays.asList("flightId2")));	
+			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "London", Arrays.asList("flightId0", "flightId2")));
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId0", "itineraryId" + i, 20));
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId2", "itineraryId" + i, 20));
 		}
 		// Madrid - Amsterdam
 		for (int i = 5; i < 10; i++) {
-			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "Amsterdam", Arrays.asList("flightId1")));	
+			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "Amsterdam", Arrays.asList("flightId0", "flightId1")));
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId0", "itineraryId" + i, 20));
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId1", "itineraryId" + i, 20));
 		}
+		// Madrid Paris
 		for (int i = 10; i < 15; i++) {
-			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "Paris", Collections.<String>emptyList()));	
+			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Madrid", "Paris", Arrays.asList("flightId0")));	
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId0", "itineraryId" + i, 20));
 		}
 		
-		// Flight 1
+		// Paris Amsterdam
 		for (int i = 15; i < 20; i++) {
-			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Paris", "Amsterdam", Collections.<String>emptyList()));	
+			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Paris", "Amsterdam", Arrays.asList("flightId1")));	
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId1", "itineraryId" + i, 20));
 		}
 		
-		// Flight 2
+		// Paris London
 		for (int i = 20; i < 30; i++) {
-			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Paris", "London", Collections.<String>emptyList()));	
+			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Paris", "London", Arrays.asList("flightId2")));	
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId2", "itineraryId" + i, 20));
 		}
 		
-		// Flight 3
-		for (int i = 30; i < 35; i++) {
-			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Lisboa", "Amsterdam", Arrays.asList("flightId1")));	
+		// Lisboa Paris
+		for (int i = 30; i < 40; i++) {
+			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Lisboa", "Paris", Arrays.asList("flightId3")));	
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId3", "itineraryId" + i, 20));
 		}
-		for (int i = 35; i < 45; i++) {
-			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Lisboa", "Paris", Collections.<String>emptyList()));	
+		
+		// Lisboa Amstedam
+		for (int i = 40; i < 45; i++) {
+			csvWritable.add(new Itinerary("itineraryId" + itineraryId++, "personId" + i, "Lisboa", "Amsterdam", Arrays.asList("flightId3", "flightId1") ));
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId3", "itineraryId" + i, 20));
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId1", "itineraryId" + i, 20));
 		}
 
 		for (int i = 0; i < 45; i++) {

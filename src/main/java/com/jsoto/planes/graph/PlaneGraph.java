@@ -107,7 +107,7 @@ public class PlaneGraph {
 				
 				String[] legs = (String[]) itinerary.get("legs");
 				for (String leg : legs) {
-					Node fligthNode = fligthFactory.getOrCreate(Flight.ID, leg);
+					Node fligthNode = fligthFactory.getOrCreate(Flight.ID, leg.trim());
 					itineraryNode.createRelationshipTo(fligthNode, LEG);
 				}
 			}

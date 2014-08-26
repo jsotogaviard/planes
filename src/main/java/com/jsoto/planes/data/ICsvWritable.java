@@ -5,6 +5,6 @@ public interface ICsvWritable {
 	
 	String toCsv();
 	
-	public static final String SEPARATOR = ",";
+	public static final String SEPARATOR = ";";
 
 }

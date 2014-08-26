@@ -93,7 +93,7 @@ public class PlanesUtil {
 		try (BufferedReader br = new BufferedReader(new FileReader(file))){
 			String sCurrentLine;
 			while ((sCurrentLine = br.readLine()) != null) {
-				String[] line = sCurrentLine.split(",");
+				String[] line = sCurrentLine.split(ICsvWritable.SEPARATOR);
 				if (headers == null) {
 					headers = line;
 				} else {
@@ -124,7 +124,8 @@ public class PlanesUtil {
 			return string;
 		} else if (type.equals(List.class.getSimpleName())) {
 			string = string.substring(1, string.length() - 1);
-			return string.split(ICsvWritable.SEPARATOR);
+			String[] array = string.split(",");
+			return array;
 		} else if (type.equals(Integer.class.getSimpleName())) {
 			return Integer.parseInt(string);
 		} else if (type.equals(Double.class.getSimpleName())) {
