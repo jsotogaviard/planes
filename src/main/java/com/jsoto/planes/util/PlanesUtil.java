@@ -130,6 +130,8 @@ public class PlanesUtil {
 			return Integer.parseInt(string);
 		} else if (type.equals(Double.class.getSimpleName())) {
 			return Double.parseDouble(string);
+		} else if (type.equals(Boolean.class.getSimpleName())) {
+			return Boolean.parseBoolean(string);
 		} else if (type.equals(Date.class.getSimpleName())) {
 			try {
 				return ACsvWritable.SDF.parse(string).getTime()/1000;
@@ -137,7 +139,7 @@ public class PlanesUtil {
 				throw new RuntimeException(e);
 			}
 		} else {
-			throw new RuntimeException();
+			throw new RuntimeException(string + " " + type);
 		}
 	}
 }

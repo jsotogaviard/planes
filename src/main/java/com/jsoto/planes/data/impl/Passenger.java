@@ -11,18 +11,19 @@ public class Passenger extends ACsvWritable{
 	
 	public static final Label LABEL = DynamicLabel.label(NAME);
 	
-	public static String[] PROPERTIES = new String[]{"flightId","itineraryId","luggage"};
+	public static String[] PROPERTIES = new String[]{"flightId","itineraryId","luggage","business"};
 	
 	public Passenger() {
 		super(Passenger.class);
 	}
 	
-	public Passenger(String passengerId, String fligthId, String itineraryId, double luggage) {
+	public Passenger(String passengerId, String fligthId, String itineraryId, double luggage, boolean business) {
 		super(Passenger.class);
 		this.passengerId = passengerId;
 		this.flightId = fligthId;
 		this.itineraryId = itineraryId;
 		this.luggage = luggage;
+		this.business = business;
 	}
 
 	protected String passengerId;
@@ -32,5 +33,7 @@ public class Passenger extends ACsvWritable{
 	protected String itineraryId;
 	
 	protected Double luggage;
+	
+	protected Boolean business;
 
 }

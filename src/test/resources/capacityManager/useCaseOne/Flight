@@ -1,0 +1,5 @@
+flightId;planeId;from;to;STD;ETD;STA;ETA
+String;String;String;String;Date;Date;Date;Date
+flightId0;planeId0;Madrid;Paris;2014-08-14 12:30;2014-08-14 12:30;2014-08-14 13:30;2014-08-14 17:00
+flightId1;planeId0;Madrid;Paris;2014-08-14 14:30;2014-08-14 14:30;2014-08-14 15:30;2014-08-14 15:30
+flightId2;planeId0;Paris;Amsterdam;2014-08-14 14:30;2014-08-14 14:30;2014-08-14 15:30;2014-08-14 15:30

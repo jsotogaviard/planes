@@ -17,12 +17,13 @@ public class Plane extends ACsvWritable{
 		super(Plane.class);
 	}
 	
-	public Plane(String planeId, int businessSeats,	int economySeats, double baggageCapacity) {
+	public Plane(String planeId, int businessSeats,	int economySeats, double baggageCapacity, double takeOffWeight) {
 		super(Plane.class);
 		this.planeId = planeId;
 		this.businessSeats = businessSeats;
 		this.economySeats = economySeats;
 		this.baggageCapacity = baggageCapacity;
+		this.takeOffWeight = takeOffWeight;
 	}
 
 	protected String planeId;
@@ -32,6 +33,8 @@ public class Plane extends ACsvWritable{
 	protected Integer economySeats;
 	
 	protected Double baggageCapacity;
+	
+	protected Double takeOffWeight;
 }
 
 

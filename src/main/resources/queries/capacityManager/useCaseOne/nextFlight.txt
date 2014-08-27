@@ -1,0 +1,10 @@
+// next flight
+
+MATCH 
+	(f:flight{from:'Madrid',to:'Paris'})
+WHERE f.ETD > 1408012200
+RETURN 
+f.ETA as newTimeOfArrival,
+f.to as destination
+ORDER BY f.ETD
+LIMIT 1

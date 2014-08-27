@@ -1,0 +1,17 @@
+itineraryId;personId;from;to;legs
+String;String;String;String;List
+itineraryId0;personId0;Madrid;Paris;[flightId0]
+itineraryId1;personId1;Madrid;Paris;[flightId0]
+itineraryId2;personId2;Madrid;Paris;[flightId0]
+itineraryId3;personId3;Madrid;Paris;[flightId0]
+itineraryId4;personId4;Madrid;Paris;[flightId0]
+itineraryId5;personId5;Madrid;Paris;[flightId0, flightId2]
+itineraryId6;personId6;Madrid;Paris;[flightId0, flightId2]
+itineraryId7;personId7;Madrid;Paris;[flightId0, flightId2]
+itineraryId8;personId8;Madrid;Paris;[flightId0, flightId2]
+itineraryId9;personId9;Madrid;Paris;[flightId0, flightId2]
+itineraryId10;personId10;Madrid;Paris;[flightId0]
+itineraryId11;personId11;Madrid;Paris;[flightId0]
+itineraryId12;personId12;Madrid;Paris;[flightId0]
+itineraryId13;personId13;Madrid;Paris;[flightId0]
+itineraryId14;personId14;Madrid;Paris;[flightId0]

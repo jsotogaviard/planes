@@ -35,18 +35,18 @@ public class HubManagerUseCaseOne {
 		csvWritable.add(new Flight("flightId2", "planeId0", "Paris",  "London",    ACsvWritable.SDF.parse("2014-08-14 16:30"), ACsvWritable.SDF.parse("2014-08-14 16:30"), ACsvWritable.SDF.parse("2014-08-14 17:30"), ACsvWritable.SDF.parse("2014-08-14 17:30")));
 
 		// Plane
-		csvWritable.add(new Plane("planeId0", 10, 5, 300));
+		csvWritable.add(new Plane("planeId0", 10, 5, 300, 1500));
 
 		// Passenger
 		int passengerId = 0;
 		for (int i = 0; i < 15; i++) {
-			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId0", "itineraryId" + i, 20));
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId0", "itineraryId" + i, 20, false));
 		}
 		for (int i = 15; i < 30; i++) {
-			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId1", "itineraryId" + i, 20));
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId1", "itineraryId" + i, 20, false));
 		}
 		for (int i = 30; i < 45; i++) {
-			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId2", "itineraryId" + i, 20));
+			csvWritable.add(new Passenger("passengerId" + passengerId++, "flightId2", "itineraryId" + i, 20, false));
 		}
 
 		// In flight 0

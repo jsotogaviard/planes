@@ -1,0 +1,18 @@
+// which passengers are not business and do not have
+// a connecting flight from Paris
+
+MATCH 
+	(f:flight{flightId:'flightId0'})-->(p:passenger)-->(i:itinerary)-->(leg:flight)
+WHERE p.business = false //AND none(x IN collect(leg.from) WHERE x.from = f.to )
+WITH p, 
+f, 
+collect(leg.from) as from,
+p as passenger
+WHERE none(x IN from WHERE x = f.to )
+WITH passenger
+MATCH (passenger:passenger)-->(:itinerary)-->(person:person)
+return 
+person.name as name,
+person.surname as surname
+
+	
