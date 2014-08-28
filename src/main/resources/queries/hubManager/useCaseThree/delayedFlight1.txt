@@ -1,0 +1,32 @@
+// which passengers are not business and do not have
+// a connecting flight from Paris
+
+MATCH 
+	(f:flight{to:'Paris'})-->(p:passenger)-->(:itinerary)-->(leg:flight)
+WITH 
+	p,
+	f, 
+	collect(leg.from) as from
+WHERE 
+	any(x IN from WHERE x = f.to )
+WITH
+	count(p) as passengersInTransitInParis
+MATCH 
+	(f:flight{to:'Paris'})-->(p:passenger)-->(i:itinerary)-->(leg:flight)
+WITH 
+	passengersInTransitInParis,
+	p,
+	collect(leg.from) as from,
+	(leg.ETA - leg.STA) as late
+WHERE 
+	any(x IN from WHERE x = 'Paris' )
+AND
+	late > 1* 60
+WITH passengersInTransitInParis,
+	count(p) as passengersInTransitInParisThatMissConnection
+RETURN 
+	passengersInTransitInParis,
+	passengersInTransitInParisThatMissConnection,
+	passengersInTransitInParisThatMissConnection * 100 / passengersInTransitInParis as percentOfVictorpassengersInTransitInParisThatMissConnection
+
+	

@@ -9,4 +9,5 @@ return
 p.flightId as flight,
 person.name as name,
 person.surname as surname
+ORDER BY name
 	

@@ -28,10 +28,12 @@ public class Queries {
 	
 	public static String QUERIES = "src/main/resources/queries/";
 	
-	public static String[] FILES = new String[]{"capacityManager/useCaseOne/nextFlight.txt"};
+	public static String[] FILES = new String[]{"hubManager/useCaseThree/delayedFlight1.txt"};
 	//"/hubManager/useCaseOne/delayedFlight1.txt" 
 	//"hubManager/useCaseTwo/delayedFlight.txt"
 	//"capacityManager/useCaseOne/delayedFlight.txt"
+	//"capacityManager/useCaseOne/nextFlight.txt"
+	//"hubManager/useCaseThree/delayedFlight.txt"
 	
 	public static void main(String[] args) throws IOException {
 		

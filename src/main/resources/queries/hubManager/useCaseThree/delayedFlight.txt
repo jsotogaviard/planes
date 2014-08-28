@@ -1,0 +1,12 @@
+// flights that are late
+
+MATCH 
+	(f:flight)
+WHERE (f.from = 'Paris' OR f.to = 'Paris') 
+WITH count(f) as victorFlights
+MATCH 
+	(f:flight)
+WHERE (f.from = 'Paris' OR f.to = 'Paris') AND (f.ETA - f.STA) < 1 * 60 
+WITH victorFlights, count(f) as onTimeVictorFlights
+RETURN
+onTimeVictorFlights * 100 / victorFlights as percentOnTimeFlightsOfVictor
