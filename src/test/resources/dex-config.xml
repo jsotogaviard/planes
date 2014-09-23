@@ -40,6 +40,7 @@
 				</properties>
 			</bean>
 			<script name="loader" path="${resources}/db-loader-flightplan.ddl" />
+			
 			<bean name="date_normalizer_flights" class="edu.upc.dama.dex.preparers.DateFieldNormalizer">
 				<properties>
 					<property name="dateColumns" value="[3,4,5,6,7,8]" />
@@ -67,6 +68,7 @@
 				</properties>
 			</bean>
 			<script name="flights-loader" path="${resources}/db-loader-flights.ddl" />
+
 			<script name="aircraft-loader" path="${resources}/db-loader-aircraft.ddl" />
 
 			<bean name="date_normalizer_itinerary" class="edu.upc.dama.dex.preparers.DateFieldNormalizer">
@@ -112,6 +114,30 @@
 				</properties>
 			</bean>
 			<script name="itinerary-loader" path="${resources}/db-loader-itinerary.ddl" />
+			
+			<bean name="date_normalizer_passenger_legs" class="edu.upc.dama.dex.preparers.DateFieldNormalizer">
+				<properties>
+					<property name="dateColumn" value="2" />
+					<property name="file" value="${dataset}/passenger_legs.csv" />
+					<property name="separator" value=";"></property>
+					<property name="line" value="1"></property>
+					<property name="quoteChar" value="\0"></property>
+					<property name="originalDateFormat" value="dd/MM/YYYY"></property>
+					<property name="finalDateFormat" value="YYYY-MM-dd hh:mm:ss"></property>
+					<property name="outputFile" value="${dataset}/passenger_legs_formatted.csv"></property>
+				</properties>		
+			</bean>
+			<bean name="boolean_normalizer_passenger_legs" class="edu.upc.dama.dex.preparers.CSVReplaceValuesFromFile">
+				<properties>					
+					<property name="file" value="${dataset}/passenger_legs_formatted.csv" />
+					<property name="fromFile" value="${resources}/booleans.csv" />
+					<property name="separator" value=";"></property>					
+					<property name="quoteChar" value="\0"></property>	
+					<property name="replaceColumn" value="4"></property>				
+					<property name="outputFile" value="${dataset}/passenger_legs_final.csv"></property>
+				</properties>		
+			</bean>
+			<script name="loader" path="${resources}/db-loader-passenger-legs.ddl" />	
 		</preparer>
 
 	</preparers>

@@ -44,7 +44,7 @@ create node PassengerItinerary (
 	)
 
 create node PassengerLegs (
-	itineraryId long indexed,
+	itineraryId string indexed,
 	legId long indexed,
 	date timestamp indexed,
 	flightNr string indexed,

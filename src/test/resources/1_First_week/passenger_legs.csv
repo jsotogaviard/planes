@@ -1,4 +1,4 @@
-ItineraryID;LegId;Date;FlightNr;changes
+ItineraryID;LegId;Date;FlightNr;changeslong
 PIT2;1;04/08/2014;AP011;
 PIT3;1;04/08/2014;AP011;
 PIT6;1;04/08/2014;AP011;

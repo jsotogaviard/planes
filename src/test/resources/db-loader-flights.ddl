@@ -12,4 +12,3 @@ COLUMNS flightNr,
 INTO Flights
 FIELDS TERMINATED ';'
 mode rows
-
