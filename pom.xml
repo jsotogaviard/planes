@@ -7,7 +7,7 @@
 	<artifactId>planes</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>Planes with neo4j</name>
+	<name>Planes with  neo4j</name>
 
 	<prerequisites>
 		<maven>3.0</maven>
