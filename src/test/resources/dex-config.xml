@@ -137,7 +137,8 @@
 					<property name="outputFile" value="${dataset}/passenger_legs_final.csv"></property>
 				</properties>		
 			</bean>
-			<script name="loader" path="${resources}/db-loader-passenger-legs.ddl" />	
+			<script name="loader-legs" path="${resources}/db-loader-passenger-legs.ddl" />	
+			<script name="loader-cities" path="${resources}/db-loader-cities.ddl" />	
 		</preparer>
 
 	</preparers>
