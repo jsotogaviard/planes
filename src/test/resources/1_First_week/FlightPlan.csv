@@ -1,0 +1,84 @@
+FlightNr;AircraftType;OriginCity;DestinationCity;ScheduledFlyingTime;AdHocFlights
+AP001;A100;Amsterdam;Paris;01:05;No
+AP003;B777;Paris;Amsterdam;01:00;No
+AP010;A100;Paris;Bordeaux;01:00;No
+AP011;A100;Bordeaux;Paris;01:00;No
+AP020;A380;Paris;Singapore;13:00;No
+AP021;A380;Singapore;Paris;12:30;No
+AP022;A100;Singapore;Paris;12:30;Yes
+AP024;A100;Singapore;Hong Kong;04:00;No
+AP025;A100;Hong Kong;Singapore;04:00;No
+AP030;A380;Paris;Rio de Janeiro;15:00;No
+AP031;A380;Rio de Janeiro;Paris;15:00;No
+AP032;A100;Paris;Rio de Janeiro;15:00;Yes
+AP040;B777;Paris;New York;06:00;No
+AP041;B777;New York;Paris;06:00;No
+AP050;A100;Paris;Frankfurt;01:20;No
+AP051;B777;Frankfurt;Paris;01:20;No
+AP052;A100;Amsterdam;Moscow;03:30;No
+AP053;A100;Moscow;Amsterdam;03:15;No
+AP060;A100;Paris;Stockholm;01:00;No
+AP061;A100;Stockholm;Paris;01:00;No
+AP062;B777;Amsterdam;Kuala Lumpur;12:20;No
+AP063;B777;Kuala Lumpur;Amsterdam;12:25;No
+AP070;A100;Paris;London;01:00;No
+AP071;A100;London;Paris;01:00;No
+AP072;A100;Amsterdam;Geneva;01:30;No
+AP073;A100;Geneva;Amsterdam;01:30;No
+AP080;A100;Paris;Rome;01:05;No
+AP081;A100;Rome;Paris;01:00;No
+AP082;B777;Amsterdam;Dubai;05:30;No
+AP083;B777;Dubai;Amsterdam;06:20;No
+AP084;A100;Bahrain;Dubai;01:15;No
+AP085;A100;Dubai;Bahrain;01:15;No
+AP090;B777;Paris;Abu Dhabi;05:35;No
+AP091;B777;Abu Dhabi;Paris;08:40;No
+AP092;B777;Amsterdam;Johannesburg;10:40;No
+AP093;B777;Johannesburg;Amsterdam;09:50;No
+AP100;B777;Paris;Atlanta;08:55;No
+AP101;B777;Atlanta;Paris;08:55;No
+AP110;B777;Paris;Bangkok;11:50;No
+AP111;B777;Bangkok;Paris;11:30;No
+AP114;A100;Bangkok;Phuket;01:20;No
+AP115;A100;Phuket;Bangkok;01:20;No
+AP120;A100;Paris;Chicago;08:45;No
+AP121;B777;Chicago;Paris;08:45;No
+AP130;A100;Paris;Nice;01:20;No
+AP131;A100;Nice;Paris;01:10;No
+AP132;A380;Amsterdam;San Francisco;10:40;No
+AP133;B777;San Francisco;Amsterdam;10:40;No
+AP140;B777;Paris;Cancun;10:45;No
+AP141;B777;Cancun;Paris;10:45;No
+AP142;A100;Amsterdam;London;01:05;No
+AP143;A100;London;Amsterdam;01:00;No
+AP150;A100;Paris;Delhi;08:50;No
+AP151;A380;Delhi;Paris;10:45;No
+AP152;A100;Amsterdam;Zurich;01:30;No
+AP153;A100;Zurich;Amsterdam;01:25;No
+AP160;A100;Paris;Marrakech;03:15;No
+AP161;A100;Marrakech;Paris;03:15;No
+AP162;B777;Amsterdam;Hong Kong;12:50;No
+AP163;B777;Hong Kong;Amsterdam;13:10;No
+AP164;A100;Hong Kong;Bali;03:05;No
+AP165;A100;Bali;Hong Kong;03:05;No
+AP170;A100;Paris;Vienna;02:00;No
+AP171;A100;Vienna;Paris;02:00;No
+AP172;A100;Amsterdam;Athens;03:15;No
+AP173;A100;Athens;Amsterdam;03:25;No
+AP180;A100;Paris;Copenhagen;01:55;No
+AP181;A100;Copenhagen;Paris;01:55;No
+AP182;A100;Amsterdam;Barcelona;02:15;No
+AP183;A100;Barcelona;Amsterdam;02:15;No
+AP192;A100;Amsterdam;Berlin;00:25;No
+AP193;A100;Berlin;Amsterdam;01:25;No
+AP202;A380;Amsterdam;Beijing;09:40;No
+AP203;A380;Beijing;Amsterdam;09:50;No
+AP204;A100;Beijing;Shanghai;02:10;No
+AP205;A100;Shanghai;Beijing;02:15;No
+AP206;A100;Beijing;Amsterdam;09:50;Yes
+AP212;B777;Amsterdam;Aruba;10:10;No
+AP213;B777;Aruba;Amsterdam;10:15;No
+AP222;B777;Amsterdam;Buenos Aires;14:05;No;
+AP223;B777;Buenos Aires;Amsterdam;13:55;No;
+AP901;A100;Amsterdam;Paris;01:15;No;
+AP993;A100;Paris;Amsterdam;01:15;No;

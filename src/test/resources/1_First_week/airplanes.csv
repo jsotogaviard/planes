@@ -1,0 +1,4 @@
+AircraftType;CapacityBusiness;CapacityEconomy;WeightCapacity
+A100;40;160;6400
+B777;60;240;9600
+A380;80;320;12800

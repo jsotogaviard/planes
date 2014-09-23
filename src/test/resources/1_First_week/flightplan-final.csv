@@ -1,0 +1,83 @@
+AP001;A100;Amsterdam;Paris;1970-01-01 01:05:00;false
+AP003;B777;Paris;Amsterdam;1970-01-01 01:00:00;false
+AP010;A100;Paris;Bordeaux;1970-01-01 01:00:00;false
+AP011;A100;Bordeaux;Paris;1970-01-01 01:00:00;false
+AP020;A380;Paris;Singapore;1970-01-01 01:00:00;false
+AP021;A380;Singapore;Paris;1970-01-01 12:30:00;false
+AP022;A100;Singapore;Paris;1970-01-01 12:30:00;true
+AP024;A100;Singapore;Hong Kong;1970-01-01 04:00:00;false
+AP025;A100;Hong Kong;Singapore;1970-01-01 04:00:00;false
+AP030;A380;Paris;Rio de Janeiro;1970-01-01 03:00:00;false
+AP031;A380;Rio de Janeiro;Paris;1970-01-01 03:00:00;false
+AP032;A100;Paris;Rio de Janeiro;1970-01-01 03:00:00;true
+AP040;B777;Paris;New York;1970-01-01 06:00:00;false
+AP041;B777;New York;Paris;1970-01-01 06:00:00;false
+AP050;A100;Paris;Frankfurt;1970-01-01 01:20:00;false
+AP051;B777;Frankfurt;Paris;1970-01-01 01:20:00;false
+AP052;A100;Amsterdam;Moscow;1970-01-01 03:30:00;false
+AP053;A100;Moscow;Amsterdam;1970-01-01 03:15:00;false
+AP060;A100;Paris;Stockholm;1970-01-01 01:00:00;false
+AP061;A100;Stockholm;Paris;1970-01-01 01:00:00;false
+AP062;B777;Amsterdam;Kuala Lumpur;1970-01-01 12:20:00;false
+AP063;B777;Kuala Lumpur;Amsterdam;1970-01-01 12:25:00;false
+AP070;A100;Paris;London;1970-01-01 01:00:00;false
+AP071;A100;London;Paris;1970-01-01 01:00:00;false
+AP072;A100;Amsterdam;Geneva;1970-01-01 01:30:00;false
+AP073;A100;Geneva;Amsterdam;1970-01-01 01:30:00;false
+AP080;A100;Paris;Rome;1970-01-01 01:05:00;false
+AP081;A100;Rome;Paris;1970-01-01 01:00:00;false
+AP082;B777;Amsterdam;Dubai;1970-01-01 05:30:00;false
+AP083;B777;Dubai;Amsterdam;1970-01-01 06:20:00;false
+AP084;A100;Bahrain;Dubai;1970-01-01 01:15:00;false
+AP085;A100;Dubai;Bahrain;1970-01-01 01:15:00;false
+AP090;B777;Paris;Abu Dhabi;1970-01-01 05:35:00;false
+AP091;B777;Abu Dhabi;Paris;1970-01-01 08:40:00;false
+AP092;B777;Amsterdam;Johannesburg;1970-01-01 10:40:00;false
+AP093;B777;Johannesburg;Amsterdam;1970-01-01 09:50:00;false
+AP100;B777;Paris;Atlanta;1970-01-01 08:55:00;false
+AP101;B777;Atlanta;Paris;1970-01-01 08:55:00;false
+AP110;B777;Paris;Bangkok;1970-01-01 11:50:00;false
+AP111;B777;Bangkok;Paris;1970-01-01 11:30:00;false
+AP114;A100;Bangkok;Phuket;1970-01-01 01:20:00;false
+AP115;A100;Phuket;Bangkok;1970-01-01 01:20:00;false
+AP120;A100;Paris;Chicago;1970-01-01 08:45:00;false
+AP121;B777;Chicago;Paris;1970-01-01 08:45:00;false
+AP130;A100;Paris;Nice;1970-01-01 01:20:00;false
+AP131;A100;Nice;Paris;1970-01-01 01:10:00;false
+AP132;A380;Amsterdam;San Francisco;1970-01-01 10:40:00;false
+AP133;B777;San Francisco;Amsterdam;1970-01-01 10:40:00;false
+AP140;B777;Paris;Cancun;1970-01-01 10:45:00;false
+AP141;B777;Cancun;Paris;1970-01-01 10:45:00;false
+AP142;A100;Amsterdam;London;1970-01-01 01:05:00;false
+AP143;A100;London;Amsterdam;1970-01-01 01:00:00;false
+AP150;A100;Paris;Delhi;1970-01-01 08:50:00;false
+AP151;A380;Delhi;Paris;1970-01-01 10:45:00;false
+AP152;A100;Amsterdam;Zurich;1970-01-01 01:30:00;false
+AP153;A100;Zurich;Amsterdam;1970-01-01 01:25:00;false
+AP160;A100;Paris;Marrakech;1970-01-01 03:15:00;false
+AP161;A100;Marrakech;Paris;1970-01-01 03:15:00;false
+AP162;B777;Amsterdam;Hong Kong;1970-01-01 12:50:00;false
+AP163;B777;Hong Kong;Amsterdam;1970-01-01 01:10:00;false
+AP164;A100;Hong Kong;Bali;1970-01-01 03:05:00;false
+AP165;A100;Bali;Hong Kong;1970-01-01 03:05:00;false
+AP170;A100;Paris;Vienna;1970-01-01 02:00:00;false
+AP171;A100;Vienna;Paris;1970-01-01 02:00:00;false
+AP172;A100;Amsterdam;Athens;1970-01-01 03:15:00;false
+AP173;A100;Athens;Amsterdam;1970-01-01 03:25:00;false
+AP180;A100;Paris;Copenhagen;1970-01-01 01:55:00;false
+AP181;A100;Copenhagen;Paris;1970-01-01 01:55:00;false
+AP182;A100;Amsterdam;Barcelona;1970-01-01 02:15:00;false
+AP183;A100;Barcelona;Amsterdam;1970-01-01 02:15:00;false
+AP192;A100;Amsterdam;Berlin;1970-01-01 12:25:00;false
+AP193;A100;Berlin;Amsterdam;1970-01-01 01:25:00;false
+AP202;A380;Amsterdam;Beijing;1970-01-01 09:40:00;false
+AP203;A380;Beijing;Amsterdam;1970-01-01 09:50:00;false
+AP204;A100;Beijing;Shanghai;1970-01-01 02:10:00;false
+AP205;A100;Shanghai;Beijing;1970-01-01 02:15:00;false
+AP206;A100;Beijing;Amsterdam;1970-01-01 09:50:00;true
+AP212;B777;Amsterdam;Aruba;1970-01-01 10:10:00;false
+AP213;B777;Aruba;Amsterdam;1970-01-01 10:15:00;false
+AP222;B777;Amsterdam;Buenos Aires;1970-01-01 02:05:00;false;
+AP223;B777;Buenos Aires;Amsterdam;1970-01-01 01:55:00;false;
+AP901;A100;Amsterdam;Paris;1970-01-01 01:15:00;false;
+AP993;A100;Paris;Amsterdam;1970-01-01 01:15:00;false;

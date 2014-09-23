@@ -1,0 +1,76 @@
+<!ELEMENT config (databases, schemas?, mapping?, constants? , factories? ,preparers?)>
+<!ELEMENT databases (database+)>
+<!ELEMENT schemas (schema+)>
+<!ELEMENT mapping (alias+)>
+<!ELEMENT constants (constant+)>
+<!ELEMENT factories (factory+)>
+<!ELEMENT preparer (bean|script)*>
+<!ELEMENT bean (properties?, params?)>
+<!ELEMENT preparers (preparer+)>
+
+<!ATTLIST constant 
+	name CDATA #IMPLIED
+	value CDATA #IMPLIED
+	description CDATA #IMPLIED>
+
+<!ATTLIST preparers default CDATA #REQUIRED>
+
+<!ATTLIST alias
+	name ID #REQUIRED
+	ref CDATA #REQUIRED
+>
+
+	
+<!ATTLIST preparer
+    name ID #REQUIRED
+    previous CDATA #IMPLIED  
+    description CDATA #IMPLIED      
+>	
+
+<!ATTLIST factories   
+    engine CDATA #IMPLIED>
+
+
+<!ATTLIST factory 
+    name ID #REQUIRED
+    type CDATA #REQUIRED
+    class CDATA #REQUIRED
+    scope CDATA #IMPLIED>
+
+<!ATTLIST bean
+    name ID #REQUIRED
+    method CDATA #IMPLIED
+    class CDATA #REQUIRED 
+    description CDATA #IMPLIED   
+>	
+<!ATTLIST script
+    name ID #REQUIRED    
+    path CDATA #REQUIRED 
+    description CDATA #IMPLIED   
+>			
+<!ELEMENT properties (property)+>
+<!ELEMENT params (param+)>
+<!ELEMENT schema (#PCDATA)>
+<!ELEMENT property (#PCDATA)>
+<!ELEMENT param (#PCDATA)>
+
+<!ATTLIST property 
+	name CDATA #IMPLIED
+	value CDATA #IMPLIED
+	description CDATA #IMPLIED>
+	
+<!ATTLIST param value CDATA #IMPLIED
+				description CDATA #IMPLIED
+>
+
+<!ATTLIST schema 
+	name ID #REQUIRED
+	path CDATA #REQUIRED
+	description CDATA #IMPLIED>
+
+<!ATTLIST database 
+	name ID #IMPLIED
+	path CDATA #IMPLIED
+	description CDATA #IMPLIED>
+	
+<!ATTLIST databases default CDATA #REQUIRED>

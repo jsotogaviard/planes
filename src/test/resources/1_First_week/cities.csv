@@ -1,0 +1,39 @@
+AirportCode;City;Country;TimezoneDifference
+AUH;Abu Dhabi;United Arab Emirates;+4
+AMS;Amsterdam;Netherlands;0
+AUA;Aruba;Netherlands Antilles;-6
+ATH;Athens;Greece;0
+ATL;Atlanta;United States;-6
+BAH;Bahrain;Kingdom of Bahrain;+4
+DPS;Bali;Indonesia;+6
+BKK;Bangkok;Thailand;+6
+BCN;Barcelona;Spain;0
+PEK;Beijing;China;+6
+BER;Berlin;Germany;0
+BOD;Bordeaux;France;0
+AEP;Buenos Aires;Argentina;-6
+CUN;Cancun;Mexico;-6
+ORD;Chicago;United States;-6
+CPH;Copenhagen;Denmark;0
+DEL;Delhi;India;+6
+DXB;Dubai;United Arab Emirates;+4
+FRA;Frankfurt;Germany;0
+GVA;Geneva;Switzerland;0
+HKG;Hong Kong;Hong Kong;+6
+JNB;Johannesburg;South Africa;0
+KUL;Kuala Lumpur;Malaysia;+6
+BQH;London;United Kingdom;-1
+RAK;Marrakech;Morocco;0
+BKA;Moscow;Russia;+6
+JFK;New York;United States;-6
+NCE;Nice;France;0
+BVA;Paris;France;0
+HKT;Phuket;Thailand;+6
+GIG;Rio de Janeiro;Brasil;-6
+CIA;Rome;Italy;0
+SFO;San Francisco;United States;-6
+PVG;Shanghai;China;+6
+SIN;Singapore;Singapore;+6
+ARN;Stockholm;Sweden;0
+VIE;Vienna;Austria;0
+ZRH;Zurich;Switzerland;0

@@ -1,0 +1,70 @@
+<!DOCTYPE dex-utils SYSTEM "dex-utils-5.7.dtd">
+<config>
+	<databases default="flights">
+		<database name="flights" path="flights.dex" />		
+	</databases>	
+	<schemas>
+		<schema name="flights-schema" path="./src/test/resources/db-schema.ddl" />		
+	</schemas>
+	<constants>
+		<constant name="dataset" value="./src/test/resources/1_First_week"/>
+		<constant name="resources" value="./src/test/resources"/>
+	</constants>	
+	<preparers default="loading_process">
+		
+		<preparer name="loading_process">
+			<bean name="date_normalizer_flightplan" class="edu.upc.dama.dex.preparers.DateFieldNormalizer">
+				<properties>
+					<property name="dateColumn" value="4" />
+					<property name="file" value="${dataset}/FlightPlan.csv" />
+					<property name="separator" value=";"></property>
+					<property name="line" value="1"></property>
+					<property name="quoteChar" value="\0"></property>
+					<property name="originalDateFormat" value="hh:mm"></property>
+					<property name="finalDateFormat" value="YYYY-MM-dd hh:mm:ss"></property>
+					<property name="outputFile" value="${dataset}/flightplan-date-formatted.csv"></property>
+				</properties>		
+			</bean>
+			<bean name="boolean_normalizer_flightplan" class="edu.upc.dama.dex.preparers.CSVReplaceValuesFromFile">
+				<properties>					
+					<property name="file" value="${dataset}/flightplan-date-formatted.csv" />
+					<property name="fromFile" value="${resources}/booleans.csv" />
+					<property name="separator" value=";"></property>					
+					<property name="quoteChar" value="\0"></property>	
+					<property name="replaceColumn" value="5"></property>				
+					<property name="outputFile" value="${dataset}/flightplan-final.csv"></property>
+				</properties>		
+			</bean>
+			<script name="loader" path="${resources}/db-loader-flightplan.ddl" />
+			<bean name="date_normalizer_flights" class="edu.upc.dama.dex.preparers.DateFieldNormalizer">
+				<properties>
+					<property name="dateColumns" value="[3,4,5,6,7,8]" />
+					<property name="file" value="${dataset}/flights.csv" />
+					<property name="separator" value=";"></property>
+					<property name="line" value="1"></property>
+					<property name="quoteChar" value="\0"></property>
+					<property name="originalDateFormat" value="dd/MM/YYYY hh:mm"></property>
+					<property name="finalDateFormat" value="YYYY-MM-dd hh:mm:ss"></property>
+					<property name="outputFile" value="${dataset}/flights-date-formatted.csv"></property>
+				</properties>		
+			</bean>
+			
+			<bean name="date_normalizer_flights_2" class="edu.upc.dama.dex.preparers.DateFieldNormalizer">
+				<properties>
+					<property name="dateColumn" value="2" />
+					<property name="file" value="${dataset}/flights-date-formatted.csv" />
+					<property name="separator" value=";"></property>
+					<property name="line" value="1"></property>
+					<property name="quoteChar" value="\0"></property>
+					<property name="originalDateFormat" value="dd/MM/YYYY"></property>
+					<property name="finalDateFormat" value="YYYY-MM-dd hh:mm:ss"></property>
+					<property name="outputFile" value="${dataset}/flights-date-formatted-final.csv"></property>
+				</properties>		
+			</bean>
+			<script name="flights-loader" path="${resources}/db-loader-flights.ddl" />
+				
+		</preparer>
+
+	</preparers>
+	 
+</config>
