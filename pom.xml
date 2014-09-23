@@ -18,9 +18,39 @@
 		<springVersion>4.0.3.RELEASE</springVersion>
 		<springSecurityVersion>3.2.3.RELEASE</springSecurityVersion>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>private-internal-repository</id>
+			<name>private-internal-repository</name>
+			<url>http://fedra.pc.ac.upc.edu/archiva/repository/private-internal-repository/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>third-party</id>
+			<name>third-party</name>
+			<url>http://fedra.pc.ac.upc.edu/archiva/repository/third-party/</url>
+		</repository>
+		<repository>
+			<id>snapshot-repository</id>
+			<name>snapshot-repository</name>
+			<url>http://fedra.pc.ac.upc.edu/archiva/repository/snapshot-repository/</url>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+			  	    <groupId>edu.upc.dama</groupId>
+			        <artifactId>dex-utils</artifactId>
+			        <version>6.0-SNAPSHOT</version>
+			</dependency>
 			<dependency>
 				<groupId>org.neo4j</groupId>
 				<artifactId>neo4j</artifactId>
