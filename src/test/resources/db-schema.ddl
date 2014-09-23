@@ -30,7 +30,7 @@ create node Airplanes (
 	)
 		
 create node PassengerItinerary (
-		itineraryId long unique,
+		itineraryId string unique,
 		originCity string indexed,
 		destinationCity string indexed,
 		passengerName string indexed,

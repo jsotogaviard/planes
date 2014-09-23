@@ -1,0 +1,1 @@
+create dbgraph tmp into 'tmp.dex'
