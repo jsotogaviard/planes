@@ -1,4 +1,4 @@
-package com.jsoto.planes.data.impl;
+package com.qfs.planes.data.impl;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.jsoto.planes.graph;
+package com.qfs.planes.graph;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,12 +19,12 @@ import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.neo4j.graphdb.index.UniqueFactory;
 import org.neo4j.graphdb.index.UniqueFactory.UniqueNodeFactory;
 
-import com.jsoto.planes.data.impl.Flight;
-import com.jsoto.planes.data.impl.Itinerary;
-import com.jsoto.planes.data.impl.Passenger;
-import com.jsoto.planes.data.impl.Person;
-import com.jsoto.planes.data.impl.Plane;
-import com.jsoto.planes.util.PlanesUtil;
+import com.qfs.planes.data.impl.Flight;
+import com.qfs.planes.data.impl.Itinerary;
+import com.qfs.planes.data.impl.Passenger;
+import com.qfs.planes.data.impl.Person;
+import com.qfs.planes.data.impl.Plane;
+import com.qfs.planes.util.PlanesUtil;
 
 public class PlaneGraph {
 	

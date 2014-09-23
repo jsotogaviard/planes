@@ -1,4 +1,4 @@
-package com.jsoto.planes.rest;
+package com.qfs.planes.rest;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

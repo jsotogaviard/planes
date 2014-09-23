@@ -9,14 +9,14 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.jsoto.planes.data.ICsvWritable;
-import com.jsoto.planes.data.impl.ACsvWritable;
-import com.jsoto.planes.data.impl.Flight;
-import com.jsoto.planes.data.impl.Itinerary;
-import com.jsoto.planes.data.impl.Passenger;
-import com.jsoto.planes.data.impl.Person;
-import com.jsoto.planes.data.impl.Plane;
-import com.jsoto.planes.util.PlanesUtil;
+import com.qfs.planes.data.ICsvWritable;
+import com.qfs.planes.data.impl.ACsvWritable;
+import com.qfs.planes.data.impl.Flight;
+import com.qfs.planes.data.impl.Itinerary;
+import com.qfs.planes.data.impl.Passenger;
+import com.qfs.planes.data.impl.Person;
+import com.qfs.planes.data.impl.Plane;
+import com.qfs.planes.util.PlanesUtil;
 
 public class HubManagerUseCaseThree {
 

@@ -1,4 +1,4 @@
-package com.jsoto.planes.cfg;
+package com.qfs.planes.cfg;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

@@ -15,7 +15,7 @@ import org.eclipse.jetty.webapp.Configuration;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.springframework.web.WebApplicationInitializer;
 
-import com.jsoto.planes.cfg.WebAppInitializer;
+import com.qfs.planes.cfg.WebAppInitializer;
 
 public class PlaneServer {
 

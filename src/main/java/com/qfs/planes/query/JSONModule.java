@@ -5,7 +5,7 @@
  * reproduction or transfer of this material is strictly prohibited
  */
 
-package com.jsoto.planes.query;
+package com.qfs.planes.query;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

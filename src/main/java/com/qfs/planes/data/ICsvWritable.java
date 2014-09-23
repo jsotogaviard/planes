@@ -1,5 +1,5 @@
 
-package com.jsoto.planes.data;
+package com.qfs.planes.data;
 
 public interface ICsvWritable {
 	

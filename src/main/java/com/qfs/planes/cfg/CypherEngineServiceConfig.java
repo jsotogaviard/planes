@@ -1,4 +1,4 @@
-package com.jsoto.planes.cfg;
+package com.qfs.planes.cfg;
 
 import java.io.File;
 import java.util.Arrays;
@@ -18,10 +18,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.env.Environment;
 
-import com.jsoto.planes.graph.PlaneGraph;
-import com.jsoto.planes.rest.CypherRestService;
-import com.jsoto.planes.rest.CypherService;
-import com.jsoto.planes.util.PlanesUtil;
+import com.qfs.planes.graph.PlaneGraph;
+import com.qfs.planes.rest.CypherRestService;
+import com.qfs.planes.rest.CypherService;
+import com.qfs.planes.util.PlanesUtil;
 
 @Configuration
 public class CypherEngineServiceConfig {

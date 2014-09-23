@@ -1,4 +1,4 @@
-package com.jsoto.planes.rest;
+package com.qfs.planes.rest;
 
 import org.neo4j.cypher.javacompat.ExecutionEngine;
 import org.neo4j.cypher.javacompat.ExecutionResult;

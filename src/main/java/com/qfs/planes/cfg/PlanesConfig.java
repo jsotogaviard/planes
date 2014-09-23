@@ -1,4 +1,4 @@
-package com.jsoto.planes.cfg;
+package com.qfs.planes.cfg;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(value="classpath:planes.properties")
 @Configuration
 @Import(value={
-		CypherEngineServiceConfig.class,
+		SparkseeConfig.class,
+		CypherEngineServiceConfig.class
 })
 public class PlanesConfig {}

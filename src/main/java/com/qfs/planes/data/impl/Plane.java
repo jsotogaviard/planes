@@ -1,4 +1,4 @@
-package com.jsoto.planes.data.impl;
+package com.qfs.planes.data.impl;
 
 import org.neo4j.graphdb.DynamicLabel;
 import org.neo4j.graphdb.Label;

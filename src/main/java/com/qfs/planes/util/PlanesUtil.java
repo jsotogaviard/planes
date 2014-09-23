@@ -1,5 +1,5 @@
 
-package com.jsoto.planes.util;
+package com.qfs.planes.util;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,8 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.jsoto.planes.data.ICsvWritable;
-import com.jsoto.planes.data.impl.ACsvWritable;
+import com.qfs.planes.data.ICsvWritable;
+import com.qfs.planes.data.impl.ACsvWritable;
 
 public class PlanesUtil {
 
