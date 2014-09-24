@@ -1,7 +1,9 @@
 package edu.upc.dama.planes.actions;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -19,6 +21,10 @@ import edu.upc.dama.dex.utils.DexUtil;
 public class DelayedFlights implements Action, GraphAware {
 
 	private Graph graph;
+	
+	private Map<String, List<User>> delayedPassengers = new HashMap<>();
+	
+	private Map<String, List<User>> delayedBusinessPassengers = new HashMap<>();
 
 	@Override
 	public void setGraph(Graph graph) {
@@ -58,15 +64,12 @@ public class DelayedFlights implements Action, GraphAware {
 		
 		Objects f1 = graph.select(updatedScheduledDepartureTimeAttr, Condition.NotEqual, new Value());
 		Objects f2 = graph.select(actualDepartureDateTimeAttr, Condition.NotEqual, new Value());
-		System.out.println(f1.size());
-		System.out.println(f2.size());
 		f1.union(f2);
-		System.out.println(f1.size());
 		ObjectsIterator itf1 = f1.iterator();
 		int countDelayed = 0;
 		while (itf1.hasNext()) {
 			Long oId = itf1.next();
-			System.out.println(oId);
+			System.out.println("flight "+ oId);
 			Long expectedArrivalTime = null;
 			Value actualArrivalDateTime = graph.getAttribute(oId, actualArrivalDateTimeAttr);
 			Value scheduledArrivalDateTime = graph.getAttribute(oId, scheduledArrivalDateTimeAttr);
@@ -146,11 +149,30 @@ public class DelayedFlights implements Action, GraphAware {
 		itf1.close();
 		f1.close();
 		System.out.println("delayed " + countDelayed++);
+		System.out.println("delayed business passengers ");
+		System.out.println(delayedBusinessPassengers);
+		
+		System.out.println("delayed passengers ");
+		System.out.println(delayedPassengers);
 		return Action.SUCCESS;
 	}
 	
 	private void saveData(String flight, String className, String name) {
-		System.out.println(flight +  " " + className + " " + name);
+		List<User> passengers = delayedPassengers.get(flight);
+		if (passengers == null) {
+			passengers = new ArrayList<>();
+			delayedPassengers.put(flight, passengers);
+		}
+		passengers.add(new User(name, className));
+		
+		passengers = delayedBusinessPassengers.get(flight);
+		if (passengers == null) {
+			passengers = new ArrayList<>();
+			delayedBusinessPassengers.put(flight, passengers);
+		}
+		if (className.equals("B")) {
+			passengers.add(new User(name, className));
+		}
 		
 	}
 
