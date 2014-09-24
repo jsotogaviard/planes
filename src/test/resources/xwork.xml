@@ -32,7 +32,7 @@
 
 		<action name="updateFlights" class="edu.upc.dama.planes.actions.UpdateFlights"/>
 		<action name="delayedFlights" class="edu.upc.dama.planes.actions.DelayedFlights"/>
-		<action name="delayedFlights1" class="edu.upc.dama.planes.actions.DelayedFlights1"/>
+		
 			
 	</package>
 
