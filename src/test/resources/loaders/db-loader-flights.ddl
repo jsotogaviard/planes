@@ -8,7 +8,8 @@ COLUMNS flightNr,
 		updatedScheduledDepartureTime,
 		updatedScheduledArrivalTime,
 		actualDepartureDateTime,
-		actualArrivalDateTime
+		actualArrivalDateTime, *,*,
+		id
 INTO Flights
 FIELDS TERMINATED ';'
 mode rows

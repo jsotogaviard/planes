@@ -4,7 +4,10 @@ COLUMNS itineraryId,
 		legId,
 		date,
 		flightNr,
-		annulated
+		annulated,
+		*,
+		flightId,
+		id
 INTO PassengerLegs
 FIELDS TERMINATED ';'
 mode rows

@@ -45,12 +45,23 @@
 			</bean>
 			<script name="loader" path="${loaders}/db-loader-flightplan.ddl" />
 
+			<bean name="composite_ids_flights" class="edu.upc.dama.planes.preparers.CompositeIds">
+				<properties>
+					<property name="file" value="${dataset}/flights.csv" />
+					<property name="separator" value=";"></property>
+					<property name="line" value="1"></property>			
+					<property name="secondColumn" value="2"></property>
+					<property name="quoteChar" value="\0"></property>
+					<property name="output" value="${generated}/flights-ids.csv"></property>
+				</properties>
+			</bean>
+
 			<bean name="date_normalizer_flights" class="edu.upc.dama.dex.preparers.DateFieldNormalizer">
 				<properties>
 					<property name="dateColumns" value="[3,4,5,6,7,8]" />
-					<property name="file" value="${dataset}/flights.csv" />
+					<property name="file" value="${generated}/flights-ids.csv" />
 					<property name="separator" value=";"></property>
-					<property name="line" value="1"></property>
+					<property name="line" value="0"></property>
 					<property name="quoteChar" value="\0"></property>
 					<property name="originalDateFormat" value="dd/MM/yyyy hh:mm"></property>
 					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
@@ -63,7 +74,7 @@
 					<property name="dateColumn" value="2" />
 					<property name="file" value="${generated}/flights-date-formatted.csv" />
 					<property name="separator" value=";"></property>
-					<property name="line" value="1"></property>
+					<property name="line" value="0"></property>
 					<property name="quoteChar" value="\0"></property>
 					<property name="originalDateFormat" value="dd/MM/yyyy"></property>
 					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
@@ -129,13 +140,35 @@
 				</properties>
 			</bean>
 			<script name="itinerary-loader" path="${loaders}/db-loader-itinerary.ddl" />
+			
+			<bean name="composite_id_flights_legs" class="edu.upc.dama.planes.preparers.CompositeIds">
+				<properties>
+					<property name="file" value="${dataset}/passenger_legs.csv" />					
+					<property name="separator" value=";"></property>
+					<property name="line" value="1"></property>
+					<property name="quoteChar" value="\0"></property>
+					<property name="firstColumn" value="3"></property>
+					<property name="secondColumn" value="2"></property>
+					<property name="output" value="${generated}/passenger_legs_idsflights.csv"></property>
+				</properties>
+			</bean>
+			
+			<bean name="remove_annulated_passenger_legs" class="edu.upc.dama.planes.preparers.RemoveAnnulatedLegs">
+				<properties>					
+					<property name="file" value="${generated}/passenger_legs_idsflights.csv" />
+					<property name="separator" value=";"></property>
+					<property name="line" value="0"></property>
+					<property name="quoteChar" value="\0"></property>
+					<property name="output" value="${generated}/passenger_annulated_removed.csv"></property>
+				</properties>
+			</bean>
 
 			<bean name="date_normalizer_passenger_legs" class="edu.upc.dama.dex.preparers.DateFieldNormalizer">
 				<properties>
 					<property name="dateColumn" value="2" />
-					<property name="file" value="${dataset}/passenger_legs.csv" />
+					<property name="file" value="${generated}/passenger_annulated_removed.csv" />
 					<property name="separator" value=";"></property>
-					<property name="line" value="1"></property>
+					<property name="line" value="0"></property>
 					<property name="quoteChar" value="\0"></property>
 					<property name="originalDateFormat" value="dd/MM/yyyy"></property>
 					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
@@ -150,7 +183,16 @@
 					<property name="separator" value=";"></property>
 					<property name="quoteChar" value="\0"></property>
 					<property name="replaceColumn" value="4"></property>
-					<property name="outputFile" value="${generated}/passenger_legs_final.csv"></property>
+					<property name="outputFile" value="${generated}/passenger_legs_annulated.csv"></property>
+				</properties>
+			</bean>
+			
+			<bean name="composite_id_legs" class="edu.upc.dama.planes.preparers.CompositeIds">
+				<properties>
+					<property name="file" value="${generated}/passenger_legs_annulated.csv" />					
+					<property name="separator" value=";"></property>
+					<property name="quoteChar" value="\0"></property>					
+					<property name="output" value="${generated}/passenger_legs_final.csv"></property>
 				</properties>
 			</bean>
 
@@ -160,8 +202,6 @@
 			<script name="loader-db-edges" path="${loaders}/db-loader-edges.ddl" />
 
 			<bean name="sorting-lengs" class="edu.upc.dama.planes.preparers.CreateLegEdges" />
-
-			<bean name="generate_ids_for_flights" class="edu.upc.dama.planes.preparers.GenerateKeys" />
 
 			<bean name="updateArrivalDates" class="edu.upc.dama.planes.preparers.SetDepartureTimes"></bean>
 		</preparer>

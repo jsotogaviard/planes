@@ -18,7 +18,7 @@ create node Flights (
 		updatedScheduledArrivalTime timestamp indexed,
 		actualDepartureDateTime timestamp indexed,
 		actualArrivalDateTime timestamp indexed,
-		id string indexed,
+		id string unique,
 		isDelayed boolean indexed
 	)
 	
@@ -44,11 +44,13 @@ create node PassengerItinerary (
 	)
 
 create node PassengerLegs (
+	id string unique,
 	itineraryId string indexed,
 	legId long indexed,
 	date timestamp indexed,
 	flightNr string indexed,
-	annulated boolean indexed
+	annulated boolean indexed,
+	flightId string indexed
 )
 
 create node Cities (

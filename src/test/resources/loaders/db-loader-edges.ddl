@@ -1,9 +1,9 @@
 use dbgraph flights into 'flights.dex'
 LOAD EDGES '${generated}/flights-date-formatted-final.csv'
-COLUMNS src,*,*,*,*,*,*,*,*,*,*
+COLUMNS src,*,*,*,*,*,*,*,*,*,*,target
 INTO FlightPlan_Flights
 ignore src
-WHERE TAIL src = FlightPlan.flightNr HEAD src = Flights.flightNr
+WHERE TAIL src = FlightPlan.flightNr HEAD target = Flights.id
 FIELDS TERMINATED ';'
 mode rows 
 
@@ -41,10 +41,10 @@ mode rows
 
 
 LOAD EDGES '${generated}/passenger_legs_final.csv'
-COLUMNS src,*,*,*
+COLUMNS src,*,*,*,*,*,*,target
 INTO PassengerItinerary_PassengerLegs
 ignore src
-WHERE TAIL src = PassengerItinerary.itineraryId HEAD src = PassengerLegs.itineraryId
+WHERE TAIL src = PassengerItinerary.itineraryId HEAD target = PassengerLegs.id
 FIELDS TERMINATED ';'
 mode rows 
 
@@ -64,11 +64,12 @@ WHERE TAIL src = PassengerItinerary.itineraryId HEAD target = Cities.city
 FIELDS TERMINATED ';'
 mode rows 
 
+
 LOAD EDGES '${generated}/passenger_legs_final.csv'
-COLUMNS src,*,*,target,*
+COLUMNS *,*,*,*,*,*,target,src
 INTO PassengerLegs_Flights
 ignore src, target
-WHERE TAIL src = PassengerLegs.itineraryId HEAD target = Flights.flightNr
+WHERE TAIL src = PassengerLegs.id HEAD target = Flights.id
 FIELDS TERMINATED ';'
 mode rows 
 
