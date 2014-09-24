@@ -4,7 +4,7 @@ create node FlightPlan (
 		aircraftType string indexed,
 		originCity string indexed,
 		destinationCity string indexed,
-		scheduledFlyingTime timestamp indexed,
+		scheduledFlyingTime long indexed,
 		adHocFlights boolean indexed
   )  
   
