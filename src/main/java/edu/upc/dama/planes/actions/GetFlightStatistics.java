@@ -93,12 +93,14 @@ public class GetFlightStatistics implements Action, GraphAware {
 
 		delayedFlights = graph.select(isDelayedType, Condition.Equal,
 				v.setBoolean(true));
-		ObjectsIterator it = delayedFlights.iterator();
-		while(it.hasNext()){
-			System.out.println(it.next());
-		}
+		
 
 		delayedFlights.intersection(allParisFlights);
+		ObjectsIterator it = delayedFlights.iterator();
+		while(it.hasNext()){
+			System.out.println("Delayed flights: "+it.next());
+		}
+		it.close();
 		return 1 - ((double)delayedFlights.size() / (double)allParisFlights.size());
 	}
 
