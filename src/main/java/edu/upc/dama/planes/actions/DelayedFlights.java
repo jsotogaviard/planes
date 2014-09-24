@@ -58,13 +58,15 @@ public class DelayedFlights implements Action, GraphAware {
 		
 		Objects f1 = graph.select(updatedScheduledDepartureTimeAttr, Condition.NotEqual, new Value());
 		Objects f2 = graph.select(actualDepartureDateTimeAttr, Condition.NotEqual, new Value());
+		System.out.println(f1.size());
+		System.out.println(f2.size());
 		f1.union(f2);
 		System.out.println(f1.size());
-		ObjectsIterator it = f1.iterator();
+		ObjectsIterator itf1 = f1.iterator();
 		int countDelayed = 0;
-		while (it.hasNext()) {
-			Long oId = it.next();
-			
+		while (itf1.hasNext()) {
+			Long oId = itf1.next();
+			System.out.println(oId);
 			Long expectedArrivalTime = null;
 			Value actualArrivalDateTime = graph.getAttribute(oId, actualArrivalDateTimeAttr);
 			Value scheduledArrivalDateTime = graph.getAttribute(oId, scheduledArrivalDateTimeAttr);
@@ -79,7 +81,7 @@ public class DelayedFlights implements Action, GraphAware {
 				if (!actualDepartureDateTime.isNull()) {
 					if (actualDepartureDateTime.getTimestamp() > scheduledDepartureDateTime.getTimestamp()) {
 						expectedArrivalTime = actualDepartureDateTime.getTimestamp() + 
-								(scheduledArrivalDateTime.getTimestamp() - scheduledDepartureDateTime.getLong());
+								(scheduledArrivalDateTime.getTimestamp() - scheduledDepartureDateTime.getTimestamp());
 					}
 				} else {
 					Value updatedScheduledArrivalTime = graph.getAttribute(oId, updatedScheduledArrivalDateTimeAttr);
@@ -93,8 +95,8 @@ public class DelayedFlights implements Action, GraphAware {
 				countDelayed++;
 				Objects passengeLegs = graph.neighbors(oId, passLegsFligtsType, EdgesDirection.Ingoing);
 				ObjectsIterator it1 = passengeLegs.iterator();
-				while(it.hasNext()){
-					Long passLEgId = it.next();
+				while(it1.hasNext()){
+					Long passLEgId = it1.next();
 					Objects nextLeg = graph.neighbors(passLEgId, nextLegType, EdgesDirection.Outgoing);
 					ObjectsIterator nextLEgIt = nextLeg.iterator();
 					if (nextLEgIt.hasNext()) {
@@ -141,7 +143,7 @@ public class DelayedFlights implements Action, GraphAware {
 			}
 			
 		}
-		it.close();
+		itf1.close();
 		f1.close();
 		System.out.println("delayed " + countDelayed++);
 		return Action.SUCCESS;

@@ -12,7 +12,7 @@
 		<constant name="loaders" value="./src/test/resources/loaders" />
 	</constants>
 
- 
+ <!--  
 
 	<preparers default="loading_process">
 
@@ -162,7 +162,7 @@
 
 	</preparers>
 	
-
+-->
 
 
 </config>
