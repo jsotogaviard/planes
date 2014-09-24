@@ -196,17 +196,17 @@ public class UpdateFlights implements Action, GraphAware {
 		aircraftType_attr = graph.findAttribute(flight_type, "aircraftType");
 
 		scheduledDepartureTime_attr = graph.findAttribute(flight_type,
-				"scheduledDepartureTime");
+				"scheduledDepartureDateTime");
 		scheduledArrivalDate_attr = graph.findAttribute(flight_type,
-				"scheduledArrivalDate");
+				"scheduledArrivalDateTime");
 		updatedScheduledDepartureTime_attr = graph.findAttribute(flight_type,
 				"updatedScheduledDepartureTime");
 		updatedScheduledArrivalDate_attr = graph.findAttribute(flight_type,
-				"updatedScheduledArrivalDate");
+				"updatedScheduledArrivalTime");
 		actualScheduledDepartureTime_attr = graph.findAttribute(flight_type,
-				"actualScheduledDepartureTime");
+				"actualDepartureDateTime");
 		actualScheduledArrivalDate_attr = graph.findAttribute(flight_type,
-				"actualScheduledArrivalDate");
+				"actualArrivalDateTime");
 		id = graph.findAttribute(flight_type, "id");
 
 		updateDb();

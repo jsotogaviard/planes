@@ -10,6 +10,7 @@
 		<constant name="resources" value="./src/test/resources" />
 	</constants>
 
+<!-- 
 
 	<preparers default="loading_process">
 
@@ -151,4 +152,8 @@
 
 	</preparers>
 	
+
+	-->
+
+
 </config>

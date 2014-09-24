@@ -38,20 +38,20 @@ public class SetDepartureTimes implements Preparer, GraphAware {
 				"scheduledFlyingTime");
 
 		int updatedScheduledArrivalDate_attr = graph.findAttribute(
-				flights_type, "updatedScheduledArrivalDate");
+				flights_type, "updatedScheduledArrivalTime");
 		int updatedScheduledDepartureTime_attr = graph.findAttribute(
 				flights_type, "updatedScheduledDepartureTime");
 
 		int scheduledArrivalDate_attr = graph.findAttribute(flights_type,
-				"scheduledArrivalDate");
+				"scheduledArrivalDateTime");
 		int scheduledDepartureTime_attr = graph.findAttribute(flights_type,
-				"scheduledDepartureTime");
+				"scheduledDepartureDateTime");
 
 		int actualScheduledArrivalDate_attr = graph.findAttribute(flights_type,
-				"actualScheduledArrivalDate");
+				"actualArrivalDateTime");
 
 		int actualScheduledDepartureDate_attr = graph.findAttribute(
-				flights_type, "actualScheduledDepartureTime");
+				flights_type, "actualDepartureDateTime");
 
 		Objects flights = graph.select(flights_type);
 		ObjectsIterator it = flights.iterator();

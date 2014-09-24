@@ -12,12 +12,12 @@ create node Flights (
 		flightNr string indexed,
 		date timestamp indexed,
 		aircraftType string indexed,		
-		scheduledDepartureTime timestamp indexed,
-		scheduledArrivalDate timestamp indexed,
+		scheduledDepartureDateTime timestamp indexed,
+		scheduledArrivalDateTime timestamp indexed,
 		updatedScheduledDepartureTime timestamp indexed,
-		updatedScheduledArrivalDate timestamp indexed,
-		actualScheduledDepartureTime timestamp indexed,
-		actualScheduledArrivalDate timestamp indexed,
+		updatedScheduledArrivalTime timestamp indexed,
+		actualDepartureDateTime timestamp indexed,
+		actualArrivalDateTime timestamp indexed,
 		id string indexed,
 		isDelayed boolean indexed
 	)

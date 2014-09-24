@@ -30,10 +30,9 @@
 			<exception-mapping result="bug" exception="java.lang.Exception" />
 		</global-exception-mappings>
 
-		<action name="updateFlights" class="edu.upc.dama.planes.actions.UpdateFlights">
+		<action name="updateFlights" class="edu.upc.dama.planes.actions.UpdateFlights"/>
+		<action name="delayedFlights" class="edu.upc.dama.planes.actions.DelayedFlights"/>
 			
-		</action>
-
 	</package>
 
 </xwork>

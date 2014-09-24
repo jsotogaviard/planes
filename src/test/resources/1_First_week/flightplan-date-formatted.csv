@@ -1,0 +1,83 @@
+AP001;A100;Amsterdam;Paris;3900000;No
+AP003;B777;Paris;Amsterdam;3600000;No
+AP010;A100;Paris;Bordeaux;3600000;No
+AP011;A100;Bordeaux;Paris;3600000;No
+AP020;A380;Paris;Singapore;46800000;No
+AP021;A380;Singapore;Paris;45000000;No
+AP022;A100;Singapore;Paris;45000000;Yes
+AP024;A100;Singapore;Hong Kong;14400000;No
+AP025;A100;Hong Kong;Singapore;14400000;No
+AP030;A380;Paris;Rio de Janeiro;54000000;No
+AP031;A380;Rio de Janeiro;Paris;54000000;No
+AP032;A100;Paris;Rio de Janeiro;54000000;Yes
+AP040;B777;Paris;New York;21600000;No
+AP041;B777;New York;Paris;21600000;No
+AP050;A100;Paris;Frankfurt;4800000;No
+AP051;B777;Frankfurt;Paris;4800000;No
+AP052;A100;Amsterdam;Moscow;12600000;No
+AP053;A100;Moscow;Amsterdam;11700000;No
+AP060;A100;Paris;Stockholm;3600000;No
+AP061;A100;Stockholm;Paris;3600000;No
+AP062;B777;Amsterdam;Kuala Lumpur;44400000;No
+AP063;B777;Kuala Lumpur;Amsterdam;44700000;No
+AP070;A100;Paris;London;3600000;No
+AP071;A100;London;Paris;3600000;No
+AP072;A100;Amsterdam;Geneva;5400000;No
+AP073;A100;Geneva;Amsterdam;5400000;No
+AP080;A100;Paris;Rome;3900000;No
+AP081;A100;Rome;Paris;3600000;No
+AP082;B777;Amsterdam;Dubai;19800000;No
+AP083;B777;Dubai;Amsterdam;22800000;No
+AP084;A100;Bahrain;Dubai;4500000;No
+AP085;A100;Dubai;Bahrain;4500000;No
+AP090;B777;Paris;Abu Dhabi;20100000;No
+AP091;B777;Abu Dhabi;Paris;31200000;No
+AP092;B777;Amsterdam;Johannesburg;38400000;No
+AP093;B777;Johannesburg;Amsterdam;35400000;No
+AP100;B777;Paris;Atlanta;32100000;No
+AP101;B777;Atlanta;Paris;32100000;No
+AP110;B777;Paris;Bangkok;42600000;No
+AP111;B777;Bangkok;Paris;41400000;No
+AP114;A100;Bangkok;Phuket;4800000;No
+AP115;A100;Phuket;Bangkok;4800000;No
+AP120;A100;Paris;Chicago;31500000;No
+AP121;B777;Chicago;Paris;31500000;No
+AP130;A100;Paris;Nice;4800000;No
+AP131;A100;Nice;Paris;4200000;No
+AP132;A380;Amsterdam;San Francisco;38400000;No
+AP133;B777;San Francisco;Amsterdam;38400000;No
+AP140;B777;Paris;Cancun;38700000;No
+AP141;B777;Cancun;Paris;38700000;No
+AP142;A100;Amsterdam;London;3900000;No
+AP143;A100;London;Amsterdam;3600000;No
+AP150;A100;Paris;Delhi;31800000;No
+AP151;A380;Delhi;Paris;38700000;No
+AP152;A100;Amsterdam;Zurich;5400000;No
+AP153;A100;Zurich;Amsterdam;5100000;No
+AP160;A100;Paris;Marrakech;11700000;No
+AP161;A100;Marrakech;Paris;11700000;No
+AP162;B777;Amsterdam;Hong Kong;46200000;No
+AP163;B777;Hong Kong;Amsterdam;47400000;No
+AP164;A100;Hong Kong;Bali;11100000;No
+AP165;A100;Bali;Hong Kong;11100000;No
+AP170;A100;Paris;Vienna;7200000;No
+AP171;A100;Vienna;Paris;7200000;No
+AP172;A100;Amsterdam;Athens;11700000;No
+AP173;A100;Athens;Amsterdam;12300000;No
+AP180;A100;Paris;Copenhagen;6900000;No
+AP181;A100;Copenhagen;Paris;6900000;No
+AP182;A100;Amsterdam;Barcelona;8100000;No
+AP183;A100;Barcelona;Amsterdam;8100000;No
+AP192;A100;Amsterdam;Berlin;1500000;No
+AP193;A100;Berlin;Amsterdam;5100000;No
+AP202;A380;Amsterdam;Beijing;34800000;No
+AP203;A380;Beijing;Amsterdam;35400000;No
+AP204;A100;Beijing;Shanghai;7800000;No
+AP205;A100;Shanghai;Beijing;8100000;No
+AP206;A100;Beijing;Amsterdam;35400000;Yes
+AP212;B777;Amsterdam;Aruba;36600000;No
+AP213;B777;Aruba;Amsterdam;36900000;No
+AP222;B777;Amsterdam;Buenos Aires;50700000;No;
+AP223;B777;Buenos Aires;Amsterdam;50100000;No;
+AP901;A100;Amsterdam;Paris;4500000;No;
+AP993;A100;Paris;Amsterdam;4500000;No;
