@@ -1,5 +1,5 @@
 use dbgraph flights into 'flights.dex'
-LOAD NODES '${dataset}/flights-date-formatted-final.csv'  
+LOAD NODES '${generated}/flights-date-formatted-final.csv'  
 COLUMNS flightNr,
 		aircraftType,
 		date,	

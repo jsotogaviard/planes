@@ -1,5 +1,5 @@
 use dbgraph flights into 'flights.dex'
-LOAD EDGES '${dataset}/flights-date-formatted-final.csv'
+LOAD EDGES '${generated}/flights-date-formatted-final.csv'
 COLUMNS src,*,*,*,*,*,*,*,*,*,*
 INTO FlightPlan_Flights
 ignore src
@@ -7,7 +7,7 @@ WHERE TAIL src = FlightPlan.flightNr HEAD src = Flights.flightNr
 FIELDS TERMINATED ';'
 mode rows 
 
-LOAD EDGES '${dataset}/flightplan-final.csv'
+LOAD EDGES '${generated}/flightplan-final.csv'
 COLUMNS src,target,*,*,*,*,*
 INTO FlightPlan_Airplanes
 ignore src, target
@@ -15,7 +15,7 @@ WHERE TAIL src = FlightPlan.flightNr HEAD target = Airplanes.aircraftType
 FIELDS TERMINATED ';'
 mode rows 
 
-LOAD EDGES '${dataset}/flightplan-final.csv'
+LOAD EDGES '${generated}/flightplan-final.csv'
 COLUMNS src,*,target,*,*,*,*
 INTO FlightPlan_OriginCity
 ignore src, target
@@ -23,7 +23,7 @@ WHERE TAIL src = FlightPlan.flightNr HEAD target = Cities.city
 FIELDS TERMINATED ';'
 mode rows 
 
-LOAD EDGES '${dataset}/flightplan-final.csv'
+LOAD EDGES '${generated}/flightplan-final.csv'
 COLUMNS src,*,*,target,*,*,*
 INTO FlightPlan_DestinationCity
 ignore src, target
@@ -31,7 +31,7 @@ WHERE TAIL src = FlightPlan.flightNr HEAD target = Cities.city
 FIELDS TERMINATED ';'
 mode rows 
 
-LOAD EDGES '${dataset}/flights-date-formatted-final.csv'
+LOAD EDGES '${generated}/flights-date-formatted-final.csv'
 COLUMNS src,target,*,*,*,*,*,*,*,*,*
 INTO Flights_Airplanes
 ignore src, target
@@ -40,7 +40,7 @@ FIELDS TERMINATED ';'
 mode rows 
 
 
-LOAD EDGES '${dataset}/passenger_legs_final.csv'
+LOAD EDGES '${generated}/passenger_legs_final.csv'
 COLUMNS src,*,*,*
 INTO PassengerItinerary_PassengerLegs
 ignore src
@@ -48,7 +48,7 @@ WHERE TAIL src = PassengerItinerary.itineraryId HEAD src = PassengerLegs.itinera
 FIELDS TERMINATED ';'
 mode rows 
 
-LOAD EDGES '${dataset}/passenger_itenerary-final.csv'
+LOAD EDGES '${generated}/passenger_itenerary-final.csv'
 COLUMNS src,target,*,*,*,*,*,*,*,*,*
 INTO PassengerItinerary_OriginCity
 ignore src, target
@@ -56,7 +56,7 @@ WHERE TAIL src = PassengerItinerary.itineraryId HEAD target = Cities.city
 FIELDS TERMINATED ';'
 mode rows 
 
-LOAD EDGES '${dataset}/passenger_itenerary-final.csv'
+LOAD EDGES '${generated}/passenger_itenerary-final.csv'
 COLUMNS src,*,target,*,*,*,*,*,*,*,*
 INTO PassengerItinerary_DestinationCity
 ignore src, target
@@ -64,7 +64,7 @@ WHERE TAIL src = PassengerItinerary.itineraryId HEAD target = Cities.city
 FIELDS TERMINATED ';'
 mode rows 
 
-LOAD EDGES '${dataset}/passenger_legs_final.csv'
+LOAD EDGES '${generated}/passenger_legs_final.csv'
 COLUMNS src,*,*,target,*
 INTO PassengerLegs_Flights
 ignore src, target

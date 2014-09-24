@@ -1,5 +1,5 @@
 use dbgraph flights into 'flights.dex'
-LOAD NODES '${dataset}/passenger_legs_final.csv'  
+LOAD NODES '${generated}/passenger_legs_final.csv'  
 COLUMNS itineraryId,
 		legId,
 		date,
