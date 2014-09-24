@@ -24,6 +24,8 @@ public class DelayedFlights1 implements Action, GraphAware {
 	private Map<String, Set<User>> delayedPassengers = new HashMap<>();
 	
 	private Map<String, Set<User>> delayedBusinessPassengers = new HashMap<>();
+	
+	private Objects filteredFlights;
 
 	@Override
 	public void setGraph(Graph graph) {
@@ -62,11 +64,15 @@ public class DelayedFlights1 implements Action, GraphAware {
 		
 		int passLegsFligtsType = graph.findType("PassengerLegs_Flights");
 		int nextLegType = graph.findType("nextLeg");
-		
-		
-		Objects f1 = graph.select(updatedScheduledDepartureTimeAttr, Condition.NotEqual, new Value());
-		Objects f2 = graph.select(actualDepartureDateTimeAttr, Condition.NotEqual, new Value());
-		f1.union(f2);
+		Objects f1;
+		if(filteredFlights== null){
+			f1 = graph.select(updatedScheduledDepartureTimeAttr, Condition.NotEqual, new Value());
+			Objects f2 = graph.select(actualDepartureDateTimeAttr, Condition.NotEqual, new Value());
+			f1.union(f2);
+		}
+		else{
+			f1 = filteredFlights;
+		}
 		ObjectsIterator itf1 = f1.iterator();
 		int countDelayed = 0;
 		while (itf1.hasNext()) {
