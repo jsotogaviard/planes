@@ -86,9 +86,11 @@ public class GetFlightStatistics implements Action, GraphAware {
 		Objects destinationParisFlightPlan = graph.select(destinationCityType,
 				Condition.Equal, v.setString("Paris"));
 		originParisFlightPlan.union(destinationParisFlightPlan);
+		destinationParisFlightPlan.close();
 		Objects allParisFlightsPlans = originParisFlightPlan;
 		allParisFlights = graph.neighbors(allParisFlightsPlans,
 				flightPlanFlightsType, EdgesDirection.Outgoing);
+		allParisFlightsPlans.close();
 		allParisFlights.intersection(todayFlights);
 
 		delayedFlights = graph.select(isDelayedType, Condition.Equal,
