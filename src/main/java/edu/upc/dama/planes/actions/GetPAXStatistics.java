@@ -17,7 +17,7 @@ import com.sparsity.sparksee.gdb.Value;
 import edu.upc.dama.dex.preparers.GraphAware;
 import edu.upc.dama.dex.utils.DexUtil;
 
-public class DelayedFlights1 implements Action, GraphAware {
+public class GetPAXStatistics implements Action, GraphAware {
 
 	private Graph graph;
 	
