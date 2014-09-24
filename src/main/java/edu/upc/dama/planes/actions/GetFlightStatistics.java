@@ -9,7 +9,7 @@ import com.sparsity.sparksee.gdb.Value;
 
 import edu.upc.dama.dex.preparers.GraphAware;
 
-public class GetPerfectFlights implements Action, GraphAware {
+public class GetFlightStatistics implements Action, GraphAware {
 
 	private Graph graph;
 	
