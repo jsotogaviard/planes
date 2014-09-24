@@ -63,6 +63,7 @@ public class DelayedFlights1 implements Action, GraphAware {
 		int passLegsFligtsType = graph.findType("PassengerLegs_Flights");
 		int nextLegType = graph.findType("nextLeg");
 		
+		
 		Objects f1 = graph.select(updatedScheduledDepartureTimeAttr, Condition.NotEqual, new Value());
 		Objects f2 = graph.select(actualDepartureDateTimeAttr, Condition.NotEqual, new Value());
 		f1.union(f2);
@@ -104,12 +105,12 @@ public class DelayedFlights1 implements Action, GraphAware {
 					ObjectsIterator nextLegIt = nextLeg.iterator();
 					if (nextLegIt.hasNext()) {
 						Long nextLegId = nextLegIt.next();
-						System.out.println(graph.getAttribute(nextLegId, PAssengerLegAttr));
-						Objects nextFlight = graph.neighbors(nextLegId, passLegsFligtsType, EdgesDirection.Outgoing);
-						ObjectsIterator nextFlightIt = nextFlight.iterator();
-						Long nextFlightId = nextFlightIt.next();
-						Long departureTime = null;
-						Value nextFlightActualDeparture = graph.getAttribute(nextFlightId, actualDepartureDateTimeAttr);
+						//System.out.println(graph.getAttribute(nextLegId, PAssengerLegAttr));
+						//Objects nextFlight = graph.neighbors(nextLegId, passLegsFligtsType, EdgesDirection.Outgoing);
+						//ObjectsIterator nextFlightIt = nextFlight.iterator();
+						//Long nextFlightId = nextFlightIt.next();
+						//Long departureTime = null;
+						/**Value nextFlightActualDeparture = graph.getAttribute(nextFlightId, actualDepartureDateTimeAttr);
 						if (!nextFlightActualDeparture.isNull()) {
 							departureTime = nextFlightActualDeparture.getTimestamp();
 						} else {
@@ -120,7 +121,7 @@ public class DelayedFlights1 implements Action, GraphAware {
 								Value scheduledDepartureDateTime = graph.getAttribute(nextFlightId, scheduledDepartureDateTimeAttr);
 								departureTime = scheduledDepartureDateTime.getTimestamp();
 							}
-						}
+						}*/
 						Value flightNbr = graph.getAttribute(nextLegId, flightNrAttr);
 						Objects passengerIt = graph.neighbors(nextLegId, passengerItineraryPassengerLegType, EdgesDirection.Ingoing);
 						ObjectsIterator it2 = passengerIt.iterator();
@@ -130,8 +131,10 @@ public class DelayedFlights1 implements Action, GraphAware {
 							Value namePassenger = graph.getAttribute(passengerLEgId, nameAttr);
 							saveData(flightNbr.getString(), className.getString(), namePassenger.getString());
 						}
-						nextFlight.close();
-						nextFlightIt.close();
+						it2.close();
+						passengerIt.close();
+						//nextFlight.close();
+						//nextFlightIt.close();
 					}
 					nextLeg.close();
 					nextLegIt.close();
