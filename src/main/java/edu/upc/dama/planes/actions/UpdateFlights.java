@@ -16,6 +16,7 @@ import com.sparsity.sparksee.gdb.Value;
 
 import edu.upc.dama.dex.preparers.GraphAware;
 import edu.upc.dama.dex.utils.DexUtil;
+import edu.upc.dama.planes.preparers.SetDepartureTimes;
 import edu.upc.dama.struts2.dispatcher.ActionParameter;
 
 public class UpdateFlights implements Action, GraphAware {
@@ -210,6 +211,9 @@ public class UpdateFlights implements Action, GraphAware {
 		id = graph.findAttribute(flight_type, "id");
 
 		updateDb();
+		SetDepartureTimes times = new SetDepartureTimes();
+		times.setGraph(graph);
+		times.execute();
 		return Action.SUCCESS;
 	}
 
