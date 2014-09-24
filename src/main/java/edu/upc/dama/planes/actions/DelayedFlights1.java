@@ -27,6 +27,15 @@ public class DelayedFlights1 implements Action, GraphAware {
 	
 	private Objects filteredFlights;
 
+	
+	public Objects getFilteredFlights() {
+		return filteredFlights;
+	}
+
+	public void setFilteredFlights(Objects filteredFlights) {
+		this.filteredFlights = filteredFlights;
+	}
+
 	@Override
 	public void setGraph(Graph graph) {
 		this.graph =graph;
