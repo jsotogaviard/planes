@@ -64,9 +64,6 @@ public class UpdateFlights implements Action, GraphAware {
 					flight_type, "actualScheduledArrivalDate");
 			int id = graph.findAttribute(flight_type, "id");
 
-			SimpleDateFormat simpleDf = new SimpleDateFormat(
-					"dd/MM/yyyy");
-			
 			SimpleDateFormat complexDf = new SimpleDateFormat(
 					"dd/MM/yyyy hh:mm");
 
@@ -75,12 +72,9 @@ public class UpdateFlights implements Action, GraphAware {
 
 			while (line != null) {
 				String flightNr = line[0];
-				String date = line[2];	
-				cal.setTime(simpleDf.parse(date));
-				
-				
-				String id_flight = flightNr + "_"
-						+ cal.toString();
+				String date = line[2];
+
+				String id_flight = flightNr + "_" + date;
 				v.setString(id_flight);
 				long oid = graph.findObject(id, v);
 				if (oid != Objects.InvalidOID) {
