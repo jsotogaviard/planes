@@ -17,7 +17,7 @@ import com.sparsity.sparksee.gdb.Value;
 import edu.upc.dama.dex.preparers.GraphAware;
 import edu.upc.dama.dex.utils.DexUtil;
 
-public class DelayedFlights implements Action, GraphAware {
+public class DelayedFlights1 implements Action, GraphAware {
 
 	private Graph graph;
 	
@@ -75,20 +75,20 @@ public class DelayedFlights implements Action, GraphAware {
 			Value scheduledArrivalDateTime = graph.getAttribute(flightId, scheduledArrivalDateTimeAttr);
 			
 			if (!actualArrivalDateTime.isNull()) {
-				if (actualArrivalDateTime.getTimestamp() > scheduledArrivalDateTime.getTimestamp()) {
+				if (actualArrivalDateTime.getTimestamp() - scheduledArrivalDateTime.getTimestamp() >= 60 * 60 * 1000) {
 					expectedArrivalTime = actualArrivalDateTime.getTimestamp();
 				}
 			} else {
 				Value actualDepartureDateTime = graph.getAttribute(flightId, actualDepartureDateTimeAttr);
 				Value scheduledDepartureDateTime = graph.getAttribute(flightId, scheduledDepartureDateTimeAttr);
 				if (!actualDepartureDateTime.isNull()) {
-					if (actualDepartureDateTime.getTimestamp() > scheduledDepartureDateTime.getTimestamp()) {
+					if (actualDepartureDateTime.getTimestamp() - scheduledDepartureDateTime.getTimestamp() >= 60 * 60 * 1000) {
 						expectedArrivalTime = actualDepartureDateTime.getTimestamp() + 
 								(scheduledArrivalDateTime.getTimestamp() - scheduledDepartureDateTime.getTimestamp());
 					}
 				} else {
 					Value updatedScheduledArrivalTime = graph.getAttribute(flightId, updatedScheduledArrivalDateTimeAttr);
-					if (updatedScheduledArrivalTime.getTimestamp() > scheduledArrivalDateTime.getTimestamp() ) {
+					if (updatedScheduledArrivalTime.getTimestamp() - scheduledArrivalDateTime.getTimestamp() >= 60 * 60 * 1000) {
 						expectedArrivalTime = updatedScheduledArrivalTime.getTimestamp();
 					}
 				}
@@ -104,7 +104,6 @@ public class DelayedFlights implements Action, GraphAware {
 					ObjectsIterator nextLegIt = nextLeg.iterator();
 					if (nextLegIt.hasNext()) {
 						Long nextLegId = nextLegIt.next();
-//						System.out.println(graph.getAttribute(arg0, arg1));
 						System.out.println(graph.getAttribute(nextLegId, PAssengerLegAttr));
 						Objects nextFlight = graph.neighbors(nextLegId, passLegsFligtsType, EdgesDirection.Outgoing);
 						ObjectsIterator nextFlightIt = nextFlight.iterator();
@@ -122,20 +121,15 @@ public class DelayedFlights implements Action, GraphAware {
 								departureTime = scheduledDepartureDateTime.getTimestamp();
 							}
 						}
-						if ((departureTime - expectedArrivalTime) < 45 * 60 * 1000) {
-							Value flightNbr = graph.getAttribute(nextLegId, flightNrAttr);
-							Objects passengerIt = graph.neighbors(nextLegId, passengerItineraryPassengerLegType, EdgesDirection.Ingoing);
-							ObjectsIterator it2 = passengerIt.iterator();
-							if (it2.hasNext()) {
-								Long passengerLEgId = it2.next();
-								Value className = graph.getAttribute(passengerLEgId, classAttr);
-								Value namePassenger = graph.getAttribute(passengerLEgId, nameAttr);
-								saveData(flightNbr.getString(), className.getString(), namePassenger.getString());
-							}
-							it2.close();
-							passengerIt.close();
+						Value flightNbr = graph.getAttribute(nextLegId, flightNrAttr);
+						Objects passengerIt = graph.neighbors(nextLegId, passengerItineraryPassengerLegType, EdgesDirection.Ingoing);
+						ObjectsIterator it2 = passengerIt.iterator();
+						if (it2.hasNext()) {
+							Long passengerLEgId = it2.next();
+							Value className = graph.getAttribute(passengerLEgId, classAttr);
+							Value namePassenger = graph.getAttribute(passengerLEgId, nameAttr);
+							saveData(flightNbr.getString(), className.getString(), namePassenger.getString());
 						}
-						
 						nextFlight.close();
 						nextFlightIt.close();
 					}

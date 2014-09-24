@@ -9,6 +9,14 @@ import edu.upc.dama.struts2.dispatcher.ShellActionDispatcher;
 public class testDelayedFlights {
 
 	@Test
+	public void testDelayedFlights1ZeroUpdates() throws Exception {
+		InputStream in = new ByteArrayInputStream("flights-manager\n3\n0\n".getBytes("UTF-8"));
+		System.setIn(in );
+		ShellActionDispatcher dispatcher = new ShellActionDispatcher();
+		dispatcher.main(new String[]{});
+	}
+	
+	@Test
 	public void testDelayedFlightsZeroUpdates() throws Exception {
 		InputStream in = new ByteArrayInputStream("flights-manager\n2\n0\n".getBytes("UTF-8"));
 		System.setIn(in );
