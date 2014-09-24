@@ -25,13 +25,12 @@ public class SetDepartureTimes implements Preparer, GraphAware {
 
 	@Override
 	public void execute() throws Exception {
-		
+
 		int flights_type = graph.findType("Flights");
-		
+
 		int flightplan_flights_type = graph.findType("FlightPlan_Flights");
 
-		int isDelayed_attr = graph.findAttribute(flights_type,
-				"isDelayed");
+		int isDelayed_attr = graph.findAttribute(flights_type, "isDelayed");
 
 		int flightplan_type = graph.findType("FlightPlan");
 		int scheduledFlyingTime_attr = graph.findAttribute(flightplan_type,
@@ -47,11 +46,11 @@ public class SetDepartureTimes implements Preparer, GraphAware {
 		int scheduledDepartureTime_attr = graph.findAttribute(flights_type,
 				"scheduledDepartureDateTime");
 
-		int actualScheduledArrivalDate_attr = graph.findAttribute(flights_type,
+		int actualArrivalDateTime_attr = graph.findAttribute(flights_type,
 				"actualArrivalDateTime");
 
-		int actualScheduledDepartureDate_attr = graph.findAttribute(
-				flights_type, "actualDepartureDateTime");
+		int actualDepartureDateTime_attr = graph.findAttribute(flights_type,
+				"actualDepartureDateTime");
 
 		Objects flights = graph.select(flights_type);
 		ObjectsIterator it = flights.iterator();
@@ -64,8 +63,10 @@ public class SetDepartureTimes implements Preparer, GraphAware {
 
 		boolean isDelayed = false;
 		
+		long delay = (60 * 60 * 1000 )-1;
+
 		while (it.hasNext()) {
-			
+
 			Long oid = it.next();
 
 			Value scheduledDepartureTimeValue = graph.getAttribute(oid,
@@ -74,11 +75,11 @@ public class SetDepartureTimes implements Preparer, GraphAware {
 			Value updatedScheduledDepartureDateValue = graph.getAttribute(oid,
 					updatedScheduledDepartureTime_attr);
 
-			Value actualScheduledArrivalDateValue = graph.getAttribute(oid,
-					actualScheduledArrivalDate_attr);
+			Value actualArrivalDateTimeValue = graph.getAttribute(oid,
+					actualArrivalDateTime_attr);
 
-			Value actualScheduledDepartureDateValue = graph.getAttribute(oid,
-					actualScheduledDepartureDate_attr);
+			Value actualDepartureDateTimeValue = graph.getAttribute(oid,
+					actualDepartureDateTime_attr);
 
 			isDelayed = false;
 			Objects flightPlan = graph.neighbors(oid, flightplan_flights_type,
@@ -96,26 +97,25 @@ public class SetDepartureTimes implements Preparer, GraphAware {
 
 				scheduledArrivalTimeValue.setNull();
 
-				if (!scheduledDepartureTimeValue.isNull()) {
-					// updating scheduledArrivalTime
-					long scheduledDepartureTimeInMillis = scheduledDepartureTimeValue
-							.getTimestamp();
+				// updating scheduledArrivalTime
+				long scheduledDepartureTimeInMillis = scheduledDepartureTimeValue
+						.getTimestamp();
 
-					scheduledArrivalTimeValue
-							.setTimestamp(scheduledFlyingTimeInMillis
-									+ scheduledDepartureTimeInMillis);
-					graph.setAttribute(oid, scheduledArrivalDate_attr,
-							scheduledArrivalTimeValue);
+				scheduledArrivalTimeValue
+						.setTimestamp(scheduledFlyingTimeInMillis
+								+ scheduledDepartureTimeInMillis);
+				graph.setAttribute(oid, scheduledArrivalDate_attr,
+						scheduledArrivalTimeValue);
 
-					if (!actualScheduledArrivalDateValue.isNull()) {
-						isDelayed = (actualScheduledArrivalDateValue
-								.getTimestamp() > scheduledArrivalTimeValue
-								.getTimestamp())
-								|| (actualScheduledDepartureDateValue
-										.getTimestamp() > scheduledDepartureTimeValue
-										.getTimestamp());
+				if (!actualArrivalDateTimeValue.isNull()) {
+					isDelayed = (actualArrivalDateTimeValue.getTimestamp()  > scheduledArrivalTimeValue
+							.getTimestamp() + delay);
+
+				} else {
+					if ((!actualDepartureDateTimeValue.isNull())) {
+						isDelayed = actualDepartureDateTimeValue.getTimestamp() > scheduledDepartureTimeValue
+								.getTimestamp() + delay;
 					}
-
 				}
 
 				// updating actualScheduledArrivalDate
@@ -130,7 +130,7 @@ public class SetDepartureTimes implements Preparer, GraphAware {
 
 					if (!isDelayed && !scheduledArrivalTimeValue.isNull()) {
 						isDelayed = updatedArrivalTimeValue.getTimestamp() > scheduledArrivalTimeValue
-								.getTimestamp();
+								.getTimestamp() + delay;
 					}
 				}
 				isDelayedValue.setBoolean(isDelayed);

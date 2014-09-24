@@ -12,13 +12,20 @@ import edu.upc.dama.dex.preparers.GraphAware;
 public class GetPerfectFlights implements Action, GraphAware {
 
 	private Graph graph;
+	
+	private double perfectFlightsManagedByVictor;
+	
+	private double paxMissingTheirConnection;
+	
+	private Objects delayedFlights;
+	
+	private Objects allParisFlights;
 
-	private void percentDelayedFlightsManagedByVictor() {
+	private double getPercentPerfectFlightsManagedByVictor() {
 
 		Value v = new Value();
 		int flightsType = graph.findType("Flights");
 		int isDelayedType = graph.findAttribute(flightsType, "isDelayed");
-		int flightNbrType = graph.findAttribute(flightsType, "flightNr");
 
 		int flightPlanType = graph.findType("FlightPlan");
 		int originCityType = graph.findAttribute(flightPlanType, "originCity");
@@ -33,19 +40,28 @@ public class GetPerfectFlights implements Action, GraphAware {
 				Condition.Equal, v.setString("Paris"));
 		originParisFlightPlan.union(destinationParisFlightPlan);
 		Objects allParisFlightsPlans = originParisFlightPlan;
-		Objects allParisFlights = graph.neighbors(allParisFlightsPlans,
+		allParisFlights = graph.neighbors(allParisFlightsPlans,
 				flightPlanFlightsType, EdgesDirection.Ingoing);
 
-		Objects delayedFlights = graph.select(isDelayedType, Condition.Equal,
+		delayedFlights = graph.select(isDelayedType, Condition.Equal,
 				v.setBoolean(true));
 
 		delayedFlights.intersection(allParisFlights);
-		System.out.println(delayedFlights.size() / allParisFlights.size());
+		return 1- (delayedFlights.size() / allParisFlights.size());
 	}
 
 	@Override
 	public String execute() throws Exception {
-
+		perfectFlightsManagedByVictor = getPercentPerfectFlightsManagedByVictor();
+		
+		int passengetLegs_flights_type = graph.findType("PassengerLegs_Flights");
+		
+		int passengerItinerary_passengerLegs_type = graph.findType("PassengerItinerary_PassengerLegs");
+		
+		Objects passengerLegsAffected = graph.neighbors(delayedFlights, passengetLegs_flights_type, EdgesDirection.Ingoing);
+		
+		Objects passengerItineraries = graph.neighbors(passengerLegsAffected, passengerItinerary_passengerLegs_type, EdgesDirection.Ingoing);
+		
 		return Action.SUCCESS;
 	}
 
