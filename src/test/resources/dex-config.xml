@@ -12,8 +12,6 @@
 		<constant name="loaders" value="./src/test/resources/loaders" />
 	</constants>
 
- <!--  
-
 	<preparers default="loading_process">
 
 		<preparer name="loading_process">
@@ -22,19 +20,22 @@
 
 			<script name="tmp-db" path="${loaders}/db-tmp-schema.ddl" />
 
-			<bean name="date_normalizer_flightplan" class="edu.upc.dama.planes.preparers.ScheduledFlyingTimeNormalizer">
+			<bean name="date_normalizer_flightplan"
+				class="edu.upc.dama.planes.preparers.ScheduledFlyingTimeNormalizer">
 				<properties>
 					<property name="scheduledFlyingTimeColumn" value="4" />
 					<property name="file" value="${dataset}/FlightPlan.csv" />
 					<property name="separator" value=";"></property>
 					<property name="line" value="1"></property>
 					<property name="quoteChar" value="\0"></property>
-					<property name="output" value="${generated}/flightplan-date-formatted.csv"></property>
+					<property name="output"
+						value="${generated}/flightplan-date-formatted.csv"></property>
 				</properties>
 			</bean>
 			<bean name="boolean_normalizer_flightplan" class="edu.upc.dama.dex.preparers.CSVReplaceValuesFromFile">
 				<properties>
-					<property name="file" value="${generated}/flightplan-date-formatted.csv" />
+					<property name="file"
+						value="${generated}/flightplan-date-formatted.csv" />
 					<property name="fromFile" value="${resources}/booleans.csv" />
 					<property name="separator" value=";"></property>
 					<property name="quoteChar" value="\0"></property>
@@ -87,13 +88,13 @@
 						value="${generated}/passenger_itenerary-formatted.csv"></property>
 				</properties>
 			</bean>
-			
+
 			<bean name="customer-support-cleaner" class="edu.upc.dama.planes.preparers.CleanCustomerSupport">
 				<properties>
 					<property name="file" value="${dataset}/customer_support.csv" />
 					<property name="output" value="${generated}/customer_support-final.csv"></property>
 				</properties>
-				
+
 			</bean>
 
 			<bean name="join_itinerary" class="edu.upc.dama.dex.preparers.CSVJoin">
@@ -104,7 +105,8 @@
 					<property name="secondFile" value="${generated}/customer_support-final.csv" />
 					<property name="separator" value=";"></property>
 					<property name="quoteChar" value="\0"></property>
-					<property name="outputFile" value="${generated}/passenger_itenerary-joined.csv"></property>
+					<property name="outputFile"
+						value="${generated}/passenger_itenerary-joined.csv"></property>
 					<property name="firstCrossColumn" value="0" />
 					<property name="secondCrossColumn" value="0" />
 					<property name="firstColumnTypes"
@@ -116,12 +118,14 @@
 			</bean>
 			<bean name="boolean_normalizer_itinerary_luggageLost" class="edu.upc.dama.dex.preparers.CSVReplaceValuesFromFile">
 				<properties>
-					<property name="file" value="${generated}/passenger_itenerary-joined.csv" />
+					<property name="file"
+						value="${generated}/passenger_itenerary-joined.csv" />
 					<property name="fromFile" value="${resources}/booleans.csv" />
 					<property name="separator" value=";"></property>
 					<property name="quoteChar" value="\0"></property>
 					<property name="replaceColumn" value="9"></property>
-					<property name="outputFile" value="${generated}/passenger_itenerary-final.csv"></property>
+					<property name="outputFile"
+						value="${generated}/passenger_itenerary-final.csv"></property>
 				</properties>
 			</bean>
 			<script name="itinerary-loader" path="${loaders}/db-loader-itinerary.ddl" />
@@ -138,7 +142,7 @@
 					<property name="outputFile" value="${generated}/passenger_legs_formatted.csv"></property>
 				</properties>
 			</bean>
-			
+
 			<bean name="annulated_normalizer_passenger_legs" class="edu.upc.dama.dex.preparers.CSVReplaceValuesFromFile">
 				<properties>
 					<property name="file" value="${generated}/passenger_legs_formatted.csv" />
@@ -148,8 +152,8 @@
 					<property name="replaceColumn" value="4"></property>
 					<property name="outputFile" value="${generated}/passenger_legs_final.csv"></property>
 				</properties>
-			</bean>		
-			
+			</bean>
+
 			<script name="loader-legs" path="${loaders}/db-loader-passenger-legs.ddl" />
 			<script name="loader-cities" path="${loaders}/db-loader-cities.ddl" />
 
@@ -158,13 +162,12 @@
 			<bean name="sorting-lengs" class="edu.upc.dama.planes.preparers.CreateLegEdges" />
 
 			<bean name="generate_ids_for_flights" class="edu.upc.dama.planes.preparers.GenerateKeys" />
-			
+
 			<bean name="updateArrivalDates" class="edu.upc.dama.planes.preparers.SetDepartureTimes"></bean>
 		</preparer>
 
 	</preparers>
-	
--->
+
 
 
 </config>
