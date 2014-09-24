@@ -7,8 +7,8 @@ COLUMNS itineraryId,
 		class,
 		luggageWeight,
 		scheduledDepartureDateTime,
-		scheduledArrivalDateTim,
-		schekingDateTime,
+		scheduledArrivalDateTime,
+		chekingDateTime,
 		luggageLost,
 		lateArrival
 INTO PassengerItinerary

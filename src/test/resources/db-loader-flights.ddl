@@ -3,12 +3,12 @@ LOAD NODES '${dataset}/flights-date-formatted-final.csv'
 COLUMNS flightNr,
 		aircraftType,
 		date,	
-		scheduledDepartureTime,
-		scheduledArrivalDate,
+		scheduledDepartureDateTime,
+		scheduledArrivalDateTime,
 		updatedScheduledDepartureTime,
-		updatedScheduledArrivalDate,
-		actualScheduledDepartureTime,
-		actualScheduledArrivalDate
+		updatedScheduledArrivalTime,
+		actualDepartureDateTime,
+		actualArrivalDateTime
 INTO Flights
 FIELDS TERMINATED ';'
 mode rows

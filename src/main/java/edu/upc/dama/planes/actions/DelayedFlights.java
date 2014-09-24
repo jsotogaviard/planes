@@ -59,6 +59,7 @@ public class DelayedFlights implements Action, GraphAware {
 		Objects allFlights = graph.select(updatedScheduledDepartureTimeAttr, Condition.NotEqual, new Value());
 		System.out.println(allFlights.size());
 		ObjectsIterator it = allFlights.iterator();
+		int countDelayed = 0;
 		while (it.hasNext()) {
 			Long oId = it.next();
 			
@@ -87,6 +88,7 @@ public class DelayedFlights implements Action, GraphAware {
 			}
 			
 			if (expectedArrivalTime != null) {
+				countDelayed++;
 				Objects passengeLegs = graph.neighbors(oId, passLegsFligtsType, EdgesDirection.Ingoing);
 				ObjectsIterator it1 = passengeLegs.iterator();
 				while(it.hasNext()){
@@ -139,6 +141,7 @@ public class DelayedFlights implements Action, GraphAware {
 		}
 		it.close();
 		allFlights.close();
+		System.out.println("delayed " + countDelayed++);
 		return Action.SUCCESS;
 	}
 	

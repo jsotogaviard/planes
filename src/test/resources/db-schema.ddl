@@ -38,7 +38,7 @@ create node PassengerItinerary (
 		luggageWeight long indexed,
 		scheduledDepartureDateTime timestamp indexed,
 		scheduledArrivalDateTime timestamp indexed,
-		schekingDateTime timestamp indexed,
+		chekingDateTime timestamp indexed,
 		luggageLost boolean indexed,
 		lateArrival boolean indexed
 	)
