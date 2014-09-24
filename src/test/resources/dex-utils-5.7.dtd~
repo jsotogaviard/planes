@@ -4,7 +4,7 @@
 <!ELEMENT mapping (alias+)>
 <!ELEMENT constants (constant+)>
 <!ELEMENT factories (factory+)>
-<!ELEMENT preparer (bean|script)*> 
+<!ELEMENT preparer (bean|script)*>
 <!ELEMENT bean (properties?, params?)>
 <!ELEMENT preparers (preparer+)>
 
