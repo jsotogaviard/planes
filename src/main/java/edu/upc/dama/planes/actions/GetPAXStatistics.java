@@ -61,6 +61,7 @@ public class GetPAXStatistics implements Action, GraphAware {
 		int passengerType = graph.findType("PassengerLegs");
 		int flightNrAttr = graph.findAttribute(passengerType, "flightNr");
 		int PAssengerLegAttr = graph.findAttribute(passengerType, "id");
+		int dateAttr = graph.findAttribute(passengerType, "date");
 		
 		int flightsType = graph.findType("Flights");
 		int scheduledDepartureDateTimeAttr = graph.findAttribute(flightsType, "scheduledDepartureDateTime");
@@ -104,8 +105,10 @@ public class GetPAXStatistics implements Action, GraphAware {
 					}
 				} else {
 					Value updatedScheduledArrivalTime = graph.getAttribute(flightId, updatedScheduledArrivalDateTimeAttr);
-					if (updatedScheduledArrivalTime.getTimestamp() - scheduledArrivalDateTime.getTimestamp() >= 60 * 60 * 1000) {
-						expectedArrivalTime = updatedScheduledArrivalTime.getTimestamp();
+					if(!updatedScheduledArrivalTime.isNull()){
+						if (updatedScheduledArrivalTime.getTimestamp() - scheduledArrivalDateTime.getTimestamp() >= 60 * 60 * 1000) {
+							expectedArrivalTime = updatedScheduledArrivalTime.getTimestamp();
+						}
 					}
 				}
 			}
@@ -139,12 +142,13 @@ public class GetPAXStatistics implements Action, GraphAware {
 						}*/
 						Value flightNbr = graph.getAttribute(nextLegId, flightNrAttr);
 						Objects passengerIt = graph.neighbors(nextLegId, passengerItineraryPassengerLegType, EdgesDirection.Ingoing);
+						Value datePassenger = graph.getAttribute(nextLegId, dateAttr);
 						ObjectsIterator it2 = passengerIt.iterator();
 						if (it2.hasNext()) {
 							Long passengerLEgId = it2.next();
 							Value className = graph.getAttribute(passengerLEgId, classAttr);
-							Value namePassenger = graph.getAttribute(passengerLEgId, nameAttr);
-							saveData(flightNbr.getString(), className.getString(), namePassenger.getString());
+							Value namePassenger = graph.getAttribute(passengerLEgId, nameAttr); 
+							saveData(flightNbr.getString()+"_"+datePassenger.getTimestamp(), className.getString(), namePassenger.getString());
 						}
 						it2.close();
 						passengerIt.close();
