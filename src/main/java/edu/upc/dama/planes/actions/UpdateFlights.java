@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.text.SimpleDateFormat;
 
+import org.apache.log4j.Logger;
+
 import au.com.bytecode.opencsv.CSVReader;
 
 import com.ibm.icu.util.Calendar;
@@ -21,6 +23,31 @@ public class UpdateFlights implements Action, GraphAware {
 	private Graph graph;
 
 	private String uploads;
+
+	private int flight_type;
+
+	private int aircraftType_attr;
+
+	private int scheduledDepartureTime_attr;
+
+	private int scheduledArrivalDate_attr;
+
+	private int updatedScheduledDepartureTime_attr;
+
+	private int updatedScheduledArrivalDate_attr;
+
+	private int actualScheduledDepartureTime_attr;
+
+	private int actualScheduledArrivalDate_attr;
+
+	private int id;
+
+	private SimpleDateFormat complexDf;
+
+	private Calendar cal;
+	
+	protected static final Logger LOG = Logger
+			.getLogger(UpdateFlights.class);
 
 	public String getUploads() {
 		return uploads;
@@ -41,35 +68,97 @@ public class UpdateFlights implements Action, GraphAware {
 		return graph;
 	}
 
+	public void updateFlight(Value v, long oid, String[] line) throws Exception {
+		String aircraftType = line[1];
+		if ("".equals(aircraftType.trim())) {
+			v.setNull();
+		} else {
+			v.setString(aircraftType);
+		}
+		int i = 3;
+		graph.setAttribute(oid, aircraftType_attr, v);
+
+		String scheduledDepartureDateTime = line[i++];
+		if ("".equals(scheduledDepartureDateTime.trim())) {
+			v.setNull();
+		} else {
+			cal.setTime(complexDf.parse(scheduledDepartureDateTime));
+			v.setTimestamp(cal.getTimeInMillis());
+		}
+
+		graph.setAttribute(oid, scheduledDepartureTime_attr, v);
+
+		String scheduledArrivalDateTime = line[i++];
+
+		if ("".equals(scheduledArrivalDateTime.trim())) {
+			v.setNull();
+		} else {
+			cal.setTime(complexDf.parse(scheduledArrivalDateTime));
+			v.setTimestamp(cal.getTimeInMillis());
+		}
+		graph.setAttribute(oid, scheduledArrivalDate_attr, v);
+
+		String updatedScheduledDepartureDateTime = line[i++];
+		if ("".equals(updatedScheduledDepartureDateTime.trim())) {
+			v.setNull();
+		} else {
+			cal.setTime(complexDf
+					.parse(updatedScheduledDepartureDateTime));
+			v.setTimestamp(cal.getTimeInMillis());
+		}
+		graph.setAttribute(oid, updatedScheduledDepartureTime_attr,
+				v);
+
+		String updatedScheduledArrivalDateTime = line[i++];
+		if ("".equals(updatedScheduledArrivalDateTime.trim())) {
+			v.setNull();
+		} else {
+			cal.setTime(complexDf
+					.parse(updatedScheduledArrivalDateTime));
+			v.setTimestamp(cal.getTimeInMillis());
+		}
+		graph.setAttribute(oid, updatedScheduledArrivalDate_attr, v);
+
+		String actualDepartureDateTime = line[i++];
+
+		if ("".equals(actualDepartureDateTime.trim())) {
+			v.setNull();
+		} else {
+			cal.setTime(complexDf.parse(actualDepartureDateTime));
+			v.setTimestamp(cal.getTimeInMillis());
+		}
+
+		graph.setAttribute(oid, actualScheduledDepartureTime_attr,
+				v);
+
+		String actualArrivalDateTime = line[i];
+
+		if ("".equals(actualArrivalDateTime.trim())) {
+			v.setNull();
+		} else {
+			cal.setTime(complexDf.parse(actualArrivalDateTime));
+			v.setTimestamp(cal.getTimeInMillis());
+		}
+
+		graph.setAttribute(oid, actualScheduledArrivalDate_attr, v);
+
+	}
+
 	public void updateDb() throws Exception {
 		File file = new File(uploads);
 		CSVReader reader = new CSVReader(new FileReader(file), ';', '\0', '\0',
 				1, false);
+		int updates = 0;
+		int inserts = 0;
 		try {
 			String[] line = reader.readNext();
-			int flight_type = graph.findType("Flights");
-			int aircraftType_attr = graph.findAttribute(flight_type,
-					"aircraftType");
-			int scheduledDepartureTime_attr = graph.findAttribute(flight_type,
-					"scheduledDepartureTime");
-			int scheduledArrivalDate_attr = graph.findAttribute(flight_type,
-					"scheduledArrivalDate");
-			int updatedScheduledDepartureTime_attr = graph.findAttribute(
-					flight_type, "updatedScheduledDepartureTime");
-			int updatedScheduledArrivalDate_attr = graph.findAttribute(
-					flight_type, "updatedScheduledArrivalDate");
-			int actualScheduledDepartureTime_attr = graph.findAttribute(
-					flight_type, "actualScheduledDepartureTime");
-			int actualScheduledArrivalDate_attr = graph.findAttribute(
-					flight_type, "actualScheduledArrivalDate");
-			int id = graph.findAttribute(flight_type, "id");
 
-			SimpleDateFormat complexDf = new SimpleDateFormat(
+			complexDf = new SimpleDateFormat(
 					"dd/MM/yyyy hh:mm");
 
 			Value v = new Value();
-			Calendar cal = Calendar.getInstance();
-
+			cal = Calendar.getInstance();
+			
 			while (line != null) {
 				String flightNr = line[0];
 				String date = line[2];
@@ -78,78 +167,15 @@ public class UpdateFlights implements Action, GraphAware {
 				v.setString(id_flight);
 				long oid = graph.findObject(id, v);
 				if (oid != Objects.InvalidOID) {
-					String aircraftType = line[1];
-					if ("".equals(aircraftType.trim())) {
-						v.setNull();
-					} else {
-						v.setString(aircraftType);
-					}
-					int i = 3;
-					graph.setAttribute(oid, aircraftType_attr, v);
-
-					String scheduledDepartureDateTime = line[i++];
-					if ("".equals(scheduledDepartureDateTime.trim())) {
-						v.setNull();
-					} else {
-						cal.setTime(complexDf.parse(scheduledDepartureDateTime));
-						v.setTimestamp(cal.getTimeInMillis());
-					}
-
-					graph.setAttribute(oid, scheduledDepartureTime_attr, v);
-
-					String scheduledArrivalDateTime = line[i++];
-
-					if ("".equals(scheduledArrivalDateTime.trim())) {
-						v.setNull();
-					} else {
-						cal.setTime(complexDf.parse(scheduledArrivalDateTime));
-						v.setTimestamp(cal.getTimeInMillis());
-					}
-					graph.setAttribute(oid, scheduledArrivalDate_attr, v);
-
-					String updatedScheduledDepartureDateTime = line[i++];
-					if ("".equals(updatedScheduledDepartureDateTime.trim())) {
-						v.setNull();
-					} else {
-						cal.setTime(complexDf
-								.parse(updatedScheduledDepartureDateTime));
-						v.setTimestamp(cal.getTimeInMillis());
-					}
-					graph.setAttribute(oid, updatedScheduledDepartureTime_attr,
-							v);
-
-					String updatedScheduledArrivalDateTime = line[i++];
-					if ("".equals(updatedScheduledArrivalDateTime.trim())) {
-						v.setNull();
-					} else {
-						cal.setTime(complexDf
-								.parse(updatedScheduledArrivalDateTime));
-						v.setTimestamp(cal.getTimeInMillis());
-					}
-					graph.setAttribute(oid, updatedScheduledArrivalDate_attr, v);
-
-					String actualDepartureDateTime = line[i++];
-
-					if ("".equals(actualDepartureDateTime.trim())) {
-						v.setNull();
-					} else {
-						cal.setTime(complexDf.parse(actualDepartureDateTime));
-						v.setTimestamp(cal.getTimeInMillis());
-					}
-
-					graph.setAttribute(oid, actualScheduledDepartureTime_attr,
-							v);
-
-					String actualArrivalDateTime = line[i];
-
-					if ("".equals(actualArrivalDateTime.trim())) {
-						v.setNull();
-					} else {
-						cal.setTime(complexDf.parse(actualArrivalDateTime));
-						v.setTimestamp(cal.getTimeInMillis());
-					}
-
-					graph.setAttribute(oid, actualScheduledArrivalDate_attr, v);
+					updateFlight(v, oid, line);
+					updates++;
+				}
+				else{
+					oid = graph.newNode(flight_type);
+					v.setString(id_flight);
+					graph.setAttribute(oid, id, v);
+					updateFlight(v, oid, line);
+					inserts++;
 				}
 
 				line = reader.readNext();
@@ -157,7 +183,7 @@ public class UpdateFlights implements Action, GraphAware {
 		} finally {
 			reader.close();
 		}
-
+		LOG.info("There were "+ updates+ " updates and "+inserts+ " inserts");
 	}
 
 	@Override
@@ -165,6 +191,24 @@ public class UpdateFlights implements Action, GraphAware {
 		if (graph == null) {
 			graph = DexUtil.getDBGraph();
 		}
+
+		flight_type = graph.findType("Flights");
+		aircraftType_attr = graph.findAttribute(flight_type, "aircraftType");
+
+		scheduledDepartureTime_attr = graph.findAttribute(flight_type,
+				"scheduledDepartureTime");
+		scheduledArrivalDate_attr = graph.findAttribute(flight_type,
+				"scheduledArrivalDate");
+		updatedScheduledDepartureTime_attr = graph.findAttribute(flight_type,
+				"updatedScheduledDepartureTime");
+		updatedScheduledArrivalDate_attr = graph.findAttribute(flight_type,
+				"updatedScheduledArrivalDate");
+		actualScheduledDepartureTime_attr = graph.findAttribute(flight_type,
+				"actualScheduledDepartureTime");
+		actualScheduledArrivalDate_attr = graph.findAttribute(flight_type,
+				"actualScheduledArrivalDate");
+		id = graph.findAttribute(flight_type, "id");
+
 		updateDb();
 		return Action.SUCCESS;
 	}
