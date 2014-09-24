@@ -85,13 +85,21 @@
 						value="${dataset}/passenger_itenerary-formatted.csv"></property>
 				</properties>
 			</bean>
+			
+			<bean name="customer-support-cleaner" class="edu.upc.dama.planes.preparers.CleanCustomerSupport">
+				<properties>
+					<property name="file" value="${dataset}/customer_support.csv" />
+					<property name="output" value="${dataset}/customer_support-final.csv"></property>
+				</properties>
+				
+			</bean>
 
 			<bean name="join_itinerary" class="edu.upc.dama.dex.preparers.CSVJoin">
 				<properties>
 					<property name="dateColumns" value="[6,7,8]" />
 					<property name="firstFile"
 						value="${dataset}/passenger_itenerary-formatted.csv" />
-					<property name="secondFile" value="${dataset}/customer_support.csv" />
+					<property name="secondFile" value="${dataset}/customer_support-final.csv" />
 					<property name="separator" value=";"></property>
 					<property name="quoteChar" value="\0"></property>
 					<property name="outputFile" value="${dataset}/passenger_itenerary-joined.csv"></property>
