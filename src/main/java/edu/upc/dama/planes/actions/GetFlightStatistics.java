@@ -8,9 +8,11 @@ import com.sparsity.sparksee.gdb.Condition;
 import com.sparsity.sparksee.gdb.EdgesDirection;
 import com.sparsity.sparksee.gdb.Graph;
 import com.sparsity.sparksee.gdb.Objects;
+import com.sparsity.sparksee.gdb.ObjectsIterator;
 import com.sparsity.sparksee.gdb.Value;
 
 import edu.upc.dama.dex.preparers.GraphAware;
+import edu.upc.dama.dex.utils.DexUtil;
 import edu.upc.dama.struts2.results.ActionResult;
 
 public class GetFlightStatistics implements Action, GraphAware {
@@ -52,23 +54,23 @@ public class GetFlightStatistics implements Action, GraphAware {
 
 		Value v = new Value();
 		int flightsType = graph.findType("Flights");
-		int date_attr = graph.findType("date");
+		int date_attr = graph.findAttribute(flightsType,"date");
 		
 		GregorianCalendar yesterday = new GregorianCalendar();
 		yesterday.clear();
-		yesterday.set(2014, 03, 03);
-		yesterday.set(Calendar.HOUR_OF_DAY, 12);
-		Value v1 = new Value();
+		yesterday.set(2014, 07, 03);
 		
+		Value v1 = new Value();
+		v1.setTimestamp(yesterday.getTimeInMillis());
 		
 		GregorianCalendar tomorrow = new GregorianCalendar();
 		tomorrow.clear();
-		tomorrow.set(2014, 03, 03);
-		tomorrow.set(Calendar.HOUR_OF_DAY, 12);
+		tomorrow.set(2014, 07, 05);
+		
 		Value v2 = new Value();
+		v2.setTimestamp(tomorrow.getTimeInMillis());
 		
-		
-		todayFlights = graph.select(date_attr, Condition.Between, v1, v2);
+		todayFlights = graph.select(date_attr, Condition.Between, v1, v2); 
 		
 		int isDelayedType = graph.findAttribute(flightsType, "isDelayed");
 
@@ -91,6 +93,10 @@ public class GetFlightStatistics implements Action, GraphAware {
 
 		delayedFlights = graph.select(isDelayedType, Condition.Equal,
 				v.setBoolean(true));
+		ObjectsIterator it = delayedFlights.iterator();
+		while(it.hasNext()){
+			System.out.println(it.next());
+		}
 
 		delayedFlights.intersection(allParisFlights);
 		return 1 - ((double)delayedFlights.size() / (double)allParisFlights.size());
@@ -98,6 +104,9 @@ public class GetFlightStatistics implements Action, GraphAware {
 
 	@Override
 	public String execute() throws Exception {
+		if(graph == null){
+			graph = DexUtil.getDBGraph();
+		}
 		perfectFlightsManagedByVictor = getPercentPerfectFlightsManagedByVictor();
 		todayFlights.close();
 		allParisFlights.close();
