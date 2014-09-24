@@ -4,16 +4,18 @@
 		<database name="flights" path="flights.dex" />
 		<database name="tmp" path="tmp.dex" />
 	</databases>
-	<schemas>
-		<schema name="flights-schema" path="./src/test/resources/db-schema.ddl" />
-	</schemas>
+	
 	<constants>
 		<constant name="dataset" value="./src/test/resources/1_First_week" />
 		<constant name="resources" value="./src/test/resources" />
 	</constants>
+
+<!-- 
 	<preparers default="loading_process">
 
 		<preparer name="loading_process">
+		
+			<script name="flights-schema" path="./src/test/resources/db-schema.ddl" />
 		
 			<script name="tmp-db" path="./src/test/resources/db-tmp-schema.ddl" />
 
@@ -48,8 +50,8 @@
 					<property name="separator" value=";"></property>
 					<property name="line" value="1"></property>
 					<property name="quoteChar" value="\0"></property>
-					<property name="originalDateFormat" value="dd/MM/YYYY hh:mm"></property>
-					<property name="finalDateFormat" value="YYYY-MM-dd hh:mm:ss"></property>
+					<property name="originalDateFormat" value="dd/MM/yyyy hh:mm"></property>
+					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
 					<property name="outputFile" value="${dataset}/flights-date-formatted.csv"></property>
 				</properties>
 			</bean>
@@ -61,8 +63,8 @@
 					<property name="separator" value=";"></property>
 					<property name="line" value="1"></property>
 					<property name="quoteChar" value="\0"></property>
-					<property name="originalDateFormat" value="dd/MM/YYYY"></property>
-					<property name="finalDateFormat" value="YYYY-MM-dd hh:mm:ss"></property>
+					<property name="originalDateFormat" value="dd/MM/yyyy"></property>
+					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
 					<property name="outputFile"
 						value="${dataset}/flights-date-formatted-final.csv"></property>
 				</properties>
@@ -78,8 +80,8 @@
 					<property name="separator" value=";"></property>
 					<property name="line" value="1"></property>
 					<property name="quoteChar" value="\0"></property>
-					<property name="originalDateFormat" value="dd/MM/YYYY hh:mm"></property>
-					<property name="finalDateFormat" value="YYYY-MM-dd hh:mm:ss"></property>
+					<property name="originalDateFormat" value="dd/MM/yyyy hh:mm"></property>
+					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
 					<property name="outputFile"
 						value="${dataset}/passenger_itenerary-formatted.csv"></property>
 				</properties>
@@ -122,8 +124,8 @@
 					<property name="separator" value=";"></property>
 					<property name="line" value="1"></property>
 					<property name="quoteChar" value="\0"></property>
-					<property name="originalDateFormat" value="dd/MM/YYYY"></property>
-					<property name="finalDateFormat" value="YYYY-MM-dd hh:mm:ss"></property>
+					<property name="originalDateFormat" value="dd/MM/yyyy"></property>
+					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
 					<property name="outputFile" value="${dataset}/passenger_legs_formatted.csv"></property>
 				</properties>		
 			</bean>
@@ -141,8 +143,15 @@
 			<script name="loader-cities" path="${resources}/db-loader-cities.ddl" />
 			
 			<script name="loader-db-edges" path="${resources}/db-loader-edges.ddl" />	
+			
+			<bean name="sorting-lengs" class="edu.upc.dama.planes.preparers.CreateLegEdges" />
+				
+			<bean name="generate_ids_for_flights" class="edu.upc.dama.planes.preparers.GenerateKeys" />
+			
+			
+			
 		</preparer>
 
 	</preparers>
-
+ -->
 </config>

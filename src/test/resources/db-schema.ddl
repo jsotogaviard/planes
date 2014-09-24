@@ -1,5 +1,4 @@
 create dbgraph flights into 'flights.dex'
-  
 create node FlightPlan (
 		flightNr string unique,
 		aircraftType string indexed,
@@ -7,8 +6,7 @@ create node FlightPlan (
 		destinationCity string indexed,
 		scheduledFlyingTime timestamp indexed,
 		adHocFlights boolean indexed
-  )
-  
+  )  
   
 create node Flights (
 		flightNr string indexed,
@@ -19,7 +17,9 @@ create node Flights (
 		updatedScheduledDepartureTime timestamp indexed,
 		updatedScheduledArrivalDate timestamp indexed,
 		actualScheduledDepartureTime timestamp indexed,
-		actualScheduledArrivalDate timestamp indexed
+		actualScheduledArrivalDate timestamp indexed,
+		id string indexed,
+		isDelayed boolean indexed
 	)
 	
 create node Airplanes (
@@ -84,3 +84,5 @@ create edge PassengerItinerary_DestinationCity from PassengerItinerary to Cities
 create edge PassengerLegs_Flights 
   		from PassengerLegs 
   		to Flights materialize neighbors
+  		
+create edge nextLeg from PassengerLegs to PassengerLegs materialize neighbors

@@ -46,6 +46,17 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>org.ow2.asm</groupId>
+				<artifactId>asm</artifactId>
+				<version>4.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.ow2.asm</groupId>
+				<artifactId>asm-commons</artifactId>
+				<version>4.1</version>
+			</dependency>
 			<dependency>
 				<groupId>edu.upc.dama</groupId>
 				<artifactId>dex-utils</artifactId>
@@ -103,11 +114,51 @@
 				<artifactId>httpclient</artifactId>
 				<version>4.3.1</version>
 			</dependency>
+
+			<dependency>
+				<groupId>edu.upc.dama</groupId>
+				<artifactId>struts-commons</artifactId>
+				<version>3.0</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.upc.dama</groupId>
+				<artifactId>dex-struts2-plugin</artifactId>
+				<version>4.0-SNAPSHOT</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.ow2.asm</groupId>
+						<artifactId>asm</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.ow2.asm</groupId>
+						<artifactId>asm-commons</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>asm</groupId>
+						<artifactId>asm</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>asm</groupId>
+						<artifactId>asm-commons</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
 
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm</artifactId>
+
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-commons</artifactId>
+
+		</dependency>
 
 		<!-- KPI demo dependencies -->
 		<dependency>
@@ -130,9 +181,17 @@
 
 		<dependency>
 			<groupId>edu.upc.dama</groupId>
+			<artifactId>dex-struts2-plugin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>edu.upc.dama</groupId>
 			<artifactId>dex-utils</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>edu.upc.dama</groupId>
+			<artifactId>struts-commons</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
 
 		<dependency>
