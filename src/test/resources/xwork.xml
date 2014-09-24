@@ -1,0 +1,39 @@
+<!DOCTYPE xwork PUBLIC 
+	"-//OpenSymphony Group//XWork 2.0//EN"
+	"http://struts.apache.org/dtds/xwork-2.0.dtd">
+
+<xwork>
+
+	<include file="dex-xwork-plugin.xml"></include>
+
+	<constant name="devMode" value="false" />
+
+	<constant name="logMissingProperties" value="false" />
+
+
+	<package name="flights-manager" extends="dex-xwork-plugin"	namespace="/flights-manager">
+
+		<result-types>
+			<result-type name="default"
+				class="edu.upc.dama.struts2.results.SimpleResult" />
+			<result-type name="bug"
+				class="edu.upc.dama.struts2.results.SimpleResult" />
+		</result-types>
+
+		<default-interceptor-ref name="basicDEXStack" />
+
+		<global-results>
+			<result name="success" type="default" />
+			<result name="input" type="default" />
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="bug" exception="java.lang.Exception" />
+		</global-exception-mappings>
+
+		<action name="updateFlights" class="edu.upc.dama.planes.actions.UpdateFlights">
+			
+		</action>
+
+	</package>
+
+</xwork>
