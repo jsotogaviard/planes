@@ -12,7 +12,6 @@
 		<constant name="loaders" value="./src/test/resources/loaders" />
 	</constants>
 
-<!-- 
 	<preparers default="loading_process">
 
 		<preparer name="loading_process">
@@ -64,8 +63,8 @@
 					<property name="separator" value=";"></property>
 					<property name="line" value="0"></property>
 					<property name="quoteChar" value="\0"></property>
-					<property name="originalDateFormat" value="dd/MM/yyyy hh:mm"></property>
-					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
+					<property name="originalDateFormat" value="dd/MM/yyyy HH:mm"></property>
+					<property name="finalDateFormat" value="yyyy-MM-dd HH:mm:ss"></property>
 					<property name="outputFile" value="${generated}/flights-date-formatted.csv"></property>
 				</properties>
 			</bean>
@@ -78,7 +77,7 @@
 					<property name="line" value="0"></property>
 					<property name="quoteChar" value="\0"></property>
 					<property name="originalDateFormat" value="dd/MM/yyyy"></property>
-					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
+					<property name="finalDateFormat" value="yyyy-MM-dd HH:mm:ss"></property>
 					<property name="outputFile"
 						value="${generated}/flights-date-formatted-final.csv"></property>
 				</properties>
@@ -94,8 +93,8 @@
 					<property name="separator" value=";"></property>
 					<property name="line" value="1"></property>
 					<property name="quoteChar" value="\0"></property>
-					<property name="originalDateFormat" value="dd/MM/yyyy hh:mm"></property>
-					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
+					<property name="originalDateFormat" value="dd/MM/yyyy HH:mm"></property>
+					<property name="finalDateFormat" value="yyyy-MM-dd HH:mm:ss"></property>
 					<property name="outputFile"
 						value="${generated}/passenger_itenerary-formatted.csv"></property>
 				</properties>
@@ -172,7 +171,7 @@
 					<property name="line" value="0"></property>
 					<property name="quoteChar" value="\0"></property>
 					<property name="originalDateFormat" value="dd/MM/yyyy"></property>
-					<property name="finalDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
+					<property name="finalDateFormat" value="yyyy-MM-dd HH:mm:ss"></property>
 					<property name="outputFile" value="${generated}/passenger_legs_formatted.csv"></property>
 				</properties>
 			</bean>
@@ -209,6 +208,6 @@
 
 	</preparers>
 
- -->
+ 
 
 </config>
