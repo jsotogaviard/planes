@@ -138,16 +138,18 @@
 					<property name="outputFile" value="${generated}/passenger_legs_formatted.csv"></property>
 				</properties>
 			</bean>
-			<bean name="boolean_normalizer_passenger_legs" class="edu.upc.dama.dex.preparers.CSVReplaceValuesFromFile">
+			
+			<bean name="annulated_normalizer_passenger_legs" class="edu.upc.dama.dex.preparers.CSVReplaceValuesFromFile">
 				<properties>
 					<property name="file" value="${generated}/passenger_legs_formatted.csv" />
-					<property name="fromFile" value="${resources}/booleans.csv" />
+					<property name="fromFile" value="${resources}/annulated.csv" />
 					<property name="separator" value=";"></property>
 					<property name="quoteChar" value="\0"></property>
 					<property name="replaceColumn" value="4"></property>
 					<property name="outputFile" value="${generated}/passenger_legs_final.csv"></property>
 				</properties>
-			</bean>
+			</bean>		
+			
 			<script name="loader-legs" path="${loaders}/db-loader-passenger-legs.ddl" />
 			<script name="loader-cities" path="${loaders}/db-loader-cities.ddl" />
 
