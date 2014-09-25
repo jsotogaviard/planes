@@ -32,10 +32,10 @@ FIELDS TERMINATED ';'
 mode rows 
 
 LOAD EDGES '${generated}/flights-date-formatted-final.csv'
-COLUMNS src,target,*,*,*,*,*,*,*,*,*
+COLUMNS *,target,*,*,*,*,*,*,*,*,*,src
 INTO Flights_Airplanes
 ignore src, target
-WHERE TAIL src = Flights.flightNr HEAD target = Airplanes.aircraftType
+WHERE TAIL src = Flights.id HEAD target = Airplanes.aircraftType
 FIELDS TERMINATED ';'
 mode rows 
 

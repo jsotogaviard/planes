@@ -8,8 +8,38 @@ import edu.upc.dama.struts2.dispatcher.ShellActionDispatcher;
 
 public class testDelayedFlights {
 
+	@Test
+	public void testHighPercent() throws Exception {
+		InputStream in = new ByteArrayInputStream("flights-manager\n6\n0\n".getBytes("UTF-8"));
+		System.setIn(in );
+		ShellActionDispatcher dispatcher = new ShellActionDispatcher();
+		dispatcher.main(new String[]{});
+	}
 	
-	 @Test
+	@Test
+	public void testLowPercent() throws Exception {
+		InputStream in = new ByteArrayInputStream("flights-manager\n5\n0\n".getBytes("UTF-8"));
+		System.setIn(in );
+		ShellActionDispatcher dispatcher = new ShellActionDispatcher();
+		dispatcher.main(new String[]{});
+	}
+	
+	@Test
+	public void testCheckIn() throws Exception {
+		InputStream in = new ByteArrayInputStream("flights-manager\n5\n0\n".getBytes("UTF-8"));
+		System.setIn(in );
+		ShellActionDispatcher dispatcher = new ShellActionDispatcher();
+		dispatcher.main(new String[]{});
+	}
+	
+	@Test
+	public void testMassiveOverBooking() throws Exception {
+		InputStream in = new ByteArrayInputStream("flights-manager\n4\n0\n".getBytes("UTF-8"));
+		System.setIn(in );
+		ShellActionDispatcher dispatcher = new ShellActionDispatcher();
+		dispatcher.main(new String[]{});
+	}
+	
 	public void testDelayedFlights1ZeroUpdates() throws Exception {
 		InputStream in = new ByteArrayInputStream("flights-manager\n3\n0\n".getBytes("UTF-8"));
 		System.setIn(in );

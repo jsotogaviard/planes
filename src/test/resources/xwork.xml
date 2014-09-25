@@ -33,7 +33,10 @@
 		<action name="updateFlights" class="edu.upc.dama.planes.actions.UpdateFlights"/>
 		<action name="delayedFlights" class="edu.upc.dama.planes.actions.DelayedFlights"/>
 		<action name="delayedFlightsByDate" class="edu.upc.dama.planes.actions.GetPAXStatisticsByDate"/>
-		
+		<action name="massive" class="edu.upc.dama.planes.actions.MassiveOverBookFlights"/>
+		<action name="checkIn" class="edu.upc.dama.planes.actions.CheckInPassengers"/>
+		<action name="lowPercentOccupation" class="edu.upc.dama.planes.actions.LowPercentOccupation"/>
+		<action name="highPercentOccupation" class="edu.upc.dama.planes.actions.HighPercentOccupation"/>
 			
 	</package>
 
