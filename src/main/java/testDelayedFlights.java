@@ -40,6 +40,7 @@ public class testDelayedFlights {
 		dispatcher.main(new String[]{});
 	}
 	
+
 	public void testDelayedFlights1ZeroUpdates() throws Exception {
 		InputStream in = new ByteArrayInputStream("flights-manager\n3\n0\n".getBytes("UTF-8"));
 		System.setIn(in );
@@ -68,7 +69,7 @@ public class testDelayedFlights {
 		System.setIn(in );
 		ShellActionDispatcher dispatcher = new ShellActionDispatcher();
 		dispatcher.main(new String[]{});
-	} 
+	}
 	
 	@Test
 	public void testDelayedFlightsByDateZeroUpdates() throws Exception {

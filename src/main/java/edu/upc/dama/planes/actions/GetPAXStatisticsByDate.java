@@ -43,22 +43,65 @@ public class GetPAXStatisticsByDate implements Action, GraphAware {
 			graph = DexUtil.getDBGraph();
 		}
 		
+		Value v = new Value();
 		int flightsType = graph.findType("Flights");
+		int date_attr = graph.findAttribute(flightsType,"date");
+		
+		GregorianCalendar yesterday = new GregorianCalendar();
+		yesterday.clear();
+		yesterday.set(2014, 07, 03);
+		
+		Value v1 = new Value();
+		v1.setTimestamp(yesterday.getTimeInMillis());
+		
+		GregorianCalendar tomorrow = new GregorianCalendar();
+		tomorrow.clear();
+		tomorrow.set(2014, 07, 05);
+		
+		Value v2 = new Value();
+		v2.setTimestamp(tomorrow.getTimeInMillis());
+		
+		Objects todayFlights = graph.select(date_attr, Condition.Between, v1, v2); 
+		
+		//int isDelayedType = graph.findAttribute(flightsType, "isDelayed");
+
+		int flightPlanType = graph.findType("FlightPlan");
+		int originCityType = graph.findAttribute(flightPlanType, "originCity");
+		int destinationCityType = graph.findAttribute(flightPlanType,
+				"destinationCity");
+
+		int flightPlanFlightsType = graph.findType("FlightPlan_Flights");
+
+		Objects originParisFlightPlan = graph.select(originCityType,
+				Condition.Equal, v.setString("Paris"));
+		Objects destinationParisFlightPlan = graph.select(destinationCityType,
+				Condition.Equal, v.setString("Paris"));
+		originParisFlightPlan.union(destinationParisFlightPlan);
+		destinationParisFlightPlan.close();
+		Objects allParisFlightsPlans = originParisFlightPlan;
+		Objects allParisFlights = graph.neighbors(allParisFlightsPlans,
+				flightPlanFlightsType, EdgesDirection.Outgoing);
+		allParisFlightsPlans.close();
+		allParisFlights.intersection(todayFlights);
+		todayFlights.close();
+		
+		/*int flightsType = graph.findType("Flights");
 		int dateAttrFlights = graph.findAttribute(flightsType, "date");
 		
 		java.util.Calendar cal = new GregorianCalendar();
 		cal.clear();
-		cal.set(2014,7,3);
+		cal.set(2014,7,3);*/
 		//cal.set(Calendar.HOUR, 0);
 		
-		Value valDate = new Value();
+		/*Value valDate = new Value();
 		valDate.setTimestamp(cal.getTimeInMillis());
 		
-		Objects flights = graph.select(dateAttrFlights,Condition.GreaterEqual,valDate);
+		Objects flights = graph.select(dateAttrFlights,Condition.GreaterEqual,valDate);*/
 		GetPAXStatistics pax = new GetPAXStatistics();
-		pax.setFilteredFlights(flights);
+		pax.setFilteredFlights(allParisFlights);
 		pax.setGraph(graph);
 		pax.execute();
+		allParisFlights.close();
 		
 		return Action.SUCCESS;
 	}
