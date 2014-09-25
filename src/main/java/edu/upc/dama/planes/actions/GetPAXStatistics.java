@@ -1,7 +1,11 @@
 package edu.upc.dama.planes.actions;
 
+import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -148,7 +152,7 @@ public class GetPAXStatistics implements Action, GraphAware {
 							Long passengerLEgId = it2.next();
 							Value className = graph.getAttribute(passengerLEgId, classAttr);
 							Value namePassenger = graph.getAttribute(passengerLEgId, nameAttr); 
-							saveData(flightNbr.getString()+"_"+datePassenger.getTimestamp(), className.getString(), namePassenger.getString());
+							saveData(flightNbr.getString()+" Time["+getStringDate(datePassenger)+"]", className.getString(), namePassenger.getString());
 						}
 						it2.close();
 						passengerIt.close();
@@ -165,18 +169,47 @@ public class GetPAXStatistics implements Action, GraphAware {
 		}
 		itf1.close();
 		f1.close();
-		System.out.println("delayed " + countDelayed++);
-		System.out.println("delayed business passengers ");
-		for (Entry<String, Set<User>> entry : delayedBusinessPassengers.entrySet()) {
+		System.out.println("Delayed flights:" + countDelayed);
+		System.out.println("Delayed connect business passengers: ");
+		printMap(delayedBusinessPassengers);
+		/*for (Entry<String, Set<User>> entry : delayedBusinessPassengers.entrySet()) {
 			System.out.println(entry.getValue().size() + " " + entry);
-		}
+		}*/
 		
-		System.out.println("delayed passengers ");
+		System.out.println("Delayed connect all passengers: ");
+		printMap(delayedPassengers);
+		/*System.out.println("delayed passengers ");
 		for (Entry<String, Set<User>> entry : delayedPassengers.entrySet()) {
 			System.out.println(entry);
-		}
-		System.out.println(delayedPassengers);
+		}*/
+		//System.out.println(delayedPassengers);
 		return Action.SUCCESS;
+	}
+	
+	private void printMap(Map<String, Set<User>> map){
+		//System.out.println();
+		Iterator<String> itMap = map.keySet().iterator();
+		while(itMap.hasNext()){
+			String key = itMap.next();
+			System.out.println(key+" Passengers: "+map.get(key).size());
+			Iterator<User> itUsers = map.get(key).iterator();
+			while(itUsers.hasNext()){
+				User u = itUsers.next();
+				System.out.println("\t"+u.getClazz()+" "+u.getName());
+			}
+		}
+		
+	}
+	
+	private String getStringDate(Value value) throws UnsupportedEncodingException{
+		
+		DateFormat date = new SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss.SSS");
+		String result = new String(date.format(
+				value.getTimestampAsDate().getTime()).getBytes(),
+				"UTF-8");
+		
+		return result;
 	}
 	
 	private void saveData(String flight, String className, String name) {
