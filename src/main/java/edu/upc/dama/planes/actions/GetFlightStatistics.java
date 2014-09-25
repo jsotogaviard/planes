@@ -55,6 +55,7 @@ public class GetFlightStatistics implements Action, GraphAware {
 		Value v = new Value();
 		int flightsType = graph.findType("Flights");
 		int date_attr = graph.findAttribute(flightsType,"date");
+		int actualArribalDate_attr = graph.findAttribute(flightsType, "actualArrivalDateTime");
 		
 		GregorianCalendar yesterday = new GregorianCalendar();
 		yesterday.clear();
@@ -70,7 +71,18 @@ public class GetFlightStatistics implements Action, GraphAware {
 		Value v2 = new Value();
 		v2.setTimestamp(tomorrow.getTimeInMillis());
 		
-		todayFlights = graph.select(date_attr, Condition.Between, v1, v2); 
+		todayFlights = graph.select(date_attr, Condition.Between, v1, v2);	
+		
+		GregorianCalendar today = new GregorianCalendar();
+		today.clear();
+		today.set(2014, 07, 04);
+		Value v3 = new Value();
+		v3.setTimestamp(today.getTimeInMillis());
+		
+			
+		Objects arriveYesterday = graph.select(actualArribalDate_attr, Condition.Between, v1, v3);
+		todayFlights.difference(arriveYesterday);
+		arriveYesterday.close();
 		
 		int isDelayedType = graph.findAttribute(flightsType, "isDelayed");
 
