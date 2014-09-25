@@ -1,0 +1,2358 @@
+---
+timestamp: 2014-09-25 10:37:42.329
+sessions: 1
+dataManager:
+    used: 51KB
+    allocated: 56KB
+segmentManager:
+    used: 236KB
+    allocated: 244KB
+size:
+    used: 88486KB
+    allocated: 89364KB
+countNodes: 181291
+countEdges: 419153
+oids:
+    bitmaps: 16
+    clusters: 596
+    used: 162KB
+    allocated: 172KB
+    bitmap:
+        count: 16
+        usedMemory: 157KB
+        allocatedMemory: 164KB
+    string:
+        count: 0
+        usedMemory: 0KB
+        allocatedMemory: 0KB
+    map:
+        count: 0
+        usedMemory: 0KB
+        allocatedMemory: 0KB
+    other:
+        count: 612
+        usedMemory: 5KB
+        allocatedMemory: 12KB
+types:
+    count: 16
+    used: 12KB
+    allocated: 12KB
+    bitmap:
+        count: 0
+        usedMemory: 0KB
+        allocatedMemory: 0KB
+    string:
+        count: 0
+        usedMemory: 0KB
+        allocatedMemory: 0KB
+    map:
+        count: 16
+        usedMemory: 12KB
+        allocatedMemory: 12KB
+    other:
+        count: 16
+        usedMemory: 0KB
+        allocatedMemory: 0KB
+    data:
+      - type: node
+        id: 10
+        name: "Airplanes"
+        oidGroupCount: 3
+      - type: node
+        id: 13
+        name: "Cities"
+        oidGroupCount: 38
+      - type: node
+        id: 8
+        name: "FlightPlan"
+        oidGroupCount: 83
+      - type: node
+        id: 9
+        name: "Flights"
+        oidGroupCount: 563
+      - type: node
+        id: 11
+        name: "PassengerItinerary"
+        oidGroupCount: 62022
+      - type: node
+        id: 12
+        name: "PassengerLegs"
+        oidGroupCount: 118582
+      - type: restrictedEdge
+        id: 15
+        name: "FlightPlan_Airplanes"
+        oidGroupCount: 83
+        from: FlightPlan
+        to: Airplanes
+        edges:
+            count: 1
+            used: 22KB
+            allocated: 24KB
+            bitmap:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 1
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 1024
+                usedMemory: 10KB
+                allocatedMemory: 12KB
+        tails:
+            keys: 83
+            count: 83
+            used: 14KB
+            allocated: 16KB
+            bitmap:
+                count: 83
+                usedMemory: 2KB
+                allocatedMemory: 4KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 83
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        heads:
+            keys: 3
+            count: 83
+            used: 13KB
+            allocated: 20KB
+            bitmap:
+                count: 3
+                usedMemory: 1KB
+                allocatedMemory: 8KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 3
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        outNeighbors:
+            keys: 83
+            count: 83
+            used: 14KB
+            allocated: 16KB
+            bitmap:
+                count: 83
+                usedMemory: 2KB
+                allocatedMemory: 4KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 83
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        inNeighbors:
+            keys: 3
+            count: 83
+            used: 13KB
+            allocated: 20KB
+            bitmap:
+                count: 3
+                usedMemory: 1KB
+                allocatedMemory: 8KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 3
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+      - type: restrictedEdge
+        id: 17
+        name: "FlightPlan_DestinationCity"
+        oidGroupCount: 83
+        from: FlightPlan
+        to: Cities
+        edges:
+            count: 1
+            used: 22KB
+            allocated: 24KB
+            bitmap:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 1
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 1024
+                usedMemory: 10KB
+                allocatedMemory: 12KB
+        tails:
+            keys: 83
+            count: 83
+            used: 14KB
+            allocated: 16KB
+            bitmap:
+                count: 83
+                usedMemory: 2KB
+                allocatedMemory: 4KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 83
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        heads:
+            keys: 38
+            count: 83
+            used: 13KB
+            allocated: 20KB
+            bitmap:
+                count: 38
+                usedMemory: 1KB
+                allocatedMemory: 8KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 38
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        outNeighbors:
+            keys: 83
+            count: 83
+            used: 14KB
+            allocated: 16KB
+            bitmap:
+                count: 83
+                usedMemory: 2KB
+                allocatedMemory: 4KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 83
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        inNeighbors:
+            keys: 38
+            count: 83
+            used: 13KB
+            allocated: 20KB
+            bitmap:
+                count: 38
+                usedMemory: 1KB
+                allocatedMemory: 8KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 38
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+      - type: restrictedEdge
+        id: 14
+        name: "FlightPlan_Flights"
+        oidGroupCount: 563
+        from: FlightPlan
+        to: Flights
+        edges:
+            count: 1
+            used: 22KB
+            allocated: 24KB
+            bitmap:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 1
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 1024
+                usedMemory: 10KB
+                allocatedMemory: 12KB
+        tails:
+            keys: 83
+            count: 563
+            used: 19KB
+            allocated: 24KB
+            bitmap:
+                count: 83
+                usedMemory: 7KB
+                allocatedMemory: 12KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 83
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        heads:
+            keys: 563
+            count: 563
+            used: 33KB
+            allocated: 36KB
+            bitmap:
+                count: 563
+                usedMemory: 9KB
+                allocatedMemory: 12KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 563
+                usedMemory: 24KB
+                allocatedMemory: 24KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        outNeighbors:
+            keys: 83
+            count: 563
+            used: 19KB
+            allocated: 24KB
+            bitmap:
+                count: 83
+                usedMemory: 7KB
+                allocatedMemory: 12KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 83
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        inNeighbors:
+            keys: 563
+            count: 563
+            used: 33KB
+            allocated: 36KB
+            bitmap:
+                count: 563
+                usedMemory: 9KB
+                allocatedMemory: 12KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 563
+                usedMemory: 24KB
+                allocatedMemory: 24KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+      - type: restrictedEdge
+        id: 16
+        name: "FlightPlan_OriginCity"
+        oidGroupCount: 83
+        from: FlightPlan
+        to: Cities
+        edges:
+            count: 1
+            used: 22KB
+            allocated: 24KB
+            bitmap:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 1
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 1024
+                usedMemory: 10KB
+                allocatedMemory: 12KB
+        tails:
+            keys: 83
+            count: 83
+            used: 14KB
+            allocated: 16KB
+            bitmap:
+                count: 83
+                usedMemory: 2KB
+                allocatedMemory: 4KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 83
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        heads:
+            keys: 38
+            count: 83
+            used: 13KB
+            allocated: 20KB
+            bitmap:
+                count: 38
+                usedMemory: 1KB
+                allocatedMemory: 8KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 38
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        outNeighbors:
+            keys: 83
+            count: 83
+            used: 14KB
+            allocated: 16KB
+            bitmap:
+                count: 83
+                usedMemory: 2KB
+                allocatedMemory: 4KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 83
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        inNeighbors:
+            keys: 38
+            count: 83
+            used: 13KB
+            allocated: 20KB
+            bitmap:
+                count: 38
+                usedMemory: 1KB
+                allocatedMemory: 8KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 38
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+      - type: restrictedEdge
+        id: 18
+        name: "Flights_Airplanes"
+        oidGroupCount: 563
+        from: Flights
+        to: Airplanes
+        edges:
+            count: 1
+            used: 22KB
+            allocated: 24KB
+            bitmap:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 1
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 1024
+                usedMemory: 10KB
+                allocatedMemory: 12KB
+        tails:
+            keys: 563
+            count: 563
+            used: 33KB
+            allocated: 36KB
+            bitmap:
+                count: 563
+                usedMemory: 9KB
+                allocatedMemory: 12KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 563
+                usedMemory: 24KB
+                allocatedMemory: 24KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        heads:
+            keys: 3
+            count: 563
+            used: 13KB
+            allocated: 20KB
+            bitmap:
+                count: 3
+                usedMemory: 1KB
+                allocatedMemory: 8KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 3
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+      - type: restrictedEdge
+        id: 21
+        name: "PassengerItinerary_DestinationCity"
+        oidGroupCount: 62022
+        from: PassengerItinerary
+        to: Cities
+        edges:
+            count: 61
+            used: 622KB
+            allocated: 628KB
+            bitmap:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 61
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 62464
+                usedMemory: 610KB
+                allocatedMemory: 616KB
+        tails:
+            keys: 62022
+            count: 62022
+            used: 2934KB
+            allocated: 2944KB
+            bitmap:
+                count: 62022
+                usedMemory: 970KB
+                allocatedMemory: 976KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 62022
+                usedMemory: 1965KB
+                allocatedMemory: 1968KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        heads:
+            keys: 38
+            count: 62022
+            used: 240KB
+            allocated: 252KB
+            bitmap:
+                count: 38
+                usedMemory: 228KB
+                allocatedMemory: 240KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 38
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        outNeighbors:
+            keys: 62022
+            count: 62022
+            used: 2934KB
+            allocated: 2944KB
+            bitmap:
+                count: 62022
+                usedMemory: 970KB
+                allocatedMemory: 976KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 62022
+                usedMemory: 1965KB
+                allocatedMemory: 1968KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        inNeighbors:
+            keys: 38
+            count: 62022
+            used: 240KB
+            allocated: 252KB
+            bitmap:
+                count: 38
+                usedMemory: 228KB
+                allocatedMemory: 240KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 38
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+      - type: restrictedEdge
+        id: 20
+        name: "PassengerItinerary_OriginCity"
+        oidGroupCount: 62022
+        from: PassengerItinerary
+        to: Cities
+        edges:
+            count: 61
+            used: 622KB
+            allocated: 628KB
+            bitmap:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 61
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 62464
+                usedMemory: 610KB
+                allocatedMemory: 616KB
+        tails:
+            keys: 62022
+            count: 62022
+            used: 2934KB
+            allocated: 2944KB
+            bitmap:
+                count: 62022
+                usedMemory: 970KB
+                allocatedMemory: 976KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 62022
+                usedMemory: 1965KB
+                allocatedMemory: 1968KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        heads:
+            keys: 38
+            count: 62022
+            used: 141KB
+            allocated: 160KB
+            bitmap:
+                count: 38
+                usedMemory: 129KB
+                allocatedMemory: 148KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 38
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        outNeighbors:
+            keys: 62022
+            count: 62022
+            used: 2934KB
+            allocated: 2944KB
+            bitmap:
+                count: 62022
+                usedMemory: 970KB
+                allocatedMemory: 976KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 62022
+                usedMemory: 1965KB
+                allocatedMemory: 1968KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        inNeighbors:
+            keys: 38
+            count: 62022
+            used: 141KB
+            allocated: 160KB
+            bitmap:
+                count: 38
+                usedMemory: 129KB
+                allocatedMemory: 148KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 38
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+      - type: restrictedEdge
+        id: 19
+        name: "PassengerItinerary_PassengerLegs"
+        oidGroupCount: 118582
+        from: PassengerItinerary
+        to: PassengerLegs
+        edges:
+            count: 116
+            used: 1172KB
+            allocated: 1180KB
+            bitmap:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 116
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 118784
+                usedMemory: 1160KB
+                allocatedMemory: 1168KB
+        tails:
+            keys: 62012
+            count: 118582
+            used: 3936KB
+            allocated: 3952KB
+            bitmap:
+                count: 62012
+                usedMemory: 2483KB
+                allocatedMemory: 2496KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 62012
+                usedMemory: 1454KB
+                allocatedMemory: 1456KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        heads:
+            keys: 118582
+            count: 118582
+            used: 5606KB
+            allocated: 5624KB
+            bitmap:
+                count: 118582
+                usedMemory: 1853KB
+                allocatedMemory: 1864KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 118582
+                usedMemory: 3753KB
+                allocatedMemory: 3760KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        outNeighbors:
+            keys: 62012
+            count: 118582
+            used: 3936KB
+            allocated: 3952KB
+            bitmap:
+                count: 62012
+                usedMemory: 2483KB
+                allocatedMemory: 2496KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 62012
+                usedMemory: 1454KB
+                allocatedMemory: 1456KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        inNeighbors:
+            keys: 118582
+            count: 118582
+            used: 5606KB
+            allocated: 5624KB
+            bitmap:
+                count: 118582
+                usedMemory: 1853KB
+                allocatedMemory: 1864KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 118582
+                usedMemory: 3753KB
+                allocatedMemory: 3760KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+      - type: restrictedEdge
+        id: 22
+        name: "PassengerLegs_Flights"
+        oidGroupCount: 118582
+        from: PassengerLegs
+        to: Flights
+        edges:
+            count: 116
+            used: 1172KB
+            allocated: 1180KB
+            bitmap:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 116
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 118784
+                usedMemory: 1160KB
+                allocatedMemory: 1168KB
+        tails:
+            keys: 118582
+            count: 118582
+            used: 5606KB
+            allocated: 5624KB
+            bitmap:
+                count: 118582
+                usedMemory: 1853KB
+                allocatedMemory: 1864KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 118582
+                usedMemory: 3753KB
+                allocatedMemory: 3760KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        heads:
+            keys: 563
+            count: 118582
+            used: 186KB
+            allocated: 192KB
+            bitmap:
+                count: 563
+                usedMemory: 170KB
+                allocatedMemory: 176KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 563
+                usedMemory: 16KB
+                allocatedMemory: 16KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        outNeighbors:
+            keys: 118582
+            count: 118582
+            used: 5606KB
+            allocated: 5624KB
+            bitmap:
+                count: 118582
+                usedMemory: 1853KB
+                allocatedMemory: 1864KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 118582
+                usedMemory: 3753KB
+                allocatedMemory: 3760KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        inNeighbors:
+            keys: 563
+            count: 118582
+            used: 186KB
+            allocated: 192KB
+            bitmap:
+                count: 563
+                usedMemory: 170KB
+                allocatedMemory: 176KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 563
+                usedMemory: 16KB
+                allocatedMemory: 16KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+      - type: restrictedEdge
+        id: 23
+        name: "nextLeg"
+        oidGroupCount: 56570
+        from: PassengerLegs
+        to: PassengerLegs
+        edges:
+            count: 56
+            used: 572KB
+            allocated: 576KB
+            bitmap:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 56
+                usedMemory: 12KB
+                allocatedMemory: 12KB
+            other:
+                count: 57344
+                usedMemory: 560KB
+                allocatedMemory: 564KB
+        tails:
+            keys: 56570
+            count: 56570
+            used: 2677KB
+            allocated: 2684KB
+            bitmap:
+                count: 56570
+                usedMemory: 884KB
+                allocatedMemory: 888KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 56570
+                usedMemory: 1793KB
+                allocatedMemory: 1796KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        heads:
+            keys: 56570
+            count: 56570
+            used: 2677KB
+            allocated: 2684KB
+            bitmap:
+                count: 56570
+                usedMemory: 884KB
+                allocatedMemory: 888KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 56570
+                usedMemory: 1793KB
+                allocatedMemory: 1796KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        outNeighbors:
+            keys: 56570
+            count: 56570
+            used: 2677KB
+            allocated: 2684KB
+            bitmap:
+                count: 56570
+                usedMemory: 884KB
+                allocatedMemory: 888KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 56570
+                usedMemory: 1793KB
+                allocatedMemory: 1796KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+        inNeighbors:
+            keys: 56570
+            count: 56570
+            used: 2677KB
+            allocated: 2684KB
+            bitmap:
+                count: 56570
+                usedMemory: 884KB
+                allocatedMemory: 888KB
+            string:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+            map:
+                count: 56570
+                usedMemory: 1793KB
+                allocatedMemory: 1796KB
+            other:
+                count: 0
+                usedMemory: 0KB
+                allocatedMemory: 0KB
+attributes:
+    count: 43
+    used: 12KB
+    allocated: 12KB
+    bitmap:
+        count: 0
+        usedMemory: 0KB
+        allocatedMemory: 0KB
+    string:
+        count: 0
+        usedMemory: 0KB
+        allocatedMemory: 0KB
+    map:
+        count: 43
+        usedMemory: 12KB
+        allocatedMemory: 12KB
+    other:
+        count: 43
+        usedMemory: 0KB
+        allocatedMemory: 0KB
+    data:
+      - name: "t:Airplanes\|aircraftType"
+        id: 25
+        typeId: 10
+        kind: UNIQUE LINK
+        datatype: string
+        keys: 3
+        count: 3
+        nulls: 0
+        min: A100
+        max: B777
+        used: 25KB
+        allocated: 32KB
+        bitmap:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        string:
+            count: 3
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 4
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 65
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+      - name: "t:Airplanes\|capacityBusiness"
+        id: 26
+        typeId: 10
+        kind: INDEXED LINK
+        datatype: long
+        keys: 3
+        count: 3
+        nulls: 0
+        min: 40
+        max: 80
+        used: 25KB
+        allocated: 32KB
+        bitmap:
+            count: 3
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 4
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 68
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+      - name: "t:Airplanes\|capacityEconomy"
+        id: 27
+        typeId: 10
+        kind: INDEXED LINK
+        datatype: long
+        keys: 3
+        count: 3
+        nulls: 0
+        min: 160
+        max: 320
+        used: 25KB
+        allocated: 32KB
+        bitmap:
+            count: 3
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 4
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 68
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+      - name: "t:Airplanes\|weightCapacity"
+        id: 28
+        typeId: 10
+        kind: INDEXED LINK
+        datatype: long
+        keys: 3
+        count: 3
+        nulls: 0
+        min: 6400
+        max: 12800
+        used: 25KB
+        allocated: 32KB
+        bitmap:
+            count: 3
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 4
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 68
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+      - name: "t:Cities\|airportCode"
+        id: 47
+        typeId: 13
+        kind: INDEXED LINK
+        datatype: string
+        keys: 38
+        count: 38
+        nulls: 0
+        min: AEP
+        max: ZRH
+        used: 26KB
+        allocated: 36KB
+        bitmap:
+            count: 38
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        string:
+            count: 38
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 39
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 103
+            usedMemory: 2KB
+            allocatedMemory: 8KB
+      - name: "t:Cities\|city"
+        id: 48
+        typeId: 13
+        kind: UNIQUE LINK
+        datatype: string
+        keys: 38
+        count: 38
+        nulls: 0
+        min: Abu Dhabi
+        max: Zurich
+        used: 25KB
+        allocated: 32KB
+        bitmap:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        string:
+            count: 38
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 39
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 65
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+      - name: "t:Cities\|country"
+        id: 49
+        typeId: 13
+        kind: INDEXED LINK
+        datatype: string
+        keys: 28
+        count: 38
+        nulls: 0
+        min: Argentina
+        max: United States
+        used: 26KB
+        allocated: 40KB
+        bitmap:
+            count: 28
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+        string:
+            count: 28
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 29
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 93
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+      - name: "t:Cities\|timezoneDifference"
+        id: 50
+        typeId: 13
+        kind: INDEXED LINK
+        datatype: int
+        keys: 5
+        count: 38
+        nulls: 0
+        min: -6
+        max: 6
+        used: 25KB
+        allocated: 36KB
+        bitmap:
+            count: 5
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 6
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 38
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+      - name: "t:FlightPlan\|adHocFlights"
+        id: 13
+        typeId: 8
+        kind: INDEXED LINK
+        datatype: bool
+        keys: 2
+        count: 83
+        nulls: 0
+        min: #FALSE#
+        max: #TRUE#
+        used: 25KB
+        allocated: 36KB
+        bitmap:
+            count: 2
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 4
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 20
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+      - name: "t:FlightPlan\|aircraftType"
+        id: 9
+        typeId: 8
+        kind: INDEXED LINK
+        datatype: string
+        keys: 3
+        count: 83
+        nulls: 0
+        min: A100
+        max: B777
+        used: 26KB
+        allocated: 40KB
+        bitmap:
+            count: 3
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+        string:
+            count: 3
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 5
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 133
+            usedMemory: 2KB
+            allocatedMemory: 8KB
+      - name: "t:FlightPlan\|destinationCity"
+        id: 11
+        typeId: 8
+        kind: INDEXED LINK
+        datatype: string
+        keys: 38
+        count: 83
+        nulls: 0
+        min: Abu Dhabi
+        max: Zurich
+        used: 27KB
+        allocated: 40KB
+        bitmap:
+            count: 38
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+        string:
+            count: 38
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 40
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 168
+            usedMemory: 2KB
+            allocatedMemory: 8KB
+      - name: "t:FlightPlan\|flightNr"
+        id: 8
+        typeId: 8
+        kind: UNIQUE LINK
+        datatype: string
+        keys: 83
+        count: 83
+        nulls: 0
+        min: AP001
+        max: AP993
+        used: 26KB
+        allocated: 32KB
+        bitmap:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        string:
+            count: 83
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 85
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 130
+            usedMemory: 2KB
+            allocatedMemory: 4KB
+      - name: "t:FlightPlan\|originCity"
+        id: 10
+        typeId: 8
+        kind: INDEXED LINK
+        datatype: string
+        keys: 38
+        count: 83
+        nulls: 0
+        min: Abu Dhabi
+        max: Zurich
+        used: 27KB
+        allocated: 40KB
+        bitmap:
+            count: 38
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+        string:
+            count: 38
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 40
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 168
+            usedMemory: 2KB
+            allocatedMemory: 8KB
+      - name: "t:FlightPlan\|scheduledFlyingTime"
+        id: 12
+        typeId: 8
+        kind: INDEXED LINK
+        datatype: long
+        keys: 42
+        count: 83
+        nulls: 0
+        min: 1500000
+        max: 54000000
+        used: 27KB
+        allocated: 36KB
+        bitmap:
+            count: 42
+            usedMemory: 2KB
+            allocatedMemory: 8KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 44
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 172
+            usedMemory: 2KB
+            allocatedMemory: 8KB
+      - name: "t:Flights\|actualArrivalDateTime"
+        id: 22
+        typeId: 9
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 483
+        count: 508
+        nulls: 55
+        min: 2014-07-28 22:16:00.000
+        max: 2014-08-04 11:40:00.000
+        used: 45KB
+        allocated: 52KB
+        bitmap:
+            count: 483
+            usedMemory: 9KB
+            allocatedMemory: 12KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 492
+            usedMemory: 32KB
+            allocatedMemory: 32KB
+        other:
+            count: 1068
+            usedMemory: 13KB
+            allocatedMemory: 16KB
+      - name: "t:Flights\|actualDepartureDateTime"
+        id: 21
+        typeId: 9
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 501
+        count: 529
+        nulls: 34
+        min: 2014-07-28 19:38:00.000
+        max: 2014-08-04 11:55:00.000
+        used: 46KB
+        allocated: 52KB
+        bitmap:
+            count: 501
+            usedMemory: 9KB
+            allocatedMemory: 12KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 510
+            usedMemory: 32KB
+            allocatedMemory: 32KB
+        other:
+            count: 1086
+            usedMemory: 13KB
+            allocatedMemory: 16KB
+      - name: "t:Flights\|aircraftType"
+        id: 16
+        typeId: 9
+        kind: INDEXED LINK
+        datatype: string
+        keys: 3
+        count: 563
+        nulls: 0
+        min: A100
+        max: B777
+        used: 30KB
+        allocated: 44KB
+        bitmap:
+            count: 3
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+        string:
+            count: 3
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 12
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 588
+            usedMemory: 5KB
+            allocatedMemory: 12KB
+      - name: "t:Flights\|date"
+        id: 15
+        typeId: 9
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 9
+        count: 563
+        nulls: 0
+        min: 2014-07-28 00:00:00.000
+        max: 2014-08-05 00:00:00.000
+        used: 30KB
+        allocated: 40KB
+        bitmap:
+            count: 9
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 18
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 594
+            usedMemory: 5KB
+            allocatedMemory: 12KB
+      - name: "t:Flights\|flightNr"
+        id: 14
+        typeId: 9
+        kind: INDEXED LINK
+        datatype: string
+        keys: 83
+        count: 563
+        nulls: 0
+        min: AP001
+        max: AP993
+        used: 36KB
+        allocated: 48KB
+        bitmap:
+            count: 83
+            usedMemory: 7KB
+            allocatedMemory: 12KB
+        string:
+            count: 83
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 92
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 668
+            usedMemory: 6KB
+            allocatedMemory: 12KB
+      - name: "t:Flights\|id"
+        id: 23
+        typeId: 9
+        kind: UNIQUE LINK
+        datatype: string
+        keys: 563
+        count: 563
+        nulls: 0
+        min: AP001_01/08/2014
+        max: AP993_31/07/2014
+        used: 42KB
+        allocated: 48KB
+        bitmap:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        string:
+            count: 563
+            usedMemory: 10KB
+            allocatedMemory: 12KB
+        map:
+            count: 572
+            usedMemory: 28KB
+            allocatedMemory: 28KB
+        other:
+            count: 585
+            usedMemory: 5KB
+            allocatedMemory: 8KB
+      - name: "t:Flights\|isDelayed"
+        id: 24
+        typeId: 9
+        kind: INDEXED LINK
+        datatype: bool
+        keys: 2
+        count: 563
+        nulls: 0
+        min: #FALSE#
+        max: #TRUE#
+        used: 25KB
+        allocated: 36KB
+        bitmap:
+            count: 2
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 11
+            usedMemory: 24KB
+            allocatedMemory: 24KB
+        other:
+            count: 83
+            usedMemory: 1KB
+            allocatedMemory: 8KB
+      - name: "t:Flights\|scheduledArrivalDateTime"
+        id: 18
+        typeId: 9
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 439
+        count: 563
+        nulls: 0
+        min: 2014-07-28 22:30:00.000
+        max: 2014-08-05 17:00:00.000
+        used: 47KB
+        allocated: 52KB
+        bitmap:
+            count: 439
+            usedMemory: 10KB
+            allocatedMemory: 12KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 448
+            usedMemory: 32KB
+            allocatedMemory: 32KB
+        other:
+            count: 1024
+            usedMemory: 12KB
+            allocatedMemory: 16KB
+      - name: "t:Flights\|scheduledDepartureDateTime"
+        id: 17
+        typeId: 9
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 434
+        count: 563
+        nulls: 0
+        min: 2014-07-28 18:05:00.000
+        max: 2014-08-05 13:30:00.000
+        used: 47KB
+        allocated: 52KB
+        bitmap:
+            count: 434
+            usedMemory: 10KB
+            allocatedMemory: 12KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 443
+            usedMemory: 32KB
+            allocatedMemory: 32KB
+        other:
+            count: 1019
+            usedMemory: 12KB
+            allocatedMemory: 16KB
+      - name: "t:Flights\|updatedScheduledArrivalTime"
+        id: 20
+        typeId: 9
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 0
+        count: 0
+        nulls: 563
+        used: 0KB
+        allocated: 0KB
+        bitmap:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        other:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+      - name: "t:Flights\|updatedScheduledDepartureTime"
+        id: 19
+        typeId: 9
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 0
+        count: 0
+        nulls: 563
+        used: 0KB
+        allocated: 0KB
+        bitmap:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        other:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+      - name: "t:PassengerItinerary\|chekingDateTime"
+        id: 37
+        typeId: 11
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 8620
+        count: 60137
+        nulls: 1885
+        min: 2014-07-28 14:43:00.000
+        max: 2014-08-04 11:57:00.000
+        used: 1158KB
+        allocated: 1164KB
+        bitmap:
+            count: 8620
+            usedMemory: 377KB
+            allocatedMemory: 380KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 9561
+            usedMemory: 304KB
+            allocatedMemory: 304KB
+        other:
+            count: 69785
+            usedMemory: 613KB
+            allocatedMemory: 616KB
+      - name: "t:PassengerItinerary\|class"
+        id: 33
+        typeId: 11
+        kind: INDEXED LINK
+        datatype: string
+        keys: 2
+        count: 62022
+        nulls: 0
+        min: B
+        max: E
+        used: 566KB
+        allocated: 580KB
+        bitmap:
+            count: 2
+            usedMemory: 34KB
+            allocatedMemory: 40KB
+        string:
+            count: 2
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 972
+            usedMemory: 40KB
+            allocatedMemory: 40KB
+        other:
+            count: 63052
+            usedMemory: 493KB
+            allocatedMemory: 500KB
+      - name: "t:PassengerItinerary\|destinationCity"
+        id: 31
+        typeId: 11
+        kind: INDEXED LINK
+        datatype: string
+        keys: 38
+        count: 62022
+        nulls: 0
+        min: Abu Dhabi
+        max: Zurich
+        used: 761KB
+        allocated: 780KB
+        bitmap:
+            count: 38
+            usedMemory: 228KB
+            allocatedMemory: 240KB
+        string:
+            count: 38
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 1008
+            usedMemory: 40KB
+            allocatedMemory: 40KB
+        other:
+            count: 63088
+            usedMemory: 494KB
+            allocatedMemory: 500KB
+      - name: "t:PassengerItinerary\|itineraryId"
+        id: 29
+        typeId: 11
+        kind: UNIQUE LINK
+        datatype: string
+        keys: 62022
+        count: 62022
+        nulls: 0
+        min: PIT10
+        max: PIT99
+        used: 2707KB
+        allocated: 2716KB
+        bitmap:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        string:
+            count: 62022
+            usedMemory: 685KB
+            allocatedMemory: 688KB
+        map:
+            count: 62992
+            usedMemory: 1530KB
+            allocatedMemory: 1532KB
+        other:
+            count: 63050
+            usedMemory: 493KB
+            allocatedMemory: 496KB
+      - name: "t:PassengerItinerary\|lateArrival"
+        id: 39
+        typeId: 11
+        kind: INDEXED LINK
+        datatype: bool
+        keys: 0
+        count: 0
+        nulls: 62022
+        used: 0KB
+        allocated: 0KB
+        bitmap:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        other:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+      - name: "t:PassengerItinerary\|luggageLost"
+        id: 38
+        typeId: 11
+        kind: INDEXED LINK
+        datatype: bool
+        keys: 2
+        count: 62022
+        nulls: 0
+        min: #FALSE#
+        max: #TRUE#
+        used: 142KB
+        allocated: 152KB
+        bitmap:
+            count: 2
+            usedMemory: 33KB
+            allocatedMemory: 40KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 972
+            usedMemory: 40KB
+            allocatedMemory: 40KB
+        other:
+            count: 8732
+            usedMemory: 69KB
+            allocatedMemory: 76KB
+      - name: "t:PassengerItinerary\|luggageWeight"
+        id: 34
+        typeId: 11
+        kind: INDEXED LINK
+        datatype: long
+        keys: 33
+        count: 60137
+        nulls: 1885
+        min: 11
+        max: 45
+        used: 804KB
+        allocated: 824KB
+        bitmap:
+            count: 33
+            usedMemory: 287KB
+            allocatedMemory: 304KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 974
+            usedMemory: 40KB
+            allocatedMemory: 40KB
+        other:
+            count: 61198
+            usedMemory: 479KB
+            allocatedMemory: 484KB
+      - name: "t:PassengerItinerary\|originCity"
+        id: 30
+        typeId: 11
+        kind: INDEXED LINK
+        datatype: string
+        keys: 38
+        count: 62022
+        nulls: 0
+        min: Abu Dhabi
+        max: Zurich
+        used: 661KB
+        allocated: 688KB
+        bitmap:
+            count: 38
+            usedMemory: 129KB
+            allocatedMemory: 148KB
+        string:
+            count: 38
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 1008
+            usedMemory: 40KB
+            allocatedMemory: 40KB
+        other:
+            count: 63088
+            usedMemory: 494KB
+            allocatedMemory: 500KB
+      - name: "t:PassengerItinerary\|passengerName"
+        id: 32
+        typeId: 11
+        kind: INDEXED LINK
+        datatype: string
+        keys: 61390
+        count: 62022
+        nulls: 0
+        min: Aaliyah Bednar
+        max: Zula Will
+        used: 3823KB
+        allocated: 3836KB
+        bitmap:
+            count: 61390
+            usedMemory: 979KB
+            allocatedMemory: 984KB
+        string:
+            count: 61390
+            usedMemory: 951KB
+            allocatedMemory: 952KB
+        map:
+            count: 62360
+            usedMemory: 1402KB
+            allocatedMemory: 1404KB
+        other:
+            count: 124440
+            usedMemory: 1452KB
+            allocatedMemory: 1460KB
+      - name: "t:PassengerItinerary\|scheduledArrivalDateTime"
+        id: 36
+        typeId: 11
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 407
+        count: 62022
+        nulls: 0
+        min: 2014-07-29 06:10:00.000
+        max: 2014-08-05 17:00:00.000
+        used: 812KB
+        allocated: 824KB
+        bitmap:
+            count: 407
+            usedMemory: 271KB
+            allocatedMemory: 280KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 1377
+            usedMemory: 48KB
+            allocatedMemory: 48KB
+        other:
+            count: 63457
+            usedMemory: 499KB
+            allocatedMemory: 504KB
+      - name: "t:PassengerItinerary\|scheduledDepartureDateTime"
+        id: 35
+        typeId: 11
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 302
+        count: 62022
+        nulls: 0
+        min: 2014-07-28 18:15:00.000
+        max: 2014-08-04 22:30:00.000
+        used: 643KB
+        allocated: 652KB
+        bitmap:
+            count: 302
+            usedMemory: 107KB
+            allocatedMemory: 112KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 1272
+            usedMemory: 44KB
+            allocatedMemory: 44KB
+        other:
+            count: 63352
+            usedMemory: 498KB
+            allocatedMemory: 504KB
+      - name: "t:PassengerLegs\|annulated"
+        id: 45
+        typeId: 12
+        kind: INDEXED LINK
+        datatype: bool
+        keys: 1
+        count: 118582
+        nulls: 0
+        min: #FALSE#
+        max: #FALSE#
+        used: 221KB
+        allocated: 228KB
+        bitmap:
+            count: 1
+            usedMemory: 30KB
+            allocatedMemory: 36KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 1854
+            usedMemory: 60KB
+            allocatedMemory: 60KB
+        other:
+            count: 16678
+            usedMemory: 131KB
+            allocatedMemory: 136KB
+      - name: "t:PassengerLegs\|date"
+        id: 43
+        typeId: 12
+        kind: INDEXED LINK
+        datatype: timestamp
+        keys: 9
+        count: 118582
+        nulls: 0
+        min: 2014-07-28 00:00:00.000
+        max: 2014-08-05 00:00:00.000
+        used: 1069KB
+        allocated: 1080KB
+        bitmap:
+            count: 9
+            usedMemory: 69KB
+            allocatedMemory: 76KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 1862
+            usedMemory: 60KB
+            allocatedMemory: 60KB
+        other:
+            count: 120454
+            usedMemory: 942KB
+            allocatedMemory: 948KB
+      - name: "t:PassengerLegs\|flightId"
+        id: 46
+        typeId: 12
+        kind: INDEXED LINK
+        datatype: string
+        keys: 563
+        count: 118582
+        nulls: 0
+        min: AP001_01/08/2014
+        max: AP993_31/07/2014
+        used: 1192KB
+        allocated: 1204KB
+        bitmap:
+            count: 563
+            usedMemory: 170KB
+            allocatedMemory: 176KB
+        string:
+            count: 563
+            usedMemory: 10KB
+            allocatedMemory: 12KB
+        map:
+            count: 2416
+            usedMemory: 72KB
+            allocatedMemory: 72KB
+        other:
+            count: 121008
+            usedMemory: 950KB
+            allocatedMemory: 956KB
+      - name: "t:PassengerLegs\|flightNr"
+        id: 44
+        typeId: 12
+        kind: INDEXED LINK
+        datatype: string
+        keys: 83
+        count: 118582
+        nulls: 0
+        min: AP001
+        max: AP993
+        used: 1159KB
+        allocated: 1188KB
+        bitmap:
+            count: 83
+            usedMemory: 158KB
+            allocatedMemory: 180KB
+        string:
+            count: 83
+            usedMemory: 1KB
+            allocatedMemory: 4KB
+        map:
+            count: 1936
+            usedMemory: 60KB
+            allocatedMemory: 60KB
+        other:
+            count: 120528
+            usedMemory: 943KB
+            allocatedMemory: 948KB
+      - name: "t:PassengerLegs\|id"
+        id: 40
+        typeId: 12
+        kind: UNIQUE LINK
+        datatype: string
+        keys: 118582
+        count: 118582
+        nulls: 0
+        min: PIT10240_1
+        max: PIT9_2
+        used: 6273KB
+        allocated: 6288KB
+        bitmap:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        string:
+            count: 118582
+            usedMemory: 1539KB
+            allocatedMemory: 1544KB
+        map:
+            count: 120435
+            usedMemory: 3793KB
+            allocatedMemory: 3800KB
+        other:
+            count: 120445
+            usedMemory: 941KB
+            allocatedMemory: 944KB
+      - name: "t:PassengerLegs\|itineraryId"
+        id: 41
+        typeId: 12
+        kind: INDEXED LINK
+        datatype: string
+        keys: 62012
+        count: 118582
+        nulls: 0
+        min: PIT10
+        max: PIT99
+        used: 6113KB
+        allocated: 6136KB
+        bitmap:
+            count: 62012
+            usedMemory: 2483KB
+            allocatedMemory: 2496KB
+        string:
+            count: 62012
+            usedMemory: 685KB
+            allocatedMemory: 688KB
+        map:
+            count: 63865
+            usedMemory: 2005KB
+            allocatedMemory: 2008KB
+        other:
+            count: 182457
+            usedMemory: 1910KB
+            allocatedMemory: 1920KB
+      - name: "t:PassengerLegs\|legId"
+        id: 42
+        typeId: 12
+        kind: INDEXED LINK
+        datatype: long
+        keys: 3
+        count: 118582
+        nulls: 0
+        min: 1
+        max: 3
+        used: 1076KB
+        allocated: 1084KB
+        bitmap:
+            count: 3
+            usedMemory: 76KB
+            allocatedMemory: 80KB
+        string:
+            count: 0
+            usedMemory: 0KB
+            allocatedMemory: 0KB
+        map:
+            count: 1856
+            usedMemory: 60KB
+            allocatedMemory: 60KB
+        other:
+            count: 120448
+            usedMemory: 942KB
+            allocatedMemory: 948KB
+...
